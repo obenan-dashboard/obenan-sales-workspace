@@ -11,9 +11,12 @@ Last updated: 2026-10-06.
   account IDs, cities and uncleared customer names were removed or replaced with placeholders.
   The craft and the reasoning were kept.
 
-- **Prepared for public distribution on 2026-10-06.** Real account identifiers, private
+- **Published for public read access on 2026-10-06.** Real account identifiers, unapproved
   metrics, internal customer structure, security observations and partner-confidential names
-  were removed. Public customer proof now requires a register entry.
+  were removed. Approved Le Pain Quotidien metrics remain governed by the public proof
+  register.
+
+- Public-safety and local-link validation runs on every push to `main` and on pull requests.
 
 - The four engagement modes and their spines (`knowledge/engagement/ENGAGEMENT_MODES.md`).
 - The MCP evidence sequence (`knowledge/engagement/MCP_EVIDENCE_RUNBOOK.md`), proven against a
