@@ -59,6 +59,9 @@ file is not named in your router row, you do not need it yet.
 
 - Never add private customer data, contact lists, account identifiers, CRM records, internal
   metrics or security findings to this repository.
+- Curated aggregate proof may be added only with explicit operator approval recorded in
+  `knowledge/proof/PUBLIC_PROOF_REGISTER.md`. Name, metrics, quote and image approvals are
+  independent. Raw customer records never enter this public repo.
 - A requested draft may use the prospect and recipient names supplied by the operator. Do not
   copy reviewer names, unrelated staff names, private emails, phone numbers or named review
   text from source systems. Use counts and themes.

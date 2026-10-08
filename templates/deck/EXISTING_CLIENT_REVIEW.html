@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{CUSTOMER}} x Obenan: results review template</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root{
+    --ink:#0F0F14;
+    --paper:#FFFFFF;
+    --soft:#F7F7F7;
+    --line:#E6E6E6;
+    --mid:#666666;
+    --quiet:#999999;
+    --accent:#F67900;
+  }
+
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{
+    font-family:"Helvetica Neue","Helvetica","Arial",sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    font-size:11pt;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    width:210mm; height:297mm;
+    padding:24mm 22mm 20mm 22mm;
+    page-break-after:always;
+    position:relative;
+    display:flex; flex-direction:column;
+  }
+  .page:last-child{ page-break-after:auto; }
+
+  .eyebrow{
+    font-size:8.5pt; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--quiet); font-weight:500;
+  }
+  h1{ font-size:34pt; line-height:1.12; font-weight:600; letter-spacing:-.02em; }
+  h2{ font-size:22pt; line-height:1.2; font-weight:600; letter-spacing:-.015em; margin-bottom:10mm; }
+  h3{ font-size:12pt; font-weight:600; margin-bottom:2.5mm; }
+  p{ color:var(--ink); max-width:150mm; }
+  p + p{ margin-top:4mm; }
+  .lede{ font-size:13pt; line-height:1.5; color:var(--mid); }
+  .muted{ color:var(--mid); }
+  .small{ font-size:9.5pt; line-height:1.5; color:var(--mid); }
+
+  .rule{ height:1px; background:var(--line); margin:8mm 0; }
+  .accentbar{ width:16mm; height:3px; background:var(--accent); margin-bottom:7mm; }
+
+  .foot{
+    margin-top:auto; padding-top:6mm; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between;
+    font-size:8pt; color:var(--quiet); letter-spacing:.04em;
+  }
+
+  /* cover */
+  .cover{ background:var(--ink); color:#fff; }
+  .cover h1{ font-size:40pt; }
+  .cover .eyebrow{ color:rgba(255,255,255,.55); }
+  .cover .lede{ color:rgba(255,255,255,.72); }
+  .cover .foot{ border-top-color:rgba(255,255,255,.16); color:rgba(255,255,255,.5); }
+
+  /* big number */
+  .stat{ font-size:52pt; font-weight:600; letter-spacing:-.03em; line-height:1; }
+  .stat.sm{ font-size:34pt; }
+  .stat-label{ font-size:9.5pt; color:var(--mid); margin-top:3mm; max-width:52mm; line-height:1.45; }
+
+  .row{ display:flex; gap:14mm; }
+  .row > div{ flex:1; }
+  .evidence-kpis{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:9mm; }
+  .evidence-kpis > div{ min-width:0; }
+  .evidence-kpis .stat.sm{ font-size:30pt; white-space:nowrap; }
+
+  .panel{ background:var(--soft); padding:9mm 10mm; border-radius:2mm; }
+  .absent{ display:flex; justify-content:space-between; align-items:baseline;
+           gap:5mm; padding:3.5mm 0; border-bottom:1px solid var(--line); font-size:10.5pt; }
+  .absent:last-child{ border-bottom:none; }
+  .absent .who{ font-weight:500; }
+  .absent .verdict{ color:var(--accent); font-weight:600; font-size:10pt; }
+  /* additions for this review */
+  .hero{ font-size:92pt; font-weight:600; letter-spacing:-.045em; line-height:.95; }
+  .hero-sub{ font-size:13pt; color:var(--mid); margin-top:5mm; max-width:140mm; line-height:1.45; }
+  .fromto{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:11mm 9mm; margin-top:10mm; }
+  .fromto .lbl{ font-size:8.5pt; letter-spacing:.14em; text-transform:uppercase; color:var(--quiet); }
+  .fromto .now{ font-size:30pt; font-weight:600; letter-spacing:-.025em; line-height:1; margin-top:3mm; }
+  .fromto .was{ font-size:10pt; color:var(--mid); margin-top:2.5mm; }
+  .chart{ margin-top:9mm; }
+  .vbars{ display:flex; align-items:flex-end; gap:10mm; height:68mm; border-bottom:1px solid var(--line); padding:0 4mm; }
+  .vbar{ flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; }
+  .vbar .v{ font-size:10.5pt; font-weight:600; margin-bottom:2.5mm; font-variant-numeric:tabular-nums; }
+  .vbar .b{ width:100%; background:var(--accent); border-radius:4px 4px 0 0; }
+  .vlabels{ display:flex; gap:10mm; padding:3mm 4mm 0; }
+  .vlabels span{ flex:1; text-align:center; font-size:9pt; color:var(--mid); }
+  .facts{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8mm; margin-top:11mm; }
+  .facts .n{ font-size:24pt; font-weight:600; letter-spacing:-.02em; line-height:1; }
+  .facts .l{ font-size:9pt; color:var(--mid); margin-top:2.5mm; line-height:1.45; }
+  .switch{ display:flex; justify-content:space-between; align-items:baseline; gap:8mm; padding:5mm 0; border-bottom:1px solid var(--line); }
+  .switch:last-child{ border-bottom:none; }
+  .switch .what{ font-weight:600; font-size:11pt; min-width:58mm; }
+  .switch .why{ font-size:9.5pt; color:var(--mid); line-height:1.45; flex:1; }
+  .switch .state{ font-size:9pt; color:var(--ink); font-weight:600; white-space:nowrap; }
+  .money{ font-size:64pt; font-weight:600; letter-spacing:-.04em; line-height:1; }
+  .twocol{ display:grid; grid-template-columns:1fr 1fr; gap:12mm; margin-top:10mm; }
+  .twocol .hero{ font-size:64pt; }
+  a{ color:inherit; text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:2px; }
+  .how .switch .what{ min-width:42mm; color:var(--accent); font-size:10pt; letter-spacing:.06em; text-transform:uppercase; }
+  .how .switch .why{ font-size:10.5pt; color:var(--ink); }
+  .nextpage{ align-items:center; text-align:center; }
+  .nextpage .wnq{ font-size:15pt; font-weight:300; color:#fff; margin-top:auto; letter-spacing:-.01em; }
+  .nextpage .wnh{ font-size:27pt; font-weight:300; letter-spacing:-.02em; line-height:1.14; margin-top:6mm; max-width:165mm; color:#fff; }
+  .nextpage .cardwrap{ width:100%; margin-top:13mm; overflow:hidden; border-radius:4mm; }
+  .nextpage .cardwrap img{ width:100%; display:block; margin-top:-0.7mm; }
+  .nextpage .lede{ margin:13mm auto auto; max-width:142mm; font-size:11pt; }
+  .nextpage .foot{ width:100%; text-align:left; }
+  /* customer-first cover */
+  .herocover{ background:var(--paper); color:var(--ink); padding-top:0; }
+  .herocover .heroimg{ margin:0 -22mm; width:210mm; height:168mm; object-fit:cover; object-position:center 40%; display:block; }
+  .herocover .cap{ font-size:8pt; color:var(--quiet); letter-spacing:.06em; margin-top:3mm; }
+  .herocover .eyebrow{ margin-top:11mm; color:var(--quiet); }
+  .herocover h1{ font-size:27pt; line-height:1.12; margin-top:4mm; color:var(--ink); letter-spacing:-.015em; }
+  .herocover h1 .num{ display:block; font-size:66pt; line-height:1; letter-spacing:-.045em; margin-bottom:2mm; }
+  .herocover .foot{ align-items:center; }
+  .herocover .lede{ margin-top:5mm; max-width:150mm; color:var(--mid); }
+  .herocover .foot{ border-top-color:var(--line); color:var(--quiet); }
+  .footbrand{ display:inline-flex; align-items:center; gap:2.5mm; }
+  .footbrand img{ width:7mm; height:auto; }
+  .photoband{ width:100%; height:62mm; object-fit:cover; border-radius:2mm; display:block; margin-top:auto; }
+  .photoband + .cap, .bandcap{ font-size:8pt; color:var(--quiet); letter-spacing:.06em; margin-top:2.5mm; }
+  .page .photoband ~ .foot{ margin-top:6mm; }
+
+  .photo-placeholder{background:var(--soft);border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--mid);font-size:11pt;text-align:center;}
+  .herocover .photo-placeholder{display:flex;}
+  .template-note{font-size:8pt;color:var(--mid);margin-top:3mm;}
+  .money{font-size:44pt;}
+  .switch .what{min-width:38mm;}
+  .switch .state{white-space:normal;max-width:25mm;}
+  .source{font-size:9pt;color:var(--mid);margin-top:7mm;line-height:1.5;}
+  .twocol > div, .facts > div, .fromto > div{min-width:0;}
+  .facts .n{overflow-wrap:anywhere;}
+  .hero-sub, .switch .why, .switch .state{overflow-wrap:anywhere;min-width:0;}
+</style>
+</head>
+<body>
+<!-- TEMPLATE ONLY. Customer evidence, images and source build stay in a private workspace.
+     Replace every {{TOKEN}}, inspect all ten pages, then use the human preflight.
+     Page order follows the operator-selected results review, not a new-business pitch.
+     Use an authorized <img class="heroimg"> in place of the cover placeholder.
+     The same replacement applies to each photoband. No stock or invented customer image.
+     A1..A6/B1..B3 match the metric labels beside them; *_PRIOR is the matched baseline.
+     R = replies (use count here, coverage in the review text), N = request opens,
+     P = delivered posts, S = verified cadence, GEN/OTH/LANG = classified term measures.
+     GS1..GS4 = current state for GAP_1..GAP_4.
+     Set --m1-height..--m4-height from values/common maximum; zero is a blank template chart.
+     Remove template-only instructions from final customer copy. Keep material limitations. -->
+
+<section class="page herocover" data-page="cover">
+  <div class="heroimg photo-placeholder">Permissioned customer photo<br>{{PHOTO_CREDIT}}</div>
+  <div class="cap">{{CUSTOMER_LOCATION}}</div>
+  <div class="eyebrow">{{CUSTOMER}} · {{LOCATIONS}} · {{PERIOD}}</div>
+  <h1><span class="num">{{COUNT}}</span>Non-brand searches<br>that surfaced your locations.</h1>
+  <p class="lede">{{DISCOVERY_SCOPE_AND_FINDING}}</p>
+  <div class="template-note">TEMPLATE: replace all placeholders with verified evidence.</div>
+  <div class="foot"><span class="footbrand"><img src="../../assets/logos/Logo.svg" alt="">Obenan</span><span>{{REVIEW_DATE}}</span></div>
+</section>
+
+<section class="page" data-page="discovery">
+  <div class="accentbar"></div><div class="eyebrow">How people find you</div>
+  <h2 style="margin-top:5mm">{{DISCOVERY_HEADLINE}}</h2>
+  <p class="lede">{{VIEWS_AND_WINDOW}}</p>
+  <div class="chart">
+    <p class="small">Comparable monthly search counts. Replace bar lengths from actual values.</p>
+    <div class="vbars">
+      <div class="vbar"><div class="v">{{M1}}</div><div class="b" style="height:var(--m1-height,0%)"></div></div>
+      <div class="vbar"><div class="v">{{M2}}</div><div class="b" style="height:var(--m2-height,0%)"></div></div>
+      <div class="vbar"><div class="v">{{M3}}</div><div class="b" style="height:var(--m3-height,0%)"></div></div>
+      <div class="vbar"><div class="v">{{M4}}</div><div class="b" style="height:var(--m4-height,0%)"></div></div>
+    </div>
+    <div class="vlabels"><span>{{MONTH_1}}</span><span>{{MONTH_2}}</span><span>{{MONTH_3}}</span><span>{{MONTH_4}}</span></div>
+  </div>
+  <div class="facts">
+    <div><div class="n">{{GEN}}</div><div class="l">Generic search-term counts in the reviewed dataset.</div></div>
+    <div><div class="n">{{OTH}}</div><div class="l">Other-brand queries, if classified and relevant.</div></div>
+    <div><div class="n">{{LANG}}</div><div class="l">Language share with its own stated denominator.</div></div>
+  </div>
+  <p class="source">{{SEARCH_SOURCE_DATE_SCOPE}}. Known brand variants have been reclassified. Monthly totals and top-term counts may have different coverage. Seasonal change is not all attributable to Obenan.</p>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>02</span></div>
+</section>
+
+<section class="page" data-page="ad-equivalent">
+  <div class="accentbar"></div><div class="eyebrow">An estimated value of that reach</div>
+  <h2 style="margin-top:5mm">An ad-cost equivalent,<br>not money saved.</h2>
+  <div class="money" style="margin-top:4mm">A&#36;{{LOW}} to<br>A&#36;{{HIGH}}</div>
+  <p class="hero-sub">{{CURRENCY_PERIOD_AND_SCOPE}}</p>
+  <div class="rule"></div>
+  <div class="facts">
+    <div><div class="n">{{ACT}}</div><div class="l">Scenario-based nonbrand actions. Not observed search-to-action attribution.</div></div>
+    <div><div class="n">{{CPC1}}</div><div class="l">Local sampled CPC with source and date.</div></div>
+    <div><div class="n">{{CPC2}}</div><div class="l">Explicit assumed ceiling, not an observed cost.</div></div>
+  </div>
+  <p class="source">{{FORMULA_CPC_FX_COVERAGE}}. Profile actions are not equivalent to paid clicks or unique customers. This is not measured acquisition, ROI or spend saved.</p>
+  <p class="small" style="margin-top:5mm">If CPC evidence is unavailable, replace this scenario with sourced profile actions. Change the example Australian currency to the customer's currency.</p>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>03</span></div>
+</section>
+
+<section class="page" data-page="location-positive">
+  <div class="accentbar"></div><div class="eyebrow">{{LOCATION_A}}</div>
+  <h2 style="margin-top:5mm">{{LOCATION_A_FINDING}}</h2>
+  <p class="lede">{{MATCHED_WINDOW}}</p>
+  <div class="fromto">
+    <div><div class="lbl">Profile actions</div><div class="now">{{A1}}</div><div class="was">from {{A1_PRIOR}}</div></div>
+    <div><div class="lbl">Directions</div><div class="now">{{A2}}</div><div class="was">from {{A2_PRIOR}}</div></div>
+    <div><div class="lbl">Website clicks</div><div class="now">{{A3}}</div><div class="was">from {{A3_PRIOR}}</div></div>
+    <div><div class="lbl">Menu views</div><div class="now">{{A4}}</div><div class="was">from {{A4_PRIOR}}</div></div>
+    <div><div class="lbl">Mobile Maps views</div><div class="now">{{A5}}</div><div class="was">from {{A5_PRIOR}}</div></div>
+    <div><div class="lbl">Call clicks</div><div class="now">{{A6}}</div><div class="was">from {{A6_PRIOR}}</div></div>
+  </div>
+  <p class="source">{{PERFORMANCE_SOURCE_DATE}}. These changes occurred during the period; the comparison does not establish that Obenan caused them.</p>
+  <div class="photoband photo-placeholder">Customer location photo · {{CREDIT}}</div>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>04</span></div>
+</section>
+
+<section class="page" data-page="location-gap">
+  <div class="accentbar"></div><div class="eyebrow">{{LOCATION_B}}</div>
+  <h2 style="margin-top:5mm">{{DECLINE_OR_GAP_FINDING}}</h2>
+  <p class="lede">{{MATCHED_WINDOW}}</p>
+  <div class="fromto">
+    <div><div class="lbl">Profile actions</div><div class="now">{{B1}}</div><div class="was">from {{B1_PRIOR}}</div></div>
+    <div><div class="lbl">Directions</div><div class="now">{{B2}}</div><div class="was">from {{B2_PRIOR}}</div></div>
+    <div><div class="lbl">Website clicks</div><div class="now">{{B3}}</div><div class="was">from {{B3_PRIOR}}</div></div>
+  </div>
+  <p style="margin-top:8mm">{{OBSERVED_PATTERN_NOT_CAUSAL}}</p>
+  <div class="panel" style="margin-top:5mm">
+    <div class="absent"><span class="who">{{ATTRIBUTE_1}}</span><span class="verdict">{{STATE_1}}</span></div>
+    <div class="absent"><span class="who">{{ATTRIBUTE_2}}</span><span class="verdict">{{STATE_2}}</span></div>
+    <div class="absent"><span class="who">{{ATTRIBUTE_3}}</span><span class="verdict">{{STATE_3}}</span></div>
+  </div>
+  <p style="margin-top:6mm">{{FIRST_FIX_AND_REQUIRED_APPROVAL}}</p>
+  <p class="source">{{PROFILE_AND_PERFORMANCE_SOURCES}}. A missing link or attribute is a testable opportunity, not proof of why actions declined. Verify actual offerings before changing attributes.</p>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>05</span></div>
+</section>
+
+<section class="page" data-page="reviews">
+  <div class="accentbar"></div><div class="eyebrow">Reviews</div>
+  <h2 style="margin-top:5mm">{{REVIEW_FINDING}}</h2>
+  <div class="twocol">
+    <div><div class="hero">{{R}}</div><p class="hero-sub">{{REVIEW_BASELINE}}</p></div>
+    <div><div class="hero">{{N}}</div><p class="hero-sub">Review-request opens in the stated period, not sent requests or reviews generated.</p></div>
+  </div>
+  <div class="rule"></div>
+  <p>{{MEASURED_AUTOMATION_OR_RULE_INFERENCE_AND_VOICE}}</p>
+  <p style="margin-top:5mm">Invite genuine customers neutrally. Give everyone the same public-review opportunity, without incentives or filtering by satisfaction. Private feedback can remain available too.</p>
+  <p class="source">{{REVIEW_SOURCES_AND_BOTH_WINDOWS}}. Do not claim improved reply coverage if the customer already answered everything. Review-request opens do not establish conversion or cause.</p>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>06</span></div>
+</section>
+
+<section class="page" data-page="time-back">
+  <div class="accentbar"></div><div class="eyebrow">Time back</div>
+  <h2 style="margin-top:5mm">{{ESTIMATED_EFFORT_HEADLINE}}</h2>
+  <div class="row evidence-kpis" style="margin-top:8mm">
+    <div><div class="stat sm">{{P}}</div><div class="stat-label">Verified delivered posts, not scheduled volume.</div></div>
+    <div><div class="stat sm">{{R}}</div><div class="stat-label">Observed replies; automatic and assisted handling separated.</div></div>
+    <div><div class="stat sm">{{S}}</div><div class="stat-label">Verified configured synchronization cadence and scope.</div></div>
+  </div>
+  <div class="rule"></div>
+  <p>{{MANUAL_BASELINE_MINUS_REMAINING_EFFORT}}</p>
+  <p class="source">{{DELIVERY_SOURCES_MINUTE_ASSUMPTIONS}}. Estimated manual effort avoided, not measured staff time or a guaranteed floor. If delivery status is unknown, omit the hours headline.</p>
+  <div class="photoband photo-placeholder">Customer team or location photo · {{CREDIT}}</div>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>07</span></div>
+</section>
+
+<section class="page" data-page="switches">
+  <div class="accentbar"></div><div class="eyebrow">Practical next steps</div>
+  <h2 style="margin-top:5mm">Simple switches.<br>Clear dependencies.</h2>
+  <p class="lede">Prioritize verified gaps, not a network expansion pitch.</p>
+  <div class="panel" style="margin-top:8mm">
+    <div class="switch"><span class="what">{{GAP_1}}</span><span class="why">{{ACTION_1_OWNER_DEPENDENCY}}</span><span class="state">{{GS1}}</span></div>
+    <div class="switch"><span class="what">{{GAP_2}}</span><span class="why">{{ACTION_2_OWNER_DEPENDENCY}}</span><span class="state">{{GS2}}</span></div>
+    <div class="switch"><span class="what">{{GAP_3}}</span><span class="why">{{ACTION_3_OWNER_DEPENDENCY}}</span><span class="state">{{GS3}}</span></div>
+    <div class="switch"><span class="what">{{GAP_4}}</span><span class="why">{{ACTION_4_OWNER_DEPENDENCY}}</span><span class="state">{{GS4}}</span></div>
+  </div>
+  <p class="source">{{LIVE_STATE_SOURCES_DATE}}. A supported destination is not necessarily connected. Credentials, content approval and integration work are disclosed where needed. Do not promise overnight gains.</p>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>08</span></div>
+</section>
+
+<section class="page how" data-page="background">
+  <div class="accentbar"></div><div class="eyebrow">What runs in the background</div>
+  <h2 style="margin-top:5mm">Current information.<br>Less manual maintenance.</h2>
+  <p class="lede">{{VERIFIED_ACTIVE_SCOPE}}</p>
+  <div style="margin-top:8mm">
+    <div class="switch"><span class="what">Synchronization</span><span class="why">{{CONNECTED_DESTINATIONS_FIELDS_CADENCE}}. Field availability varies by destination. Supported scope is not delivered scope.</span></div>
+    <div class="switch"><span class="what">Publishing</span><span class="why">{{CONFIGURED_CADENCE_AND_DELIVERY}}. Fresh content where the workflow is configured and approved, not a universal daily promise.</span></div>
+    <div class="switch"><span class="what">AI readiness</span><span class="why">{{VERIFIED_MACHINE_READABLE_INFORMATION}}. Current information can help systems understand a business; recommendation or ranking is not guaranteed.</span></div>
+    <div class="switch"><span class="what">Review handling</span><span class="why">{{ACTUAL_VOICE_AND_HANDLING}}. State the observed routing and default or approved brand voice honestly.</span></div>
+  </div>
+  <div class="photoband photo-placeholder">Customer location photo · {{CREDIT}}</div>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>09</span></div>
+</section>
+
+<section class="page cover nextpage" data-page="next">
+  <div class="wnq">What comes next?</div>
+  <h1 class="wnh">Help AI assistants understand your locations.<br>Prepare for the actions that follow.</h1>
+  <div class="cardwrap"><img src="../../assets/components/whats-next-card.png" alt="Illustrative pilot-stage flow: AI agents send booking, order and payment requests to a sample café and its own systems. Not a live customer integration."></div>
+  <p class="lede">Illustration, not current delivery. Agent-led transactions are pilot-stage. Bookings, orders and payments remain in your own systems. Obenan does not process payments.<br><br>{{ONE_AGREED_NEXT_STEP}}</p>
+  <div class="foot"><span>Obenan</span><span><a href="https://www.obenan.ai/">obenan.ai</a></span></div>
+</section>
+</body>
+</html>

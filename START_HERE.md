@@ -30,12 +30,13 @@ Pick exactly one. They do not blend.
 | `Meeting recap` | a transcript exists and needs structuring |
 | `Outreach` | a single message, email, LinkedIn or WhatsApp |
 
-If the request names no task type, ask which one before working.
+Infer the task type when the request is clear. A results review is Reporting. Ask only if the
+intent is genuinely ambiguous, not merely because the operator did not supply the label.
 
 ## Step 2. Retrieve one router row
 
 ```bash
-grep -n "^| Upsell" knowledge/TASK_ROUTER.md
+rg -n "^\| Upsell" knowledge/TASK_ROUTER.md
 ```
 
 Read the legend at the top of that file plus your row. Do not preload the table.
@@ -52,12 +53,17 @@ thing we produce.
 Every deliverable ships with its evidence: each figure, its source, and the date it was
 captured. You draft. A person sends.
 
+For Reporting and existing-client Upsell, read
+`knowledge/engagement/EXISTING_CLIENT_REVIEW.md`. Rendered results reviews start from
+`templates/deck/EXISTING_CLIENT_REVIEW.html`, not the generic sales deck. No connector or
+supplied evidence means a labelled template and missing-input list, not invented results.
+
 ## Map
 
 | Path | Holds | Load |
 |---|---|---|
 | `knowledge/product/` | business units, value proposition, features, language and claim boundaries | boundaries always, the rest per row |
-| `knowledge/proof/` | customer names, claims and success stories approved for public use | whenever another customer is named |
+| `knowledge/proof/` | separately approved names, aggregate metrics and success stories | whenever reusable customer proof is used |
 | `knowledge/sales/` | objections, psychology, conversation engine, patterns, diagnostic framework | per row |
 | `knowledge/voice/` | house voice, plus per-market voice modules | one voice per deliverable, never blended |
 | `knowledge/engagement/` | the four modes, the analysis doctrine, the MCP evidence runbook | per row |
@@ -66,5 +72,5 @@ captured. You draft. A person sends.
 | `reference/product-ui/` | sales-safe overview of product surfaces and boundaries | only when the task is about the product's screens |
 | `assets/logos/` | canonical Obenan logos, SVG; legacy marks under `legacy/` | whenever a document carries the logo |
 | `assets/guidelines/` | brand guideline PDFs | when checking logo or wave usage |
-| `templates/` | A4 deck skeleton, proposal generator and procedure | per row |
+| `templates/` | A4 sales deck, ten-page results review, evidence methods and proposal procedure | per row |
 | `examples/` | one anonymized finished brief, as the standard to hit | when calibrating quality |

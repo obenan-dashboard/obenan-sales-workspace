@@ -5,7 +5,7 @@ for your task type, then stop. The mandatory bundle is `../START_HERE.md`, `../A
 `../STATUS.md`, and for Claude Code `../CLAUDE.md`.
 
 ```bash
-grep -n "^| Upsell" knowledge/TASK_ROUTER.md
+rg -n "^\| Upsell" knowledge/TASK_ROUTER.md
 ```
 
 "Do not preload" means retrieve only on a trigger, then cite. Proceed states (PASS, PARTIAL,
@@ -17,6 +17,7 @@ STOP) and the hard stops are in `../AGENTS.md`.
   **VP** `knowledge/product/VALUE_PROPOSITION.md`; **FO** `knowledge/product/FEATURES_OVERVIEW.md`
 - **PR** `knowledge/proof/PUBLIC_PROOF_REGISTER.md`
 - **EM** `knowledge/engagement/ENGAGEMENT_MODES.md`; **AD** `knowledge/engagement/ANALYSIS_DOCTRINE.md`; **MCP** `knowledge/engagement/MCP_EVIDENCE_RUNBOOK.md`
+- **ECR** `knowledge/engagement/EXISTING_CLIENT_REVIEW.md`; **RDECK** `templates/deck/EXISTING_CLIENT_REVIEW.html`
 - **HV** `knowledge/voice/HOUSE_VOICE.md`; **WW** `Wolfgang-Written.md`; **WV1** `Wolfgang-Verbal-Part1.md`;
   **WV2** `Wolfgang-Verbal-Part2.md`; **WTF** `Wolfgang-ToneFingerprint.md`, all under `knowledge/voice/`
 - **OBJ** `knowledge/sales/SalesObjection.md`; **PSY** `knowledge/sales/SalesPsychology.md`;
@@ -37,8 +38,8 @@ STOP) and the hard stops are in `../AGENTS.md`.
 | Task type | Mandatory | Task-specific | Only when relevant | Do not preload | Gates | Proceed |
 | --- | --- | --- | --- | --- | --- | --- |
 | Win-back | LCB, EM | CB, OBJ, PSY, HV | PR if naming another customer, MCP if they were a customer, ODF, AD | UI, DP, BS, PG, PP | What actually ended it, from the record. Never assert an inferred churn reason. | PARTIAL if the end reason is unverified. Say so. |
-| Upsell | LCB, EM, MCP | ODF, PSY, HV, FO, AD | PR if naming another customer, OBJ, BU, DECK, DP, BS, LOGO | UI unless the gap is a product screen | Price authority. Entity count established, not estimated. | STOP without price authority if the deliverable needs a figure. |
-| Reporting | LCB, MCP, AD | EM, ODF, HV | PSY, DECK, DP, BS, LOGO | UI, PG, PP, OBJ | A comparison window stated. Declines named, not hidden. | PARTIAL if attribution is not first-party. Never claim causality. |
+| Upsell | LCB, EM, MCP, ECR | ODF, PSY, HV, FO, AD | PR for reusable proof, OBJ, BU, RDECK for a results review, DP, BS, LOGO | UI unless the gap is a product screen | Discovery first. Reclassify raw search labels; date scores; matched review baseline. Verify entity count. Separate pricing and expansion pitch from the review PDF. | PARTIAL without live/supplied evidence. STOP on unauthorized commercial terms. |
+| Reporting | LCB, MCP, AD, ECR | EM, ODF, HV | PR for reusable proof, PSY, RDECK for rendered reviews, DP, BS, LOGO | UI, PG, PP, OBJ | Verified activation/cutoff and matched baseline. Declines visible. No raw Discovery-as-nonbrand claim, stale current score or scheduled-as-delivered work. | PARTIAL if evidence is incomplete. No causality. Check ledger, actual copy and every rendered page. |
 | New pitch | LCB, EM | HV, PSY, CP, VP, MC | PR if naming another customer, ODF, OBJ, AD, DECK, DP, BS, LOGO, EX | UI, PG, PP | One finding about their own estate, done before the meeting. | PASS only with a real finding. Otherwise it is a template. |
 | Proposal | LCB, PG, PP, DRC | EM, VP, FO | HV or WW, DECK, DP, BS, LOGO | UI, CP, EX | Transcript, Language, LOCATIONS, PRICING all present. | STOP if any input is missing. Write the recap first. |
 | Meeting recap | LCB, PP | SAP, CB | WV1, WV2, HV | UI, DP, BS, PG, DECK | Transcript only. Never invent a commitment. | PASS. Flag missing proposal inputs at the end. |
@@ -48,6 +49,10 @@ STOP) and the hard stops are in `../AGENTS.md`.
 
 **Upsell** and **Reporting** both depend on MCP evidence. Without it they become assertion,
 which is the failure mode this repository exists to prevent.
+
+For a customer performance document, ECR and RDECK take precedence over the generic DECK.
+Use the supplied reference layout, never a new-business product pitch. Connector access is
+not required to read this repo; without authorized evidence, produce only a labelled template.
 
 **Proposal** is the only row where the design reconciliation (DRC) is mandatory. The proposal
 generator carries a visual system that predates the current design principles, and DRC says

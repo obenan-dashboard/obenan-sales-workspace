@@ -21,6 +21,7 @@ check_forbidden() {
 
 check_forbidden 'local absolute paths remain' '/Users/[A-Za-z0-9._-]+/'
 check_forbidden 'real account selector remains in shared material' 'Switch the MCP to [0-9]+'
+check_forbidden 'raw customer or billing identifiers remain' '(company_id|account_id)[[:space:]"\x27:=]+[0-9]+|\b(cus|sub|in)_[A-Za-z0-9]{8,}\b'
 check_forbidden 'private authentication detail remains' 'session token|preprodapi\.obenan\.com'
 check_forbidden 'unsafe connector scope remains' 'agency-scoped|can see every Obenan customer'
 check_forbidden 'internal implementation path remains' 'apps/omnipulse/src|packages/obenan-(ui|theme)|origin/main|\.tsx`|\.scss`'

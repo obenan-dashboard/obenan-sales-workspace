@@ -45,6 +45,10 @@ Choose exactly one accent per document from the approved dark palette:
 Do not use pure black. Do not use decorative gradients. The supplied logo may retain its own
 canonical spectrum treatment.
 
+Existing-client review exception: `EXISTING_CLIENT_REVIEW.html` follows the operator-selected
+reference with orange `#F67900` and 600-weight finding/number typography. This is confined to
+the review template; other deliverables retain the palette and light headlines above.
+
 ## Logo
 
 Use the exact files indexed in [BRAND_ASSET_LIBRARY.md](BRAND_ASSET_LIBRARY.md). Preserve the
