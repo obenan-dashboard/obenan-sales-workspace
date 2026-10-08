@@ -29,7 +29,21 @@ HTML and CSS with print styles, rendered to A4 by system Chrome headless:
   --print-to-pdf=out.pdf file://$PWD/deck.html
 ```
 
-Start from `templates/deck/DECK_SKELETON.html`. Open the rendered PDF and read every page
+For Reporting and existing-client Upsell, read `knowledge/engagement/EXISTING_CLIENT_REVIEW.md`
+and use `templates/deck/EXISTING_CLIENT_REVIEW.html`. Other sales decks start from
+`templates/deck/DECK_SKELETON.html`. Open the rendered PDF and read every page
 before handing it over. Confirm non-English glyphs render.
 
 Every deliverable ships with an `EVIDENCE.md` mapping each figure to its source and date.
+
+## Build safety
+
+Keep customer builds and ledgers outside this public repo. Edit source through file/patch
+tools. Shell interpolation can silently strip `$` from currencies in HTML. If an environment
+requires a heredoc, quote its delimiter, never interpolate the customer source. `A&#36;`
+is safe in the review template. Inspect the exported page, not only the source string.
+
+Run `python3 scripts/validate_review.py /path/to/private/EVIDENCE.json` before handover.
+Consistency checks do not replace source verification, review-policy checks or visual review.
+Run `python3 -m unittest discover -s tests -v` and `bash scripts/validate_public_repo.sh`
+before proposing changes to this repository. Work on a branch and review PR, not directly on main.

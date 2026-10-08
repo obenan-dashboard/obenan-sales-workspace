@@ -2,7 +2,7 @@
 
 What in this repository is settled, what is carried with a caveat, and what is open.
 
-Last updated: 2026-10-06.
+Last updated: 2026-10-08.
 
 ## Settled
 
@@ -27,6 +27,23 @@ Last updated: 2026-10-06.
 - The deck skeleton, derived from a shipped A4 deck.
 - The proposal generator now follows the public design canon: ink rather than pure black, one
   accent color, no decorative gradient and more than 100 supported destinations.
+
+## Review-standard change set
+
+- Existing-client Reporting and Upsell now route through one discovery-first playbook and
+  ten-page A4 template, based on the operator-selected results review.
+- The template reuses the supplied Obenan closing component, with an explicit illustration
+  and pilot-stage boundary. Customer photos and source PDFs remain private.
+- Regression tests check brand reclassification, dates, historical scores, review growth,
+  delivered work and mandatory routing. Consistency checks cannot independently verify
+  sources or guarantee an agent follows the narrative; human copy and visual review remain.
+- Seven approved anonymous specialty-coffee aggregates for pitches and public storage on
+  8 October. Naming, quotes and images remain pending. The dated card preserves both growth
+  and declines; scheduled work and inferred automation are labelled.
+- The review's orange accent and stronger headline weights are a bounded template exception,
+  not a replacement for the general brand system.
+- Implementation is prepared on a review branch. Nothing is merged or sent to a customer
+  by this change set. The shared Claude project must be refreshed only after approval/merge.
 
 ## Carried with a caveat
 

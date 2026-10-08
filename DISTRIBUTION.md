@@ -29,11 +29,18 @@ knowledge directly, or the two drift and nobody can tell which is current.
 Those live in the operator's private workspace. Live customer numbers reach a deliverable
 through the Obenan MCP at build time.
 
+The sole exception is a curated, dated aggregate proof card explicitly approved for this
+public repository. No raw records accompany it.
+
 ## Customer success stories
 
 Only customer names and claims marked `APPROVED` in
 `knowledge/proof/PUBLIC_PROOF_REGISTER.md` may enter reusable sales material. Public naming
 permission does not authorize internal metrics, account structure or private correspondence.
+
+Record name and metric approvals independently. Anonymous aggregate approval permits only
+the registered anonymous wording, not naming by inference or publishing customer photos.
+Read `knowledge/proof/README.md` before adding a story.
 
 ## Keeping it honest
 

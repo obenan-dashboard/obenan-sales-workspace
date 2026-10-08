@@ -2,6 +2,10 @@
 > account, location and performance figure is fictional. Use it to calibrate the standard,
 > never as a source of facts.
 
+> This is a commercial portfolio-activation brief, not the customer results-review template.
+> Results reviews use `knowledge/engagement/EXISTING_CLIENT_REVIEW.md`; expansion and pricing
+> belong in a separate authorized commercial proposal.
+
 # [Restaurant group] [country], portfolio activation presentation
 
 Zero-context agent prompt. Spanish deck. [country] only, [city] excluded. The figures below
@@ -63,8 +67,10 @@ In a real account, verify onboarding dates before treating the earlier period as
 | Mobile maps impressions | 510,000 | 540,000 | -5.6% |
 | Mobile search impressions | 520,000 | 580,000 | -10.3% |
 
-Synthetic search type: discovery 720,000, branded 180,000, total 900,000. Discovery is
-80 percent. Four in five arrivals were not searching the brand.
+Synthetic audited search terms: nonbrand 720,000, brand 180,000, total 900,000. Known brand
+variants, product-plus-brand terms, addresses and translated brand spellings have been
+reclassified in this fictional population. Nonbrand is 80 percent of search counts, not
+unique people or arrivals. A raw Google Discovery label would not establish this share.
 
 Synthetic review example across the five account locations: 5,000. In a 100-review sample,
 average 4.6, and 40 of 100 unanswered. Re-measure the real rate for the five [country]n
@@ -76,9 +82,9 @@ failed automation. Re-check failures for the [country]n five specifically.
 
 ## THE FIVE THINGS THIS DECK MUST DO
 
-### 1. The hook: 720,000 people were not looking for you
+### 1. The hook: 720,000 nonbrand searches surfaced your locations
 
-Four in five arrivals came from a category search, not the brand name. For a brand this
+Four in five classified search counts were nonbrand. For a brand this
 famous in [country], that is the whole argument. Open here, at display size, in Spanish.
 
 ### 2. Put a price on that demand
@@ -95,8 +101,8 @@ Do it honestly:
   either value the actions these searches produced (150,000 direction requests, 42,000
   website clicks, 18,000 calls) or state an assumed click-through rate openly.
 - Never claim Obenan generated this demand or saved them this money. The sentence is:
-  this is what buying equivalent presence would cost, and it arrives as the outcome of a
-  managed public record.
+  this is an illustrative ad-cost equivalent, not measured money saved. Do not equate
+  profile actions with paid clicks, unique people or incremental acquisition.
 
 ### 3. Reframe the falling clicks. This is the pivot to ObiGEO.
 

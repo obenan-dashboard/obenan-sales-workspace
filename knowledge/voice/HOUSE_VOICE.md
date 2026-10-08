@@ -68,10 +68,12 @@ Example proof paragraph:
 
 > Across an international portfolio and an approximately three-year window, Le Pain Quotidien
 > recorded around 6.2 million Google views and 178,000 direction requests. About 71% of searches
-> were Discovery searches, meaning people found the brand without searching for it by name.
+> carried Google's Discovery label. That raw label has not been audited for brand variants.
 > Their team speaks publicly about the partnership here: [approved testimonial link].
 
 No other customer name or result enters reusable copy without its own approved register entry.
+Anonymous metric approval does not permit naming. For results reviews, follow
+`../engagement/EXISTING_CLIENT_REVIEW.md`, including discovery reclassification.
 
 ## CTA
 

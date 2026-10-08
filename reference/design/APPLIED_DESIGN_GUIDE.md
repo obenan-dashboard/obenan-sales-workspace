@@ -19,14 +19,10 @@ already being requested.
 
 ## Performance review
 
-Recommended sequence:
-
-1. Period, portfolio and source.
-2. Headline result and honest limitation.
-3. Trend against a clear baseline.
-4. Actions that were completed.
-5. Gaps or underused capability.
-6. Recommendation and next review point.
+Use the mandatory [existing-client review standard](../../knowledge/engagement/EXISTING_CLIENT_REVIEW.md)
+and [ten-page template](../../templates/deck/EXISTING_CLIENT_REVIEW.html). They supersede the
+generic sales-deck sequence for results reviews. Discovery first, customer photo cover,
+per-location comparisons, practical switches and one bounded next step.
 
 Do not hide a decline. Explain what is measured, what is inferred and what needs investigation.
 
@@ -37,7 +33,7 @@ a template. Use no customer-specific number until it is verified.
 
 ## Customer proof
 
-Approved Le Pain Quotidien proof may be used only as recorded in
+Approved customer proof may be used only as recorded in
 `../../knowledge/proof/PUBLIC_PROOF_REGISTER.md`. Keep the measurement window, geography and
 approximate wording with the metrics. Do not copy internal account structure into a page.
 
