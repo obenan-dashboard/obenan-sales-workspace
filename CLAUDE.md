@@ -7,7 +7,7 @@ Read in this order before any work:
 1. `START_HERE.md`
 2. `AGENTS.md`
 3. `STATUS.md`
-4. One row of `knowledge/TASK_ROUTER.md`, retrieved with rg, not the whole table
+4. One row of `knowledge/TASK_ROUTER.md`, retrieved with grep, not the whole table
 
 Then follow the row.
 

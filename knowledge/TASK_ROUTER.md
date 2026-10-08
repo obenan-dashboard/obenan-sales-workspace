@@ -5,7 +5,7 @@ for your task type, then stop. The mandatory bundle is `../START_HERE.md`, `../A
 `../STATUS.md`, and for Claude Code `../CLAUDE.md`.
 
 ```bash
-rg -n "^\| Upsell" knowledge/TASK_ROUTER.md
+grep -n "^| Upsell" knowledge/TASK_ROUTER.md
 ```
 
 "Do not preload" means retrieve only on a trigger, then cite. Proceed states (PASS, PARTIAL,

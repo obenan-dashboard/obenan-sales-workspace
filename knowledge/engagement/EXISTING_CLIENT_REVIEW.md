@@ -129,7 +129,8 @@ approval checks the actual deck against the ledger; a passing script alone is no
 
 ## Final human preflight
 
-- Discovery leads; customer photo is authorized; no placeholders remain in a final deck.
+- Discovery leads; customer photo is authorized; no `{{` placeholder and no `template-note`
+  element remains in a final deck.
 - Every figure has scope, source, date and state; trends and baselines use the correct window.
 - Search classification, score freshness and prior review coverage have been checked.
 - Declines are visible; no unsupported causality, generalisation or falsely delivered work.

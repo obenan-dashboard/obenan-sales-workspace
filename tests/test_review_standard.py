@@ -186,5 +186,49 @@ class RoutingTests(unittest.TestCase):
         self.assertIn("whats-next-card.png", template)
 
 
+class TemplateCopyTests(unittest.TestCase):
+    """Customer-visible copy must not carry agent instructions or rewritten approved copy."""
+
+    def visible_text(self):
+        from html.parser import HTMLParser
+
+        class Visible(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.stack, self.text = [], []
+
+            def handle_starttag(self, tag, attrs):
+                if tag in ("img", "br", "meta", "link"):
+                    return
+                classes = dict(attrs).get("class", "").split()
+                self.stack.append(tag in ("style", "script") or "template-note" in classes)
+
+            def handle_endtag(self, tag):
+                if tag not in ("img", "br", "meta", "link") and self.stack:
+                    self.stack.pop()
+
+            def handle_data(self, data):
+                if not any(self.stack):
+                    self.text.append(data)
+
+        parser = Visible()
+        parser.feed((ROOT / "templates/deck/EXISTING_CLIENT_REVIEW.html").read_text())
+        return " ".join(" ".join(parser.text).split())
+
+    def test_agent_instructions_are_marked_as_template_notes(self):
+        visible = self.visible_text()
+        for instruction in ("Do not ", "Replace bar", "If CPC evidence", "Change the example",
+                            "Prioritize", "Verify actual offerings", "If delivery status",
+                            "State the observed", "not delivered", "universal daily"):
+            self.assertNotIn(instruction, visible)
+
+    def test_next_page_keeps_deployed_headline(self):
+        self.assertIn("Soon, AI agents will book, order and pay. Get your locations ready for "
+                      "the questions and actions they bring.", self.visible_text())
+
+    def test_switches_page_keeps_approved_headline(self):
+        self.assertIn("Each of these is a switch, not a project.", self.visible_text())
+
+
 if __name__ == "__main__":
     unittest.main()

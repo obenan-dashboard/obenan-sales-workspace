@@ -135,7 +135,7 @@
 
   .photo-placeholder{background:var(--soft);border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--mid);font-size:11pt;text-align:center;}
   .herocover .photo-placeholder{display:flex;}
-  .template-note{font-size:8pt;color:var(--mid);margin-top:3mm;}
+  .template-note{display:inline-block;font-size:8pt;color:#B42318;background:#FDECEA;padding:.6mm 1.6mm;border-radius:1mm;margin-top:3mm;}
   .money{font-size:44pt;}
   .switch .what{min-width:38mm;}
   .switch .state{white-space:normal;max-width:25mm;}
@@ -173,7 +173,7 @@
   <h2 style="margin-top:5mm">{{DISCOVERY_HEADLINE}}</h2>
   <p class="lede">{{VIEWS_AND_WINDOW}}</p>
   <div class="chart">
-    <p class="small">Comparable monthly search counts. Replace bar lengths from actual values.</p>
+    <p class="small">Comparable monthly search counts. <span class="template-note">Template: Replace bar lengths from actual values.</span></p>
     <div class="vbars">
       <div class="vbar"><div class="v">{{M1}}</div><div class="b" style="height:var(--m1-height,0%)"></div></div>
       <div class="vbar"><div class="v">{{M2}}</div><div class="b" style="height:var(--m2-height,0%)"></div></div>
@@ -203,7 +203,7 @@
     <div><div class="n">{{CPC2}}</div><div class="l">Explicit assumed ceiling, not an observed cost.</div></div>
   </div>
   <p class="source">{{FORMULA_CPC_FX_COVERAGE}}. Profile actions are not equivalent to paid clicks or unique customers. This is not measured acquisition, ROI or spend saved.</p>
-  <p class="small" style="margin-top:5mm">If CPC evidence is unavailable, replace this scenario with sourced profile actions. Change the example Australian currency to the customer's currency.</p>
+  <p class="small" style="margin-top:5mm"><span class="template-note">Template: If CPC evidence is unavailable, replace this scenario with sourced profile actions.</span> <span class="template-note">Template: Change the example Australian currency to the customer's currency.</span></p>
   <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>03</span></div>
 </section>
 
@@ -240,7 +240,7 @@
     <div class="absent"><span class="who">{{ATTRIBUTE_3}}</span><span class="verdict">{{STATE_3}}</span></div>
   </div>
   <p style="margin-top:6mm">{{FIRST_FIX_AND_REQUIRED_APPROVAL}}</p>
-  <p class="source">{{PROFILE_AND_PERFORMANCE_SOURCES}}. A missing link or attribute is a testable opportunity, not proof of why actions declined. Verify actual offerings before changing attributes.</p>
+  <p class="source">{{PROFILE_AND_PERFORMANCE_SOURCES}}. A missing link or attribute is a testable opportunity, not proof of why actions declined. <span class="template-note">Template: Verify actual offerings before changing attributes.</span></p>
   <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>05</span></div>
 </section>
 
@@ -254,7 +254,7 @@
   <div class="rule"></div>
   <p>{{MEASURED_AUTOMATION_OR_RULE_INFERENCE_AND_VOICE}}</p>
   <p style="margin-top:5mm">Invite genuine customers neutrally. Give everyone the same public-review opportunity, without incentives or filtering by satisfaction. Private feedback can remain available too.</p>
-  <p class="source">{{REVIEW_SOURCES_AND_BOTH_WINDOWS}}. Do not claim improved reply coverage if the customer already answered everything. Review-request opens do not establish conversion or cause.</p>
+  <p class="source">{{REVIEW_SOURCES_AND_BOTH_WINDOWS}}. <span class="template-note">Template: Do not claim improved reply coverage if the customer already answered everything.</span> Review-request opens do not establish conversion or cause.</p>
   <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>06</span></div>
 </section>
 
@@ -268,22 +268,23 @@
   </div>
   <div class="rule"></div>
   <p>{{MANUAL_BASELINE_MINUS_REMAINING_EFFORT}}</p>
-  <p class="source">{{DELIVERY_SOURCES_MINUTE_ASSUMPTIONS}}. Estimated manual effort avoided, not measured staff time or a guaranteed floor. If delivery status is unknown, omit the hours headline.</p>
+  <p class="source">{{DELIVERY_SOURCES_MINUTE_ASSUMPTIONS}}. Estimated manual effort avoided, not measured staff time or a guaranteed floor. <span class="template-note">Template: If delivery status is unknown, omit the hours headline.</span></p>
   <div class="photoband photo-placeholder">Customer team or location photo · {{CREDIT}}</div>
   <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>07</span></div>
 </section>
 
 <section class="page" data-page="switches">
   <div class="accentbar"></div><div class="eyebrow">Practical next steps</div>
-  <h2 style="margin-top:5mm">Simple switches.<br>Clear dependencies.</h2>
-  <p class="lede">Prioritize verified gaps, not a network expansion pitch.</p>
+  <h2 style="margin-top:5mm">Each of these is a switch, not a project.</h2>
+  <p class="lede">This is where the next {{PERIOD}} of gains come from.</p>
+  <span class="template-note">Template: list verified gaps only, with any credential, approval or integration dependency in the action column. No network expansion pitch.</span>
   <div class="panel" style="margin-top:8mm">
     <div class="switch"><span class="what">{{GAP_1}}</span><span class="why">{{ACTION_1_OWNER_DEPENDENCY}}</span><span class="state">{{GS1}}</span></div>
     <div class="switch"><span class="what">{{GAP_2}}</span><span class="why">{{ACTION_2_OWNER_DEPENDENCY}}</span><span class="state">{{GS2}}</span></div>
     <div class="switch"><span class="what">{{GAP_3}}</span><span class="why">{{ACTION_3_OWNER_DEPENDENCY}}</span><span class="state">{{GS3}}</span></div>
     <div class="switch"><span class="what">{{GAP_4}}</span><span class="why">{{ACTION_4_OWNER_DEPENDENCY}}</span><span class="state">{{GS4}}</span></div>
   </div>
-  <p class="source">{{LIVE_STATE_SOURCES_DATE}}. A supported destination is not necessarily connected. Credentials, content approval and integration work are disclosed where needed. Do not promise overnight gains.</p>
+  <p class="source">{{LIVE_STATE_SOURCES_DATE}}. A supported destination is not necessarily connected. Credentials, content approval and integration work are disclosed where needed. <span class="template-note">Template: Do not promise overnight gains.</span></p>
   <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>08</span></div>
 </section>
 
@@ -292,10 +293,10 @@
   <h2 style="margin-top:5mm">Current information.<br>Less manual maintenance.</h2>
   <p class="lede">{{VERIFIED_ACTIVE_SCOPE}}</p>
   <div style="margin-top:8mm">
-    <div class="switch"><span class="what">Synchronization</span><span class="why">{{CONNECTED_DESTINATIONS_FIELDS_CADENCE}}. Field availability varies by destination. Supported scope is not delivered scope.</span></div>
-    <div class="switch"><span class="what">Publishing</span><span class="why">{{CONFIGURED_CADENCE_AND_DELIVERY}}. Fresh content where the workflow is configured and approved, not a universal daily promise.</span></div>
+    <div class="switch"><span class="what">Synchronization</span><span class="why">{{CONNECTED_DESTINATIONS_FIELDS_CADENCE}}. Field availability varies by destination.<br><span class="template-note">Template: Count connected destinations only; supported is not delivered.</span></span></div>
+    <div class="switch"><span class="what">Publishing</span><span class="why">{{CONFIGURED_CADENCE_AND_DELIVERY}}.<br><span class="template-note">Template: State the configured cadence; never promise daily publishing universally.</span></span></div>
     <div class="switch"><span class="what">AI readiness</span><span class="why">{{VERIFIED_MACHINE_READABLE_INFORMATION}}. Current information can help systems understand a business; recommendation or ranking is not guaranteed.</span></div>
-    <div class="switch"><span class="what">Review handling</span><span class="why">{{ACTUAL_VOICE_AND_HANDLING}}. State the observed routing and default or approved brand voice honestly.</span></div>
+    <div class="switch"><span class="what">Review handling</span><span class="why">{{ACTUAL_VOICE_AND_HANDLING}}.<br><span class="template-note">Template: State the observed routing and the default or approved brand voice.</span></span></div>
   </div>
   <div class="photoband photo-placeholder">Customer location photo · {{CREDIT}}</div>
   <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span>09</span></div>
@@ -303,7 +304,7 @@
 
 <section class="page cover nextpage" data-page="next">
   <div class="wnq">What comes next?</div>
-  <h1 class="wnh">Help AI assistants understand your locations.<br>Prepare for the actions that follow.</h1>
+  <h1 class="wnh">Soon, AI agents will book, order and pay. Get your locations ready for the questions and actions they bring.</h1>
   <div class="cardwrap"><img src="../../assets/components/whats-next-card.png" alt="Illustrative pilot-stage flow: AI agents send booking, order and payment requests to a sample café and its own systems. Not a live customer integration."></div>
   <p class="lede">Illustration, not current delivery. Agent-led transactions are pilot-stage. Bookings, orders and payments remain in your own systems. Obenan does not process payments.<br><br>{{ONE_AGREED_NEXT_STEP}}</p>
   <div class="foot"><span>Obenan</span><span><a href="https://www.obenan.ai/">obenan.ai</a></span></div>

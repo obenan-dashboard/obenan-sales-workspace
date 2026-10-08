@@ -36,7 +36,7 @@ intent is genuinely ambiguous, not merely because the operator did not supply th
 ## Step 2. Retrieve one router row
 
 ```bash
-rg -n "^\| Upsell" knowledge/TASK_ROUTER.md
+grep -n "^| Upsell" knowledge/TASK_ROUTER.md
 ```
 
 Read the legend at the top of that file plus your row. Do not preload the table.
