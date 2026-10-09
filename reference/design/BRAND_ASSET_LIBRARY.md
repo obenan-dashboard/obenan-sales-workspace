@@ -20,6 +20,12 @@ Approved customer marks are in the [customer logo index](../../assets/customer-l
 with source commit and checksums. Use the exact local SVGs and static PDF layout, not a rotating
 or clipped website strip. Brand proof is separate from measured results and contract status.
 
+Directory and platform marks are in the [directory logo index](../../assets/directory-logos/README.md):
+one per destination in the 104-destination roster, with provenance and checksums. They identify
+roster destinations only; they are not partner, endorsement or coverage marks. The homepage
+channel map is `assets/components/channel-network.png`, with `channel-network-mobile.png` for
+narrow layouts. Use it whole, as the website shows it.
+
 - Use the supplied SVG files. Never redraw, recolor, stretch or approximate the mark.
 - Keep clear space around the logo and preserve its aspect ratio.
 - Use the wave mark as an identity signature, not as a decorative pattern repeated throughout

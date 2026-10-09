@@ -29,6 +29,8 @@ STOP) and the hard stops are in `../AGENTS.md`.
 - **MC** `reference/messaging/MESSAGING_CORE.md`; **AMG** `reference/messaging/APPLIED_MESSAGING_GUIDE.md`
 - **UI** `reference/product-ui/PRODUCT_UI_OVERVIEW.md`
 - **LOGO** `assets/logos/Logo.svg` (the wave mark used on shipped decks); full lockups `assets/logos/Logo_Dark.svg`, `Logo_Light.svg`
+- **DIR** `reference/directories/DIRECTORY_ROSTER.md` (all 104 roster destinations, A to Z, with logos and live links);
+  data `reference/directories/directories.json`; marks `assets/directory-logos/`; homepage channel map `assets/components/channel-network.png`
 - **DECK** `templates/deck/DECK_SKELETON.html`; **PG** `templates/proposal/PROPOSAL_GENERATOR.md`;
   **PP** `templates/proposal/PROPOSAL_PROCEDURE.md`; **DRC** `templates/proposal/DESIGN_RECONCILIATION.md`
 - **EX** `examples/WORKED_EXAMPLE_upsell_brief.md`
@@ -38,10 +40,10 @@ STOP) and the hard stops are in `../AGENTS.md`.
 | Task type | Mandatory | Task-specific | Only when relevant | Do not preload | Gates | Proceed |
 | --- | --- | --- | --- | --- | --- | --- |
 | Win-back | LCB, EM | CB, OBJ, PSY, HV | PR if naming another customer, MCP if they were a customer, ODF, AD | UI, DP, BS, PG, PP | What actually ended it, from the record. Never assert an inferred churn reason. | PARTIAL if the end reason is unverified. Say so. |
-| Upsell | LCB, EM, MCP, ECR | ODF, PSY, HV, FO, AD | PR for reusable proof, OBJ, BU, RDECK for a results review, DP, BS, LOGO | UI unless the gap is a product screen | Discovery first. Reclassify raw search labels; date scores; matched review baseline. Verify entity count. Separate pricing and expansion pitch from the review PDF. | PARTIAL without live/supplied evidence. STOP on unauthorized commercial terms. |
+| Upsell | LCB, EM, MCP, ECR | ODF, PSY, HV, FO, AD | PR for reusable proof, OBJ, BU, DIR when directory coverage is named, RDECK for a results review, DP, BS, LOGO | UI unless the gap is a product screen | Discovery first. Reclassify raw search labels; date scores; matched review baseline. Verify entity count. Separate pricing and expansion pitch from the review PDF. | PARTIAL without live/supplied evidence. STOP on unauthorized commercial terms. |
 | Reporting | LCB, MCP, AD, ECR | EM, ODF, HV | PR for reusable proof, PSY, RDECK for rendered reviews, DP, BS, LOGO | UI, PG, PP, OBJ | Verified activation/cutoff and matched baseline. Declines visible. No raw Discovery-as-nonbrand claim, stale current score or scheduled-as-delivered work. | PARTIAL if evidence is incomplete. No causality. Check ledger, actual copy and every rendered page. |
-| New pitch | LCB, EM | HV, PSY, CP, VP, MC | PR if naming another customer, ODF, OBJ, AD, DECK, DP, BS, LOGO, EX | UI, PG, PP | One finding about their own estate, done before the meeting. | PASS only with a real finding. Otherwise it is a template. |
-| Proposal | LCB, PG, PP, DRC | EM, VP, FO | HV or WW, DECK, DP, BS, LOGO | UI, CP, EX | Transcript, Language, LOCATIONS, PRICING all present. | STOP if any input is missing. Write the recap first. |
+| New pitch | LCB, EM | HV, PSY, CP, VP, MC | PR if naming another customer, ODF, OBJ, AD, DIR when directory coverage is named, DECK, DP, BS, LOGO, EX | UI, PG, PP | One finding about their own estate, done before the meeting. | PASS only with a real finding. Otherwise it is a template. |
+| Proposal | LCB, PG, PP, DRC | EM, VP, FO | HV or WW, DIR when directory coverage is named, DECK, DP, BS, LOGO | UI, CP, EX | Transcript, Language, LOCATIONS, PRICING all present. | STOP if any input is missing. Write the recap first. |
 | Meeting recap | LCB, PP | SAP, CB | WV1, WV2, HV | UI, DP, BS, PG, DECK | Transcript only. Never invent a commitment. | PASS. Flag missing proposal inputs at the end. |
 | Outreach | LCB, HV | CP, PSY, OBJ | SAP, EM, MCP | UI, DP, BS, PG, PP, DECK | One clear next step. One voice, never blended. | PASS. Ready-to-send copy only. |
 

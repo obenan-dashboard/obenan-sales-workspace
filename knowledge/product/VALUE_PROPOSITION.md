@@ -96,8 +96,10 @@ white-label, access and support scope in the commercial agreement.
 
 ## Claim boundaries
 
-- Say `104 integrated directories and platforms, 100 currently updating` only when using the
-  live public roster reviewed on the date of the deliverable. Otherwise say `more than 100`.
+- Say `104 destinations in the roster, 90 sent by interface and 14 by export` only when the
+  live public roster, or the dated mirror in `reference/directories/DIRECTORY_ROSTER.md`, was
+  checked on the date of the deliverable. Otherwise say `more than 100`. Never quote
+  per-platform review, reply, question or post counts.
 - Say capability varies by destination and field.
 - Describe review replies as approval-based or governed by a configured rule.
 - Describe AI visibility as inspection, correction and verification, not control of a model.
