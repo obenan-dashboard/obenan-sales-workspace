@@ -26,7 +26,25 @@ check_forbidden 'private authentication detail remains' 'session token|preprodap
 check_forbidden 'unsafe connector scope remains' 'agency-scoped|can see every Obenan customer'
 check_forbidden 'internal implementation path remains' 'apps/omnipulse/src|packages/obenan-(ui|theme)|origin/main|\.tsx`|\.scss`'
 check_forbidden 'private customer structure remains' 'Le Pain Quotidien account|[0-9]+ users, [0-9]+ groups|[0-9]+ scheduled reports typical'
-check_forbidden 'unapproved partner names remain' 'Mastercard|Visa'
+check_forbidden 'unapproved partner names remain' 'Mastercard'
+
+# Visa is approved only for the locked agentic closing pair (knowledge/engagement/AGENTIC_CLOSING.md).
+# Every line naming Visa must carry one of the approved fragments.
+check_visa_scope() {
+  local hits
+  hits="$(rg -n -I --hidden \
+    --glob '!.git/**' \
+    --glob '!scripts/validate_public_repo.sh' \
+    --glob '!tasks/todo.md' \
+    --with-filename --no-heading -e 'Visa' . \
+    | rg -v -e 'Visa secures the payment|Visa Intelligent Commerce|>Visa<|9WCTYK-iHb0' || true)"
+  if [ -n "$hits" ]; then
+    printf '%s\n' "$hits"
+    printf 'FAIL: %s\n' 'Visa named outside the approved closing pair' >&2
+    fail=1
+  fi
+}
+check_visa_scope
 check_forbidden 'stale proposal count remains' '~130 (directories|Verzeichnisse)'
 check_forbidden 'unapproved comparative price claim remains' '20% less'
 check_forbidden 'obsolete filename remains' 'DESIGN_CORE_v1\.md|TOKEN_COMPONENT_CONTRACT_v1\.md|APPLIED_DESIGN_GUIDE_v1\.md|MESSAGING_CORE_v2\.md|APPLIED_MESSAGING_GUIDE_v2\.md|[0-9]+_Proposal_(Generator|Procedure)\.md|[0-9]+_Design_Reconciliation\.md'

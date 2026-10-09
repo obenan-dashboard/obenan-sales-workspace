@@ -55,7 +55,7 @@ by Obenan or today's footprint. Do not infer either from this interview.
 - LPQ's own results review: lead with LPQ's measured discovery results. The testimonial may
   support the narrative, but is not a substitute for current account evidence.
 - Other customers' results reviews: do not insert LPQ proof by default or disrupt the
-  ten-page customer-first structure. Their own measured results remain the story.
+  eleven-page customer-first structure. Their own measured results remain the story.
 - In a PDF, make the video link clickable and visible. Do not invent a customer photo,
   download a video still, or treat quotation approval as logo/image approval.
 - Do not use this historical interview to substantiate current AI discovery, agent-led

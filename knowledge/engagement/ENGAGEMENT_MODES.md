@@ -199,6 +199,7 @@ HTML and CSS with print styles, rendered to A4 by system Chrome headless.
 Reference build: `templates/deck/DECK_SKELETON.html`.
 For results reviews instead use `templates/deck/EXISTING_CLIENT_REVIEW.html` and its mandatory
 playbook. Keep customer files and evidence in the private build workspace, not this repository.
+Both templates end on the locked agentic closing pair; see `knowledge/engagement/AGENTIC_CLOSING.md`.
 
 Design tokens: Helvetica Neue; ink `#0F0F14` (never pure black); off-whites
 `#F7F7F7` and `#F0F0F0`; hairline `#E6E6E6`; secondary text `#666666`; exactly one

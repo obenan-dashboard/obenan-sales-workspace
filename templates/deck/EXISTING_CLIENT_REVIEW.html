@@ -117,6 +117,19 @@
   .nextpage .cardwrap img{ width:100%; display:block; margin-top:-0.7mm; }
   .nextpage .lede{ margin:13mm auto auto; max-width:142mm; font-size:11pt; }
   .nextpage .foot{ width:100%; text-align:left; }
+  /* Locked agentic closing pair: knowledge/engagement/AGENTIC_CLOSING.md */
+  .vidpage .wnq{ font-size:15pt; font-weight:300; color:#fff; text-align:center; letter-spacing:-.01em; }
+  .vidpage .vh{ font-size:22pt; font-weight:300; letter-spacing:-.02em; line-height:1.2; text-align:center; color:#fff; margin:5mm 0 0; }
+  .vid{ display:block; position:relative; margin-top:9mm; border-radius:4mm; overflow:hidden; text-decoration:none; background:#0B1A6E; aspect-ratio:16/9; }
+  .vid img{ width:100%; display:block; }
+  .vid .play{ position:absolute; left:50%; top:50%; width:20mm; height:20mm; margin:-10mm 0 0 -10mm; border-radius:50%; background:rgba(15,15,20,.72); border:1px solid rgba(255,255,255,.5); }
+  .vid .play::after{ content:""; position:absolute; left:7.6mm; top:6mm; border-style:solid; border-width:4mm 0 4mm 6.5mm; border-color:transparent transparent transparent #fff; }
+  .vcap{ font-size:8.5pt; line-height:1.5; color:rgba(255,255,255,.55); margin-top:3mm; max-width:none; text-align:center; }
+  .roles{ display:grid; grid-template-columns:1fr 1fr; gap:10mm; margin-top:9mm; }
+  .roles .rk{ font-size:9pt; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600; padding-bottom:2.5mm; border-bottom:1px solid rgba(255,255,255,.16); margin-bottom:3mm; }
+  .roles p{ color:rgba(255,255,255,.82); font-size:10.5pt; line-height:1.5; max-width:none; }
+  .vlede{ color:#fff; font-size:13pt; line-height:1.45; margin-top:8mm; max-width:none; }
+  .vsmall{ font-size:8.5pt; line-height:1.5; color:rgba(255,255,255,.5); margin:4mm 0 6mm; max-width:none; }
   /* customer-first cover */
   .herocover{ background:var(--paper); color:var(--ink); padding-top:0; }
   .herocover .heroimg{ margin:0 -22mm; width:210mm; height:168mm; object-fit:cover; object-position:center 40%; display:block; }
@@ -308,6 +321,20 @@
   <div class="cardwrap"><img src="../../assets/components/whats-next-card.png" alt="Illustrative pilot-stage flow: AI agents send booking, order and payment requests to a sample café and its own systems. Not a live customer integration."></div>
   <p class="lede">Illustration, not current delivery. Agent-led transactions are pilot-stage. Bookings, orders and payments remain in your own systems. Obenan does not process payments.<br><br>{{ONE_AGREED_NEXT_STEP}}</p>
   <div class="foot"><span>Obenan</span><span><a href="https://www.obenan.ai/">obenan.ai</a></span></div>
+</section>
+
+<section class="page cover vidpage" data-page="film">
+  <div class="wnq">See it in three minutes.</div>
+  <h2 class="vh">Visa secures the payment.<br>Obenan gets the business ready to take the order.</h2>
+  <a class="vid" href="https://www.youtube.com/watch?v=9WCTYK-iHb0"><img src="https://i.ytimg.com/vi/9WCTYK-iHb0/maxresdefault.jpg" alt="Visa Intelligent Commerce film on YouTube"><span class="play"></span></a>
+  <p class="vcap">Visa Intelligent Commerce: Building Trust for the Future of Agentic Commerce. Visa's public film, three minutes.<br>Click to watch, or open <a href="https://www.youtube.com/watch?v=9WCTYK-iHb0">youtube.com/watch?v=9WCTYK-iHb0</a></p>
+  <div class="roles">
+    <div><div class="rk">Visa</div><p>Confirms it's really the customer, swaps the card for a secure agent token, and checks every instruction before any money moves.</p></div>
+    <div><div class="rk">Obenan</div><p>Does the work on the business side: a menu and products the agent can read, a cart with the confirmed total, and the order delivered into the business's own checkout, ready to fulfil.</p></div>
+  </div>
+  <p class="vlede">Getting ready starts with the work in this document.<br><span class="template-note">Template: keep this line unless the customer has a verified, approved agentic build; then state that build in one sentence.</span></p>
+  <p class="vsmall">The film follows a holiday booking. Orders and reservations run on the same steps. Agent-led transactions are pilot-stage. Ordering and payment stay in your own systems, and Obenan does not process payments.</p>
+  <div class="foot"><span>{{CUSTOMER}} x Obenan</span><span><a href="https://www.obenan.ai/">obenan.ai</a></span></div>
 </section>
 </body>
 </html>

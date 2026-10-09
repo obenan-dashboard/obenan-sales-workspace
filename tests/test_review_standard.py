@@ -163,7 +163,7 @@ class RoutingTests(unittest.TestCase):
             row = next(line for line in router.splitlines() if line.startswith(f"| {task} |"))
             self.assertIn("ECR", row.split("|")[2])
 
-    def test_template_has_ten_ordered_pages(self):
+    def test_template_has_eleven_ordered_pages(self):
         from html.parser import HTMLParser
 
         class Pages(HTMLParser):
@@ -181,7 +181,7 @@ class RoutingTests(unittest.TestCase):
         parser.feed(template)
         self.assertEqual(parser.pages, ["cover", "discovery", "ad-equivalent", "location-positive",
                                        "location-gap", "reviews", "time-back", "switches",
-                                       "background", "next"])
+                                       "background", "next", "film"])
         self.assertIn("A&#36;", template)
         self.assertIn("whats-next-card.png", template)
 

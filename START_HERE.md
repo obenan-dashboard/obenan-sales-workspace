@@ -77,5 +77,5 @@ attribution and timestamped video link. Do not replace a customer's own results 
 | `reference/product-ui/` | sales-safe overview of product surfaces and boundaries | only when the task is about the product's screens |
 | `assets/logos/` | canonical Obenan logos, SVG; legacy marks under `legacy/` | whenever a document carries the logo |
 | `assets/guidelines/` | brand guideline PDFs | when checking logo or wave usage |
-| `templates/` | A4 sales deck, ten-page results review, evidence methods and proposal procedure | per row |
+| `templates/` | A4 sales deck, eleven-page results review, evidence methods and proposal procedure | per row |
 | `examples/` | one anonymized finished brief, as the standard to hit | when calibrating quality |

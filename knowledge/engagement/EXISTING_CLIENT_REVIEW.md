@@ -39,12 +39,12 @@ customer's proof as this customer's performance. Keep raw evidence in a private 
 8. **The customer is the hero.** A permissioned customer photo leads. Small Obenan mark,
    generous white space, concise finding-led headlines. No stock AI cover or review dashboard.
 
-## Ten-page standard
+## Eleven-page standard
 
 Use [the review template](../../templates/deck/EXISTING_CLIENT_REVIEW.html), not the generic
 sales deck. It preserves the reference's photo-led cover, A4 grid, large numbers, quiet source
 notes, location comparisons and dark closing page. Replace placeholders; never invent data
-to fill a layout. Ten pages is the default for two locations; expand location pages for a
+to fill a layout. Eleven pages is the default for two locations; expand location pages for a
 larger estate or mark evidence unavailable rather than manufacture a positive location.
 
 | Page | Job | Evidence and boundary |
@@ -58,7 +58,8 @@ larger estate or mark evidence unavailable rather than manufacture a positive lo
 | 7. Time back | What manual work was avoided | Delivered counts plus transparent minute assumptions. No scheduled counts dressed as published work or false brand-voice claim. |
 | 8. Simple switches | A few practical improvements | Current state, proposed action, owner and dependency. Credentials, approval or integration needs are stated, not hidden behind “one switch”. |
 | 9. Background | Explain verified operational value | Active destinations, supported fields and configured cadence. Google and AI readiness, not a promise to appear in AI answers. |
-| 10. What comes next | One agreed next step | Shared illustrative card, pilot-stage boundary, booking/order/payment in the customer's systems. No partner logos or rollout date. |
+| 10. What comes next | One agreed next step | Shared illustrative card, pilot-stage boundary, booking/order/payment in the customer's systems. No rollout date. |
+| 11. See it | The public agentic-commerce film and who does what | Locked copy and placement in [the closing-pair note](AGENTIC_CLOSING.md). Only the closing line may change, and only for a verified agentic build. |
 
 ## Ad-equivalent method
 

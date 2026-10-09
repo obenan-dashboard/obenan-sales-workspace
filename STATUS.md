@@ -34,6 +34,9 @@ Last updated: 2026-10-09.
   ten-page A4 template, based on the operator-selected results review.
 - The template reuses the supplied Obenan closing component, with an explicit illustration
   and pilot-stage boundary. Customer photos and source PDFs remain private.
+- 9 October: both deck templates end on the locked agentic closing pair, What comes next and
+  the public agentic-commerce film page. The results review is now eleven pages; the prospect
+  deck is ten. See `knowledge/engagement/AGENTIC_CLOSING.md`.
 - Regression tests check brand reclassification, dates, historical scores, review growth,
   delivered work and mandatory routing. Consistency checks cannot independently verify
   sources or guarantee an agent follows the narrative; human copy and visual review remain.
