@@ -204,6 +204,13 @@
   .vid img{ width:100%; display:block; }
   .vid .play{ position:absolute; left:50%; top:50%; width:20mm; height:20mm; margin:-10mm 0 0 -10mm; border-radius:50%; background:rgba(15,15,20,.72); border:1px solid rgba(255,255,255,.5); }
   .vid .play::after{ content:""; position:absolute; left:7.6mm; top:6mm; border-style:solid; border-width:4mm 0 4mm 6.5mm; border-color:transparent transparent transparent #fff; }
+  /* LPQ video preview: the still carries its own play icon. Rule: knowledge/proof/LE_PAIN_QUOTIDIEN.md */
+  .lpqvid{ display:flex; align-items:flex-end; gap:8mm; margin-top:8mm; }
+  .lpqvid .vid{ flex:0 0 120mm; margin-top:0; }
+  .lpqvid .qr{ display:block; width:30mm; text-decoration:none; text-align:center; font-size:8pt; letter-spacing:.04em; color:var(--quiet); }
+  .lpqvid .qr img{ display:block; width:30mm; height:30mm; margin-bottom:2mm; }
+  .vlink{ margin-top:3mm; max-width:none; }
+  .vlink a{ color:inherit; text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:2px; }
   .vcap{ font-size:8.5pt; line-height:1.5; color:rgba(255,255,255,.55); margin-top:3mm; max-width:none; text-align:center; }
   .roles{ display:grid; grid-template-columns:1fr 1fr; gap:10mm; margin-top:9mm; }
   .roles .rk{ font-size:9pt; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600; padding-bottom:2.5mm; border-bottom:1px solid rgba(255,255,255,.16); margin-bottom:3mm; }
@@ -317,15 +324,20 @@
 </section>
 
 <!-- 7. QUOTE: approved LPQ default. Read knowledge/proof/LE_PAIN_QUOTIDIEN.md.
-     Keep attribution and clickable source. Replace only with separately approved proof.
+     Keep attribution and the video preview: still with play icon, QR and printed link,
+     never a text-only panel. Replace only with separately approved proof.
      Historical customer opinion, not an independent superiority benchmark.
      Recording date not supplied; never print it as a caveat to the reader. -->
 <section class="page">
   <div class="accentbar"></div>
   <div class="eyebrow">Why Le Pain Quotidien chose Obenan</div>
-  <p class="quote" style="margin-top:20mm;">“Obenan is way more advanced on the technology than any other competitor that I've met or seen out there.”</p>
+  <p class="quote" style="margin-top:12mm;">“Obenan is way more advanced on the technology than any other competitor that I've met or seen out there.”</p>
   <p class="attrib">Joost Vastenavondt<br>CMO, Le Pain Quotidien, at the time of recording</p>
-  <p class="small"><a href="https://www.youtube.com/watch?v=vxrYXjTXJp4&amp;t=144s">Watch Joost's interview from 2:24</a></p>
+  <div class="lpqvid">
+    <a class="vid" href="https://www.youtube.com/watch?v=vxrYXjTXJp4&amp;t=144s"><img src="../../assets/video-previews/lpq-joost-interview.jpg" alt="Play Joost Vastenavondt's interview on YouTube from 2:24"></a>
+    <a class="qr" href="https://www.youtube.com/watch?v=vxrYXjTXJp4&amp;t=144s"><img src="../../assets/video-previews/lpq-joost-interview-qr.svg" alt="QR code for Joost's interview from 2:24">Scan to watch</a>
+  </div>
+  <p class="small vlink">Watch Joost's interview from 2:24: <a href="https://www.youtube.com/watch?v=vxrYXjTXJp4&amp;t=144s">youtube.com/watch?v=vxrYXjTXJp4&amp;t=144s</a></p>
   <!-- Exact approved website marks. See assets/customer-logos/README.md. Static for PDF. -->
   <div class="customer-proof">
     <div class="eyebrow">Selected brands featured by Obenan</div>

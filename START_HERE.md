@@ -61,7 +61,8 @@ supplied evidence means a labelled template and missing-input list, not invented
 When using a success story, read `knowledge/proof/PUBLIC_PROOF_REGISTER.md` and its linked
 card. Approved stories are named, not anonymized by default. For prospect PDFs with a proof
 page, read `knowledge/proof/LE_PAIN_QUOTIDIEN.md` and lead with Joost's exact technology quote,
-attribution and timestamped video link. The same card supplies approved three-year LPQ
+attribution and video preview: the approved still with its play icon and QR, linked to 2:24,
+never a text-only panel. The same card supplies approved three-year LPQ
 results: choose discovery/actions before review automation, keep dates and scope, and do not
 present ad equivalents or assumed effort as financial outcomes. Do not replace a customer's
 own results with LPQ proof.

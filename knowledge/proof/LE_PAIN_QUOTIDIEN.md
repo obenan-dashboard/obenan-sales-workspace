@@ -159,7 +159,7 @@ during this review; timestamps follow that transcript and have not been checked 
 ## Lead proof for a prospect PDF
 
 Use the technology quote first when the question is why choose Obenan. One large quote,
-clear attribution and a clickable timestamped video link. Do not bury it in a paragraph or
+clear attribution and the [video preview](#video-preview) of that moment. Do not bury it in a paragraph or
 replace it with a weaker generic testimonial. Supporting quotes depend on the buyer's concern.
 
 | Purpose | Exact excerpt | Video segment |
@@ -173,6 +173,21 @@ replace it with a weaker generic testimonial. Supporting quotes depend on the bu
 Keep quotations verbatim. A paraphrase must not carry quotation marks. The lead is Joost's
 assessment of competitors he had encountered, not an independently tested superiority claim.
 Do not rewrite it as “the most advanced platform in the world” or name competitors.
+
+## Video preview
+
+Wherever the interview appears, in a deck, PDF, proposal or email, show it the same way:
+
+- **Image:** `assets/video-previews/lpq-joost-interview.jpg`, the approved still with the play
+  icon already on it. Do not add a second play icon, crop the icon out or use another frame.
+- **Link:** the whole image opens https://www.youtube.com/watch?v=vxrYXjTXJp4&t=144s.
+- **QR and caption:** next to it, `assets/video-previews/lpq-joost-interview-qr.svg` labelled
+  “Scan to watch”, and the caption “Watch Joost's interview from 2:24” with the printed URL.
+  The QR serves readers on paper. In email, the linked image and caption are enough.
+- **Never replace the preview** with a text-only panel, a dark placeholder, a bare link or a
+  QR code on its own.
+- Copy the block from page 7 of the [prospect deck template](../../templates/deck/DECK_SKELETON.html).
+  After rendering, open the PDF: the still shows, and the image, QR and link all open 2:24.
 
 ## What the whole interview supports
 
@@ -202,8 +217,8 @@ by Obenan or today's footprint. Do not infer either from this interview.
   support the narrative, but is not a substitute for current account evidence.
 - Other customers' results reviews: do not insert LPQ proof by default or disrupt the
   eleven-page customer-first structure. Their own measured results remain the story.
-- In a PDF, make the video link clickable and visible. Do not invent a customer photo,
-  download a video still, or treat quotation approval as logo/image approval.
+- Show the interview as the [video preview](#video-preview). Do not invent a customer photo,
+  download or substitute another still, or treat the approved still as logo approval.
 - Do not use this historical interview to substantiate current AI discovery, agent-led
   payments, exact destination counts, current synchronization cadence or guaranteed rankings.
 - Pair separate approved metrics with their own dated source and scope. The interview does
