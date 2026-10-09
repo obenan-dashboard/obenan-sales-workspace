@@ -61,7 +61,14 @@ supplied evidence means a labelled template and missing-input list, not invented
 When using a success story, read `knowledge/proof/PUBLIC_PROOF_REGISTER.md` and its linked
 card. Approved stories are named, not anonymized by default. For prospect PDFs with a proof
 page, read `knowledge/proof/LE_PAIN_QUOTIDIEN.md` and lead with Joost's exact technology quote,
-attribution and timestamped video link. Do not replace a customer's own results with LPQ proof.
+attribution and timestamped video link. The same card supplies approved three-year LPQ
+results: choose discovery/actions before review automation, keep dates and scope, and do not
+present ad equivalents or assumed effort as financial outcomes. Do not replace a customer's
+own results with LPQ proof.
+
+For customer logo proof, retrieve `assets/customer-logos/README.md`. Its nine website marks
+are approved for reuse, with source provenance and static PDF guidance. Information Seven
+explicitly stores for public sharing is usable proof within its recorded scope.
 
 ## Map
 

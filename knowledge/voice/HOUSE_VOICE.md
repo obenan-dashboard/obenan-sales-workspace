@@ -61,15 +61,12 @@ name a partner or pilot unless the public proof register permits the exact wordi
 ## Approved customer proof
 
 Le Pain Quotidien may be named and its aggregate performance metrics may be used exactly as
-recorded in `../proof/PUBLIC_PROOF_REGISTER.md`. Keep the international portfolio, approximate
-three-year window and approximate wording with the figures.
-
-Example proof paragraph:
-
-> Across an international portfolio and an approximately three-year window, Le Pain Quotidien
-> recorded around 6.2 million Google views and 178,000 direction requests. About 71% of searches
-> carried Google's Discovery label. That raw label has not been audited for brand variants.
-> Their team speaks publicly about the partnership here: [approved testimonial link].
+recorded in `../proof/PUBLIC_PROOF_REGISTER.md`. Retrieve the measured results from
+`../proof/LE_PAIN_QUOTIDIEN.md`, their single source. Use one relevant figure with its
+international scope, exact period and meaning. Discovery and guest actions lead; reviews
+support the efficiency story. Growth needs the matched cohort and contrary results.
+Advertising equivalents, assumed hours and value-to-fee ratios are estimates, not revenue
+or measured ROI. Do not revive the older export or copy a figure into this playbook.
 
 For a prospect proof page, use the strongest exact LPQ testimonial from
 `../proof/LE_PAIN_QUOTIDIEN.md`, with Joost's attribution and the timestamped video link.

@@ -15,19 +15,19 @@ performance data.
 | Field | Approved value |
 |---|---|
 | Status | `APPROVED` |
-| Approved use | Name Le Pain Quotidien as an Obenan customer, use the approved aggregate performance metrics below, and quote/link the public customer testimonial within the evidence card's scope. |
+| Approved use | Name Le Pain Quotidien as an Obenan customer; use the measured aggregate results and explicitly labeled estimates in the linked card; quote/link the public testimonial within its scope. |
 | Name / metrics / transcript quotes status | `APPROVED` |
 | Logo / image status | `PENDING`; this approval does not license video stills or customer imagery. |
 | Public source | https://www.youtube.com/watch?v=vxrYXjTXJp4 |
 | Testimonial source and PDF selection | [Transcript and ranked exact excerpts](LE_PAIN_QUOTIDIEN.md). Lead with Joost's technology quote in prospect proof pages. |
-| Performance source | Obenan dashboard export reviewed in July 2026. Raw export remains private. |
-| Measurement window | Approximately three years, ending in 2026. |
-| Geography | Mixed international portfolio. Do not label the figures as United States-only. The export includes European and Latin American locations. |
-| Approved metrics | Approximately 6.2 million Google views; 178,000 direction requests; 106,000 website visits; 3.43 million searches; 71% Google-reported Discovery. Discovery is a raw provider label, not an audited non-brand share. |
-| Required wording | Use “approximately” or “more than” where appropriate and state that the figures cover an international portfolio over an approximately three-year window. |
-| Prohibited | Internal account identifiers, portfolio structure, user or role counts, private correspondence and unpublished dashboard exports. |
+| Performance source | Three-year Intelligence artifact, built 2026-09-25 and checked at pinned source on 2026-10-09; provenance and limitations in [the card](LE_PAIN_QUOTIDIEN.md). Underlying report remains email-gated. |
+| Measurement window | Fixed contract years September 2023 to August 2026; before/after comparisons use their separately stated cohorts. |
+| Geography | International portfolio; measured profile/country and comparison-cohort counts are explicitly approved here. Do not label it US-only or today's footprint. |
+| Approved metrics | [LPQ results and testimonial card](LE_PAIN_QUOTIDIEN.md), the single source of figures. Older July figures remain there only as historical context, not default pitch evidence. |
+| Required wording | Keep period, scope and metric meaning with each claim. Estimates are not measured outcomes, paid-ad savings or financial ROI. Preserve discovery-audit coverage, Google gaps, menu-reporting changes and comparative declines. |
+| Prohibited | Raw exports, internal account identifiers, user/role counts, private correspondence, contracts and invoice records. No guaranteed rankings, unique-guest or causal revenue claims. |
 | Approved by | Seven; on 9 October he also confirmed Joost's permission for the supplied public testimonial. The confirmation is operator-supplied, not independently checked correspondence. |
-| Approval recorded | Name/metrics: 2026-10-06; transcript quotation: 2026-10-09 |
+| Approval recorded | Initial name/metrics: 2026-10-06; transcript quotation and named Intelligence aggregate extraction/publication: 2026-10-09 |
 | Review date | 2027-01-09 |
 
 ### Campos Coffee
@@ -50,6 +50,26 @@ Seven approved publishing named customer success stories on 9 October 2026. Do n
 an approved named story by default. Record the exact name, sourced claims and approval in this
 register for every new story. This approval does not make an unsupported claim true, publish
 private source records, or license every logo, photo, quotation or partner reference.
+
+On 9 October Seven clarified that customer information he deliberately stores for public
+sharing is shareable proof. Record its exact name, claim, source and scope here; do not block
+reuse merely because it originated with a customer. This does not authorize publishing every
+record reachable from a customer account or disclosing contacts, credentials or billing IDs.
+
+## Website customer logos
+
+| Field | Approved value |
+|---|---|
+| Name / supplied logo status | `APPROVED` for the exact nine Demo assets |
+| Approved brands and provenance | [Customer logo index](../../assets/customer-logos/README.md) |
+| Approved use | Reuse supplied marks as public brand proof in sales decks and PDFs. Preserve identity and proportions; use static print layout. |
+| Public source | https://www.obenan.ai/demo/ |
+| Scope limits | Logo display does not prove active billing, network-wide service, testimonials, performance results, current location count or a delivered transaction integration. |
+| Approved by / recorded | Seven, direct request to copy and incorporate website logos, 2026-10-09 |
+| Review date | 2027-01-09 |
+
+Approval covers only the indexed assets. Pending LPQ and Campos logo/photo permissions do
+not change because neither mark is in the supplied Demo set.
 
 ## Partner proof
 

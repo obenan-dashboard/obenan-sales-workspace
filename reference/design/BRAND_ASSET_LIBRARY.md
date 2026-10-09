@@ -16,6 +16,10 @@ Public-safe index of the assets included in this repository.
 
 ## Rules
 
+Approved customer marks are in the [customer logo index](../../assets/customer-logos/README.md),
+with source commit and checksums. Use the exact local SVGs and static PDF layout, not a rotating
+or clipped website strip. Brand proof is separate from measured results and contract status.
+
 - Use the supplied SVG files. Never redraw, recolor, stretch or approximate the mark.
 - Keep clear space around the logo and preserve its aspect ratio.
 - Use the wave mark as an identity signature, not as a decorative pattern repeated throughout
