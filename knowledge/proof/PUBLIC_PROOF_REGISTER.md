@@ -15,31 +15,41 @@ performance data.
 | Field | Approved value |
 |---|---|
 | Status | `APPROVED` |
-| Approved use | Name Le Pain Quotidien as an Obenan customer, use the approved aggregate performance metrics below, and link to the public customer testimonial. |
+| Approved use | Name Le Pain Quotidien as an Obenan customer, use the approved aggregate performance metrics below, and quote/link the public customer testimonial within the evidence card's scope. |
+| Name / metrics / transcript quotes status | `APPROVED` |
+| Logo / image status | `PENDING`; this approval does not license video stills or customer imagery. |
 | Public source | https://www.youtube.com/watch?v=vxrYXjTXJp4 |
+| Testimonial source and PDF selection | [Transcript and ranked exact excerpts](LE_PAIN_QUOTIDIEN.md). Lead with Joost's technology quote in prospect proof pages. |
 | Performance source | Obenan dashboard export reviewed in July 2026. Raw export remains private. |
 | Measurement window | Approximately three years, ending in 2026. |
 | Geography | Mixed international portfolio. Do not label the figures as United States-only. The export includes European and Latin American locations. |
 | Approved metrics | Approximately 6.2 million Google views; 178,000 direction requests; 106,000 website visits; 3.43 million searches; 71% Google-reported Discovery. Discovery is a raw provider label, not an audited non-brand share. |
 | Required wording | Use “approximately” or “more than” where appropriate and state that the figures cover an international portfolio over an approximately three-year window. |
 | Prohibited | Internal account identifiers, portfolio structure, user or role counts, private correspondence and unpublished dashboard exports. |
-| Approved by | Seven |
-| Approval recorded | 2026-10-06 |
-| Review date | 2027-01-06 |
+| Approved by | Seven; on 9 October he also confirmed Joost's permission for the supplied public testimonial. The confirmation is operator-supplied, not independently checked correspondence. |
+| Approval recorded | Name/metrics: 2026-10-06; transcript quotation: 2026-10-09 |
+| Review date | 2027-01-09 |
 
-### Two specialty coffee cafés, anonymous
+### Campos Coffee
 
 | Field | Approved value |
 |---|---|
-| Metrics status | `APPROVED` for anonymous pitch use and public aggregate storage |
-| Name / logo / quotes / photos status | `PENDING`, not usable with other prospects |
-| Approved descriptor | A specialty coffee roaster's two cafés in Sydney and Melbourne |
+| Name / metrics status | `APPROVED` for named pitch use and public aggregate storage |
+| Logo / quotes / photos status | `PENDING`, not usable with other prospects |
+| Approved descriptor | Campos Coffee's two cafés in Sydney and Melbourne |
 | Approved figures and limitations | [Dated evidence card](SPECIALTY_COFFEE_TWO_CAFES.md), the single source of figures |
 | Source | Authorized customer evidence reviewed 8 October 2026; raw records remain private. No public underlying export. |
-| Approved by | Seven, direct approval to use the numbers to pitch others and publish aggregates |
-| Approval recorded | 2026-10-08 |
-| Review date | 2027-01-08 |
-| Prohibited | Naming by inference; customer images/quotes; raw exports, account identifiers, correspondence or billing; presenting schedules, estimated savings or rule-based automation as measured outcomes |
+| Approved by | Seven, direct approval to publish aggregates on 8 October and use named success stories on 9 October. This records operator authority, not a claimed written approval from the customer. |
+| Approval recorded | Metrics: 2026-10-08; naming: 2026-10-09 |
+| Review date | 2027-01-09 |
+| Prohibited | Customer images/quotes without separate approval; raw exports, account identifiers, correspondence or billing; presenting schedules, estimated savings or rule-based automation as measured outcomes |
+
+## Named-story policy
+
+Seven approved publishing named customer success stories on 9 October 2026. Do not anonymize
+an approved named story by default. Record the exact name, sourced claims and approval in this
+register for every new story. This approval does not make an unsupported claim true, publish
+private source records, or license every logo, photo, quotation or partner reference.
 
 ## Partner proof
 

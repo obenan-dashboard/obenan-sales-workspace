@@ -58,6 +58,11 @@ For Reporting and existing-client Upsell, read
 `templates/deck/EXISTING_CLIENT_REVIEW.html`, not the generic sales deck. No connector or
 supplied evidence means a labelled template and missing-input list, not invented results.
 
+When using a success story, read `knowledge/proof/PUBLIC_PROOF_REGISTER.md` and its linked
+card. Approved stories are named, not anonymized by default. For prospect PDFs with a proof
+page, read `knowledge/proof/LE_PAIN_QUOTIDIEN.md` and lead with Joost's exact technology quote,
+attribution and timestamped video link. Do not replace a customer's own results with LPQ proof.
+
 ## Map
 
 | Path | Holds | Load |

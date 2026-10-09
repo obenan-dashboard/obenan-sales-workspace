@@ -2,7 +2,7 @@
 
 What in this repository is settled, what is carried with a caveat, and what is open.
 
-Last updated: 2026-10-08.
+Last updated: 2026-10-09.
 
 ## Settled
 
@@ -37,13 +37,22 @@ Last updated: 2026-10-08.
 - Regression tests check brand reclassification, dates, historical scores, review growth,
   delivered work and mandatory routing. Consistency checks cannot independently verify
   sources or guarantee an agent follows the narrative; human copy and visual review remain.
-- Seven approved anonymous specialty-coffee aggregates for pitches and public storage on
-  8 October. Naming, quotes and images remain pending. The dated card preserves both growth
-  and declines; scheduled work and inferred automation are labelled.
+- Seven approved specialty-coffee aggregates on 8 October and named success stories on
+  9 October. Campos Coffee's dated card preserves both growth and declines; scheduled work
+  and inferred automation are labelled. Campos logos, quotes and images remain pending.
 - The review's orange accent and stronger headline weights are a bounded template exception,
   not a replacement for the general brand system.
-- Implementation is prepared on a review branch. Nothing is merged or sent to a customer
-  by this change set. The shared Claude project must be refreshed only after approval/merge.
+- [PR 1](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/1) merged on 8 October.
+  This is repository delivery, not evidence of a customer send or shared Claude project refresh.
+
+## Named-proof change set
+
+- Seven confirmed Joost's testimonial approval on 9 October. The LPQ proof card stores the
+  supplied complete transcript, exact excerpts, timestamps and historical-scope boundaries.
+- Prospect proof pages lead with Joost's technology quote. Existing-client reviews still
+  lead with that customer's own discovery evidence. LPQ metrics are unchanged.
+- Naming approval is recorded per customer, not assumed from anonymization. Raw records and
+  unapproved imagery remain private. Reviewed and approved on 9 October; no customer send.
 
 ## Carried with a caveat
 

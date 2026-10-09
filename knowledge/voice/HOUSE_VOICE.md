@@ -71,6 +71,11 @@ Example proof paragraph:
 > carried Google's Discovery label. That raw label has not been audited for brand variants.
 > Their team speaks publicly about the partnership here: [approved testimonial link].
 
+For a prospect proof page, use the strongest exact LPQ testimonial from
+`../proof/LE_PAIN_QUOTIDIEN.md`, with Joost's attribution and the timestamped video link.
+The card ranks excerpts by buyer concern and separates observations from ambitions.
+Do not weaken the lead quote into generic praise or present his opinion as a tested market fact.
+
 No other customer name or result enters reusable copy without its own approved register entry.
 Anonymous metric approval does not permit naming. For results reviews, follow
 `../engagement/EXISTING_CLIENT_REVIEW.md`, including discovery reclassification.

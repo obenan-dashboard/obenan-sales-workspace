@@ -1,7 +1,7 @@
-# Two specialty coffee cafés: dated evidence card
+# Campos Coffee: two-café dated evidence card
 
-**Approved anonymous pitch use only.** A specialty coffee roaster's two cafés in Sydney and
-Melbourne. Name, logo, quotes and photos are not cleared for use with other prospects.
+**Approved named pitch use.** Campos Coffee's two cafés in Sydney and Melbourne.
+Logo, quotes and photos are not cleared for use with other prospects.
 Approval and review dates are in [the register](PUBLIC_PROOF_REGISTER.md).
 
 Evidence captured 8 October 2026, from authorized profile performance, search-term and review
@@ -30,7 +30,7 @@ different dataset; do not label all of June as post-activation.
 
 ## Pitch wording
 
-“Across two specialty coffee cafés in Sydney and Melbourne, about half the reviewed
+“Across Campos Coffee's two cafés in Sydney and Melbourne, about half the reviewed
 search-term counts were non-brand queries. One café's profile actions rose from 2,969 to
 4,398 over the matched four-month window, while the other declined. Both cafés' reviews
 were fully answered. The operational opportunity is automating that work and fixing
