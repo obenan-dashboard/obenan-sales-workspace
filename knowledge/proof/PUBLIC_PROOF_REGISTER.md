@@ -53,8 +53,12 @@ private source records, or license every logo, photo, quotation or partner refer
 
 ## Partner proof
 
-No partner-specific pilot or transaction claim is approved for reusable public material.
-Describe the capability and its pilot stage without naming a partner.
+One partner reference is approved for reusable material: the locked agentic closing pair
+built on the public Visa Intelligent Commerce film (youtube.com/watch?v=9WCTYK-iHb0).
+Approved by Seven on 9 October 2026. Its copy is fixed in both deck templates; see
+[the closing-pair note](../engagement/AGENTIC_CLOSING.md). Pilot status, timelines, named pilot
+merchants and every other partner claim remain unapproved. Otherwise, describe the capability
+and its pilot stage without naming a partner.
 
 ## Adding a customer success story
 

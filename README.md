@@ -54,7 +54,7 @@ Ask your agent:
 ```text
 Read this repository and follow START_HERE.md. Prepare a Reporting results review for
 <customer>, using authorized data from <activation date> to <cutoff>, compared with the same
-dates last year. Follow EXISTING_CLIENT_REVIEW.md and its ten-page HTML template. Lead with
+dates last year. Follow EXISTING_CLIENT_REVIEW.md and its eleven-page HTML template. Lead with
 discovery, show declines, distinguish delivered work from estimates, and inspect every PDF
 page. Keep customer evidence private. If evidence is unavailable, return a labelled template
 and the missing inputs. Draft only; do not send.

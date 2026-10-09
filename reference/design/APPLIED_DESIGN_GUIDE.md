@@ -20,7 +20,7 @@ already being requested.
 ## Performance review
 
 Use the mandatory [existing-client review standard](../../knowledge/engagement/EXISTING_CLIENT_REVIEW.md)
-and [ten-page template](../../templates/deck/EXISTING_CLIENT_REVIEW.html). They supersede the
+and [eleven-page template](../../templates/deck/EXISTING_CLIENT_REVIEW.html). They supersede the
 generic sales-deck sequence for results reviews. Discovery first, customer photo cover,
 per-location comparisons, practical switches and one bounded next step.
 
