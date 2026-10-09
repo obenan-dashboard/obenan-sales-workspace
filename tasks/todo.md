@@ -111,4 +111,7 @@ Progress:
 - [x] Independent source/diff review has no remaining new blockers. All 40 tests, public
   safety/local links and whitespace checks pass. Existing 10/11-page template renders and
   unchanged logo layout remain verified. The two prior guardrail gaps remain documented.
-- [ ] Validate, review, push and merge the sales repository change set.
+- [x] Push the validated, reviewed change set and submit
+  [PR 4](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/4) for Seven-authorized
+  publication. Its exact-head checks and merged state are recorded in GitHub; these
+  preparatory records do not claim a website deployment or customer send.
