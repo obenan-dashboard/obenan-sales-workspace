@@ -49,3 +49,66 @@ Progress:
   Exact quotation survives PDF text extraction; video link survives as a PDF annotation.
   These checks establish source/template consistency, not guaranteed future agent behavior.
   No commit, push, customer send or shared-project refresh.
+
+# Website customer logos and merged-change review
+
+Acceptance criteria, 9 October 2026:
+
+- Review merged PRs 2 and 3 against current source, CI and fresh tests; report guardrail
+  failures separately from content errors. Do not silently rewrite locked closing copy.
+- Copy exactly the nine founder-authorized Demo logos, byte-for-byte, from the website repo.
+  Record source commit, public paths, checksums and Seven's reuse approval in one asset index.
+- Make logos available to URL-only agents and use a static, uncropped logo group on the
+  prospect proof page. Keep the reporting template customer-first and page counts unchanged.
+- Customer information Seven explicitly stores for public sharing is usable named proof,
+  not a privacy blocker. Keep unapproved source records, contacts and credentials separate.
+- Test asset integrity, SVG safety and template image/alt coverage before implementation.
+  Check changed and closing pages in rendered PDFs and preserve readable links.
+- Website source stays read-only. Local sales branch only; no push, send or deployment.
+
+Progress:
+
+- [x] Verify PRs 2 and 3 merged; main CI succeeds at 8fecd01. Fresh baseline: 31 tests pass.
+- [x] Reproduce two validation gaps in an isolated source copy: fragment-based partner
+  allowlisting accepts an unrelated endorsement claim; raw-HTML copy tests accept approved
+  text hidden in comments. These are enforcement gaps, not evidence the current copy is wrong.
+- [x] Record failing logo tests: two missing-index errors and one missing-template-image
+  failure before implementation. Add exact assets, approval, retrieval and static print layout.
+- [x] Verify all nine source hashes against live public assets, with byte-for-byte matches.
+  Website checkout remains unchanged. All 34 tests, public safety/local links and whitespace
+  checks pass. Prospect/review renders remain 10/11 A4 pages. Inspect prospect proof page 7,
+  closing pages 8/9 and review closing pages 10/11; assets and film thumbnails are visible,
+  footer bounds remain within the page, and PDF link annotations survive.
+  The two merged validation gaps remain outstanding; no change to locked closing wording.
+  No commit, push, deployment, customer send or shared-project refresh.
+
+# LPQ three-year success story publication
+
+Acceptance criteria, 9 October 2026:
+
+- Read the supplied Intelligence route and its pinned source artifact; reconcile it with
+  the original LPQ evidence pack. Record source hash, measurement periods and retrieval date.
+- Publish approved, named aggregate proof in the existing LPQ card. Keep the transcript once.
+  Lead with discovery and measured actions, not reviews or modeled financial return.
+- Preserve annual denominators, brand-classification coverage, missing Google months,
+  menu-reporting changes and the negative same-store results. Label estimates as estimates.
+- Supersede older, differently scoped figures without silently deleting their history.
+  Do not publish raw records, credentials, contact details or invoices.
+- Add tests before the card update, including period reconciliation and misleading-copy
+  negative cases. Keep pending logo changes and unchanged template page counts.
+- Validate, independently review, push a PR and merge eligible green checks under Seven's
+  explicit publication instruction. Intelligence and website sources remain read-only.
+
+Progress:
+
+- [x] Fresh baseline: 34 tests pass. Intelligence source at e558d0a matches the local
+  artifact byte for byte and its recorded SHA-256. Live route returns the email-verification
+  gate; no authenticated live-story verification is claimed.
+- [x] Five new tests failed before the card update. The arithmetic check then detected the
+  omitted conversations; restore the ten from the saved E01 aggregate. Independent review
+  caught rounding in the ad formula; add a failing regression and replace the rounded share
+  with its exact fraction. Curated proof, source custody and retrieval updates are complete.
+- [x] Independent source/diff review has no remaining new blockers. All 40 tests, public
+  safety/local links and whitespace checks pass. Existing 10/11-page template renders and
+  unchanged logo layout remain verified. The two prior guardrail gaps remain documented.
+- [ ] Validate, review, push and merge the sales repository change set.

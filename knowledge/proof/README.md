@@ -4,9 +4,14 @@
 Each story is stored once. Link to its evidence card; do not copy figures into other playbooks.
 
 Use approved customer names, not anonymized descriptors, under Seven's 9 October 2026
-named-story approval. [LPQ's testimonial card](LE_PAIN_QUOTIDIEN.md) contains the full supplied
-transcript, strongest exact excerpts and PDF placement rules. Campos Coffee's existing
+named-story approval. [LPQ's results and testimonial card](LE_PAIN_QUOTIDIEN.md) contains
+the three-year measured results, matched comparisons, estimate boundaries, source provenance,
+full supplied transcript, strongest exact excerpts and PDF placement rules. Campos Coffee's existing
 [two-café card](SPECIALTY_COFFEE_TWO_CAFES.md) retains its filename and dated figures.
+
+The [customer logo index](../../assets/customer-logos/README.md) supplies nine approved Demo
+marks with provenance. Customer information Seven explicitly stores for public sharing is
+usable within its recorded scope; customer origin alone is not a privacy blocker.
 
 Name, metrics, quote and image permissions are separate. Approved anonymous metrics do not
 grant naming, photo or testimonial permission. Anonymisation alone is not permission to

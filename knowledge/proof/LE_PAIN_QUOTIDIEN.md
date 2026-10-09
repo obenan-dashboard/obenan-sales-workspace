@@ -1,8 +1,154 @@
-# Le Pain Quotidien: customer testimonial
+# Le Pain Quotidien: results and customer testimonial
 
 Named testimonial approved for public sales material. Seven confirmed Joost's approval and
 supplied the video and complete transcript on 9 October 2026. Approval scope and aggregate
-performance figures are in [the register](PUBLIC_PROOF_REGISTER.md); do not duplicate them here.
+performance approval is in [the register](PUBLIC_PROOF_REGISTER.md). This card is the single
+source of reusable LPQ figures and quotations. Seven approved extracting named aggregate
+proof from the Intelligence story on 9 October 2026.
+
+## Measured results: lead with discovery
+
+**Period: 1 September 2023 to 31 August 2026. Scope: 213 profiles across 20 countries.**
+These are historical results, retrieved 2026-09-25, not today's live footprint or performance.
+Year 1 is September 2023 to August 2024; year 2 is September 2024 to August 2025;
+year 3 is September 2025 to August 2026.
+
+| Metric | Year 1 | Year 2 | Year 3 | Three-year total |
+|---|---:|---:|---:|---:|
+| Google views | 50,954,148 | 55,042,169 | 83,909,205 | 189,905,522 |
+| Direction requests | 946,365 | 1,170,252 | 1,256,683 | 3,373,300 |
+| Website clicks | 456,716 | 501,208 | 438,721 | 1,396,645 |
+| Call clicks | 124,940 | 137,908 | 123,606 | 386,454 |
+| Menu clicks | 56,524 | 308,957 | 350,133 | 715,614 |
+| Booking actions | 165 | 246 | 326 | 737 |
+| Food-order actions | 10,714 | 1,936 | 425 | 13,075 |
+| Conversations | 10 | 0 | 0 | 10 |
+| Total actions | 1,595,434 | 2,120,507 | 2,169,894 | 5,885,835 |
+
+Source: E01, Google Business Profile performance data read through Obenan. Views are Search
+and Maps impressions, not unique guests. Actions are recorded directions, website and call
+clicks, menu clicks, booking actions, food-order actions and conversations, not confirmed
+visits, completed orders or attributable revenue. Counts can include repeated actions by the same person.
+Say **website clicks**, not verified website sessions; say **call clicks**, not completed calls.
+Food orders fell sharply and are reported as zero from November 2025 onward; do not pitch
+this series as order growth or evidence of an agentic transaction integration.
+
+### Discovery, with the classification checked
+
+E03 records **116,551,232 searches**, of which **93,541,653 (80.3%)** carry Google's Discovery
+label. Reclassifying **659,649** brand-like searches in the **top 50 keywords**, including LPQ
+and multilingual brand variants, gives **79.7%**. This is not a full-query audit: unexamined
+brand variants can remain in the provider label. The share is account-wide, not country-specific,
+and it is **not the share of actions** attributable to discovery.
+
+In a short pitch, use “roughly four in five searches carried Google's Discovery label,
+with a top-keyword brand correction giving a similar share.” Do not say exactly four in five
+guests were new customers or that all those actions came from people who did not know LPQ.
+
+### Growth: matched profiles, not an expanding network
+
+E02 compares **175 same-store profiles** present in all three contract years. Use year 2
+against year 3, not year 1, because **April and May 2024** have incomplete Google data.
+
+| Metric | Sep 2024 to Aug 2025 | Sep 2025 to Aug 2026 | Rounded change |
+|---|---:|---:|---:|
+| Same-store Google views | 54,735,580 | 81,997,194 | +50% |
+| Same-store direction requests | 1,157,496 | 1,203,400 | +4% |
+| Same-store website and call clicks | 634,970 | 538,308 | -15% |
+| Same-store total actions | 2,101,822 | 2,082,318 | -1% |
+
+**Website and call clicks fell**, and total actions did not grow on this matched cohort.
+Do not attribute that decline to Google answering questions directly: that explanation in
+the source is an interpretation, not tested evidence. A comparative slide must show these
+declines alongside the increases. These are observed changes, not causal attribution.
+
+E14 uses a different comparison: each restaurant's own 12 months before its Obenan start
+against its first year after, per restaurant per month. Across **160 restaurants**, reported
+actions rose **26.4%**, but Google started reporting menu views in mid-2024. Excluding menu
+views gives **9.2%**; use that coverage-comparable figure by default, and always pair the two
+if showing the broader increase. Views rose **7.5%**. The second-year subset is
+**125 restaurants**: actions **+20.9%**, or **+0.9%** without menu views; views **+10.6%**.
+Months with known gaps, January to May 2023 and April to May 2024, are excluded. Start dates
+use the recorded location creation month as a proxy. Neither comparison is a controlled
+experiment. Do not combine this before/after cohort with the fixed-year same-store figures.
+
+### Recurring work delivered
+
+| Metric | Year 1 | Year 2 | Year 3 | Three-year total |
+|---|---:|---:|---:|---:|
+| Automatic review replies | 14,818 | 20,725 | 31,909 | 67,452 |
+| Profile post publications | Not recorded | 49,043 | 79,053 | 128,096 |
+| Reports delivered | 1,135 | 14,517 | 13,077 | 28,729 |
+
+E07 records work events, not unique creative assets: one post can publish to many profiles.
+Year 1 publication counts are unavailable, not zero. E13's separate review analysis reports
+reply coverage of **56.14%**, **77.76%** and **88.34%** across the three years. Do not divide
+these percentages into the automatic-reply table: the MCP review sample and SQL work-event
+counts are different sources. Reviews support efficiency; discovery remains the hook.
+
+## Estimates: optional supporting proof, never the headline result
+
+- **Task-time equivalent: approximately 7,902 hours**, E08. Automatic replies at 3 minutes,
+  profile publications at 1 minute and delivered reports at 5 minutes each. These are editable
+  assumptions, not measured labor savings. At an assumed EUR 35/hour the modeled labor value
+  is EUR 276,557; 1,720 hours per full-time year gives about 1.5 FTE-equivalent per year.
+  This is not evidence of jobs removed or work LPQ would otherwise have performed manually.
+  Listing pushes and manual work are not counted.
+- **Advertising-cost equivalent: EUR 8,721,088**, E06, using total recorded actions ×
+  provider discovery share (93,541,653 / 116,551,232) × USD 2.05 per click ÷ 1.1104 USD/EUR.
+  Use the unrounded fraction, not a rounded displayed percentage. The 2026 LocaliQ
+  Restaurants and Food CPC is US-centric. This assumes search share applies to actions and
+  treats each action as a paid click; neither equivalence is established by attribution data.
+  It is not actual ad spend, not incremental revenue and not evidence ads would deliver the
+  same result. Show the **EUR 941,991** local-keyword CPC alternative alongside it. That
+  alternative imputes the lowest measured CPC for countries without a pull, so it is
+  not a guaranteed lower bound. Never present either estimate as measured savings.
+- **Modeled value-to-fee ratio: 31.8×**, E10, rounded to 32× in the source. The alternative
+  local-CPC scenario is **4.3×**. This combines the ad-cost and assumed labor values and
+  divides by historical paid fees. The fee period includes prepayments outside the performance
+  window. It is not financial ROI, realized profit or “EUR 32 earned for every EUR 1.”
+  Default prospect material should use measured outcomes instead. No invoices or billing
+  records are reproduced in this public card.
+
+## How agents should use this story
+
+For a prospect, choose one relevant measured result from the table, with the three-year
+period and international scope. Lead with discovery or direction requests, then Joost's
+technology quote below. Use rounded figures for readability and retain the exact numbers
+here. Do not overload an outreach email with the whole table.
+
+For scale, say “LPQ's Google profiles recorded [rounded total actions] across [profile count]
+in [period] while Obenan managed them,” filling the brackets only from this card. For growth,
+include the matched cohort and its contrary results. For efficiency, distinguish delivered
+events from estimated effort. AI visibility and agentic transactions are not measured by
+these Google results; the source's future-stage illustration is not delivered LPQ work.
+
+Do not copy LPQ figures into another customer's results review. Read the approval register
+before using a logo or photo; data permission alone does not license imagery.
+
+## Evidence custody and older figures
+
+- [Intelligence story](https://intelligence.obenan.ai/le-pain-quotidien/): live route checked
+  9 October 2026; unauthenticated readers see an email-verification gate. Do not call the
+  underlying report publicly accessible or send a verification request without authority.
+- Source repository: [pinned provenance](https://github.com/obenan-dashboard/intelligence/blob/e558d0a767c3460469c6772c1899d0e68ea1800d/docs/evidence/le-pain-quotidien/PROVENANCE.md)
+  and [pinned artifact](https://github.com/obenan-dashboard/intelligence/blob/e558d0a767c3460469c6772c1899d0e68ea1800d/src/assets/prospect-access/le-pain-quotidien/value-story.html).
+  Authenticated source retrieval on 9 October matched the original local HTML byte for byte.
+  Artifact SHA-256: `dfd47e0a224308e297bfb7e3a0dc4ad456e49dd87522bc414d42db848e820b20`.
+- Original operator evidence pack: `prospects/lpq/success-story-2026/`, built 2026-09-25 in
+  the private sales workspace. `data.json` and `EVIDENCE.md` provide E01 to E14, source methods
+  and limitations. Source-system pulls have not been rerun on 9 October. Raw exports,
+  account identifiers, contacts, invoices and operational source documents stay private.
+- The artifact's summary table omits conversations from its component fields. E01's saved
+  raw aggregate includes them; this extract restores that component so actions reconcile.
+- This is an approved public extract, not a copy or public release of the gated report.
+- **Older proof, historical, differently scoped:** July 2026 dashboard summary recorded
+  approximately 6.2 million views, 178,000 direction requests, 106,000 website visits,
+  3.43 million searches and 71% raw Discovery over an approximate three-year international
+  window. Exact coverage is not reconciled to this full-portfolio pack. Retained for history,
+  superseded for default pitch use. Do not mix, sum or present it as contradictory growth.
+
+## Customer testimonial
 
 Speaker: **Joost Vastenavondt, CMO, Le Pain Quotidien (at the time of recording)**.
 Recording date: not supplied. Source reviewed: 9 October 2026.

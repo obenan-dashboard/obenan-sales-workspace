@@ -59,6 +59,19 @@ Last updated: 2026-10-09.
 
 ## Carried with a caveat
 
+- **Customer logo change set.** Nine Demo marks copied unchanged, with provenance
+  and reuse approval in `assets/customer-logos/README.md`. Prospect proof uses static layout;
+  existing-client reporting is unchanged. Explicitly founder-approved public customer data
+  is reusable proof. Included in the LPQ publication change set; no customer send.
+- **LPQ three-year proof.** The existing card now holds measured aggregate results, cohort
+  comparisons and labeled estimates from the pinned Intelligence source. Older figures are
+  historical only. Source-system data was pulled on 25 September, not refreshed on 9 October.
+  The live story remains gated; this release publishes only an approved sales-proof extract,
+  not the underlying report. Intelligence and website repositories are unchanged.
+- **Merged-change review.** PRs 2 and 3 merged, main CI green at 8fecd01. Two enforcement gaps
+  remain: partner scope accepts arbitrary lines with allowed fragments; locked-copy tests
+  accept wording held only in comments. Neither is repaired in the logo change set.
+
 - **Two voices live side by side.** `HOUSE_VOICE.md` is Obenan's. The Wolfgang files are a
   personal and German SME module. Pick one per deliverable. This is a convention, not a guard.
 - **Product UI coverage is intentionally bounded.** The public repository contains a

@@ -57,11 +57,14 @@ file is not named in your router row, you do not need it yet.
 
 ## Privacy
 
-- Never add private customer data, contact lists, account identifiers, CRM records, internal
-  metrics or security findings to this repository.
-- Curated aggregate proof may be added only with explicit operator approval recorded in
-  `knowledge/proof/PUBLIC_PROOF_REGISTER.md`. Name, metrics, quote and image approvals are
-  independent. Raw customer records never enter this public repo.
+- Customer information Seven deliberately supplies or stores for public sharing may be used
+  as named proof. Record the exact approved claims, sources and assets in
+  `knowledge/proof/PUBLIC_PROOF_REGISTER.md`; do not anonymize or block approved proof merely
+  because it is customer data.
+- Keep unapproved private records, contact lists, account identifiers, billing details and
+  security findings out of this repository. Public-sharing approval is scoped, not permission
+  to upload everything reachable through a customer account. Name, metrics, quote and image
+  approvals remain separate unless the operator explicitly approves them together.
 - A requested draft may use the prospect and recipient names supplied by the operator. Do not
   copy reviewer names, unrelated staff names, private emails, phone numbers or named review
   text from source systems. Use counts and themes.
@@ -75,3 +78,5 @@ file is not named in your router row, you do not need it yet.
   document.
 - Logo authority is still an open design decision (see `STATUS.md`). Until it closes, use the
   canonical marks exactly as supplied.
+- Approved customer logos are indexed in `assets/customer-logos/README.md`. Use exact local
+  assets and a static, uncropped layout for PDFs, not a print-clipped carousel.
