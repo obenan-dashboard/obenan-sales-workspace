@@ -17,7 +17,7 @@ performance data.
 | Status | `APPROVED` |
 | Approved use | Name Le Pain Quotidien as an Obenan customer; use the measured aggregate results and explicitly labeled estimates in the linked card; quote/link the public testimonial within its scope. |
 | Name / metrics / transcript quotes status | `APPROVED` |
-| Logo / image status | `PENDING`; this approval does not license video stills or customer imagery. |
+| Logo / image status | Interview still: `APPROVED` only as the linked video preview in `assets/video-previews/` (Seven, 9 October 2026). Logo, other stills and customer imagery: `PENDING`. |
 | Public source | https://www.youtube.com/watch?v=vxrYXjTXJp4 |
 | Testimonial source and PDF selection | [Transcript and ranked exact excerpts](LE_PAIN_QUOTIDIEN.md). Lead with Joost's technology quote in prospect proof pages. |
 | Performance source | Three-year Intelligence artifact, built 2026-09-25 and checked at pinned source on 2026-10-09; provenance and limitations in [the card](LE_PAIN_QUOTIDIEN.md). Underlying report remains email-gated. |

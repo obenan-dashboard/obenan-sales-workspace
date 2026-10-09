@@ -26,6 +26,10 @@ roster destinations only; they are not partner, endorsement or coverage marks. T
 channel map is `assets/components/channel-network.png`, with `channel-network-mobile.png` for
 narrow layouts. Use it whole, as the website shows it.
 
+Video previews are in the [video preview index](../../assets/video-previews/README.md): an
+approved still with the play icon on it, plus a QR code. Show a video as its preview, never as
+a text-only panel.
+
 - Use the supplied SVG files. Never redraw, recolor, stretch or approximate the mark.
 - Keep clear space around the logo and preserve its aspect ratio.
 - Use the wave mark as an identity signature, not as a decorative pattern repeated throughout

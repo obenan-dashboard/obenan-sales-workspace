@@ -69,7 +69,7 @@ Advertising equivalents, assumed hours and value-to-fee ratios are estimates, no
 or measured ROI. Do not revive the older export or copy a figure into this playbook.
 
 For a prospect proof page, use the strongest exact LPQ testimonial from
-`../proof/LE_PAIN_QUOTIDIEN.md`, with Joost's attribution and the timestamped video link.
+`../proof/LE_PAIN_QUOTIDIEN.md`, with Joost's attribution and the card's video preview.
 The card ranks excerpts by buyer concern and separates observations from ambitions.
 Do not weaken the lead quote into generic praise or present his opinion as a tested market fact.
 

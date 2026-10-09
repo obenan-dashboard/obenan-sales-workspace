@@ -115,3 +115,29 @@ Progress:
   [PR 4](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/4) for Seven-authorized
   publication. Its exact-head checks and merged state are recorded in GitHub; these
   preparatory records do not claim a website deployment or customer send.
+
+# LPQ video preview
+
+Acceptance criteria, 9 October 2026:
+
+- Every surface shows Joost's interview as a preview: Seven's approved still with a play
+  icon, the whole image linked to the 2:24 moment. Never a text-only panel or placeholder.
+- Keep the QR code idea from the other agent's rendering: "Scan to watch" beside the
+  preview, plus the printed URL, for readers on paper. The QR never replaces the preview.
+- Store one canonical still with the icon baked in and one QR SVG, with checksums, source
+  and the decoded destination. Record the narrow still approval in the proof register.
+- Bind the rule in the LPQ card, entry point and asset library; the prospect deck carries
+  the block for agents to copy. Tests fail before implementation.
+- Validate tests, public safety, links and the rendered A4 page; PR and merge under Seven's
+  instruction to ship it to the repo.
+
+Progress:
+
+- [x] Three new tests failed before implementation (1 failure, 2 errors).
+- [x] Still cropped to 16:9 at 1600 x 900 with the deck's play-icon geometry; QR generated
+  as SVG and decoded back to the 2:24 URL.
+- [x] Validate: 51 tests pass; public safety, local links, whitespace and dash scans pass.
+  Prospect deck stays ten A4 pages; page 7 inspected: still, centred icon and QR visible,
+  QR decoded from the rendered page, and the PDF link annotation opens 2:24.
+- [x] Submit [PR 6](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/6) and merge
+  on a green validate check, under Seven's instruction to ship the rule to the repo.
