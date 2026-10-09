@@ -139,4 +139,5 @@ Progress:
 - [x] Validate: 51 tests pass; public safety, local links, whitespace and dash scans pass.
   Prospect deck stays ten A4 pages; page 7 inspected: still, centred icon and QR visible,
   QR decoded from the rendered page, and the PDF link annotation opens 2:24.
-- [ ] PR and merge.
+- [x] Submit [PR 6](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/6) and merge
+  on a green validate check, under Seven's instruction to ship the rule to the repo.
