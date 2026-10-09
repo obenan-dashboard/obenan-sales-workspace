@@ -84,5 +84,8 @@ explicitly stores for public sharing is usable proof within its recorded scope.
 | `reference/product-ui/` | sales-safe overview of product surfaces and boundaries | only when the task is about the product's screens |
 | `assets/logos/` | canonical Obenan logos, SVG; legacy marks under `legacy/` | whenever a document carries the logo |
 | `assets/guidelines/` | brand guideline PDFs | when checking logo or wave usage |
+| `reference/directories/` | the 104-destination directory roster, A to Z with logos and live links, plus JSON | when directory coverage is named or shown |
+| `assets/directory-logos/` | one mark per roster destination, with provenance and checksums | when a document shows directory or platform marks |
+| `assets/components/` | rendered components: the homepage channel map and the What comes next card | when a deck shows channels or closes |
 | `templates/` | A4 sales deck, eleven-page results review, evidence methods and proposal procedure | per row |
 | `examples/` | one anonymized finished brief, as the standard to hit | when calibrating quality |

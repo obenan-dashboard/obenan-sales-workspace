@@ -13,15 +13,13 @@ Public sources reviewed 2026-10-06:
 
 ## Coverage
 
-The public destination roster states:
+The public [Directories and platforms](https://www.obenan.ai/directories-and-platforms/) roster,
+checked 9 October 2026, lists 104 destinations. 90 are sent by interface and 14 by export; 4 are marked inactive in the
+roster. The A to Z list, with every logo and a link to its live roster letter, is mirrored in
+[`DIRECTORY_ROSTER.md`](../../reference/directories/DIRECTORY_ROSTER.md).
 
-- 104 integrated directories and platforms
-- 100 currently updating
-- 90 API connections and 14 export-based workflows
-- 29 review surfaces
-- 18 reply-capable surfaces
-- 4 question-capable surfaces
-- 2 post-capable surfaces
+The website no longer publishes per-platform review, reply, question or post counts. Do not
+quote them.
 
 Capability varies by destination and field. Never imply that every destination supports every
 field, review, reply, question or post workflow. When exact coverage matters, link to the live

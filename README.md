@@ -28,9 +28,10 @@ Then one row from `knowledge/TASK_ROUTER.md`. Not the whole table.
 ## What is in here
 
 Product truth and claim boundaries, sales craft, voice, the four engagement modes, the MCP
-evidence runbook, the public document design system, a sales-safe product UI overview, the canonical logos and
-brand guidelines, an A4 deck skeleton and the proposal engine. Everything a sales agent needs
-to produce a finished, on-brand deliverable.
+evidence runbook, the public document design system, a sales-safe product UI overview, the
+canonical logos and brand guidelines, the 104-destination directory roster with every
+directory logo and the homepage channel map, an A4 deck skeleton and the proposal engine.
+Everything a sales agent needs to produce a finished, on-brand deliverable.
 
 ## What is not here
 
