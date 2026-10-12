@@ -141,3 +141,38 @@ Progress:
   QR decoded from the rendered page, and the PDF link annotation opens 2:24.
 - [x] Submit [PR 6](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/6) and merge
   on a green validate check, under Seven's instruction to ship the rule to the repo.
+
+# Frisby Colombia success story
+
+Acceptance criteria, 12 October 2026:
+
+- AC-FRISBY-1: Store one named proof card for 213 Colombian locations, comparing April to
+  September 2026 with October 2025 to March 2026. Preserve all supplied table values.
+- AC-FRISBY-2: Reconcile impressions, interaction components, absolute increases, rounded
+  growth and the interactions-per-impression ratio against the supplied screenshot.
+- AC-FRISBY-3: Lead with Google visibility and measured actions. Call clicks are not
+  completed calls; direction requests are not verified visits. Do not claim causality,
+  unique guests, revenue, nonbrand discovery or a year-on-year comparison.
+- AC-FRISBY-4: Preserve the supplied aggregate screenshot unchanged with its checksum.
+  Separate screenshot-backed figures from the colleague-reported mobile breakdown and
+  location count. Source-system refresh, activation date and same-store coverage are unknown.
+- AC-FRISBY-5: Record Seven's public name/metrics/source-image approval, asset boundaries,
+  measurement window and review date. Link the canonical story from the proof index and
+  agent entry point. No duplicate metrics in playbooks or private handoffs.
+- AC-FRISBY-6: Preserve prior stories and templates; pass all tests, public-safety/local-link
+  validation and diff checks. Independently review, push a PR and merge green checks under
+  Seven's instruction. Log a pointer in the private sales-harness without committing its
+  unrelated changes. No customer send, website deployment or customer-account mutation.
+
+Progress:
+
+- [x] Read approval and source; existing baseline: 51 tests pass.
+- [x] Record new failing regression tests before adding the story: seven missing-card errors.
+- [x] Add the canonical card, source screenshot, approvals and retrieval links.
+- [x] Verify arithmetic, source integrity, scope, compatibility and public safety: 58 tests
+  pass; public-safety/local-link validation and diff whitespace pass. Independent evidence
+  and public-safety reviews approve the change. Requirements review found that a corrupted
+  ratio row escaped the tests; add the missing assertion against the stored row. Manual
+  AC-to-test mapping is in test names; the shared spec helper does not parse this task format.
+  All three independent reviews now approve; missing and corrupted ratio rows fail validation.
+- [ ] Independently review, push PR and merge eligible green checks; log private pointer.

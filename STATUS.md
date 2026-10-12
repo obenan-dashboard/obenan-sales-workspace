@@ -2,7 +2,7 @@
 
 What in this repository is settled, what is carried with a caveat, and what is open.
 
-Last updated: 2026-10-09.
+Last updated: 2026-10-12.
 
 ## Settled
 
@@ -58,6 +58,12 @@ Last updated: 2026-10-09.
   unapproved imagery remain private. Reviewed and approved on 9 October; no customer send.
 
 ## Carried with a caveat
+
+- **Frisby Colombia proof.** Seven supplied and approved named aggregate results on
+  12 October. One card stores the six-month Google comparison and approved table screenshot.
+  Figures reconcile; source-system data, same-store coverage and activation date are not
+  independently verified. Mobile detail is colleague-reported. Clicks are not completed
+  calls or visits. See [the card](knowledge/proof/FRISBY_COLOMBIA.md).
 
 - **Customer logo change set.** Nine Demo marks copied unchanged, with provenance
   and reuse approval in `assets/customer-logos/README.md`. Prospect proof uses static layout;

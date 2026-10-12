@@ -8,6 +8,8 @@ named-story approval. [LPQ's results and testimonial card](LE_PAIN_QUOTIDIEN.md)
 the three-year measured results, matched comparisons, estimate boundaries, source provenance,
 full supplied transcript, strongest exact excerpts and PDF placement rules. Campos Coffee's existing
 [two-café card](SPECIALTY_COFFEE_TWO_CAFES.md) retains its filename and dated figures.
+[Frisby's Colombia card](FRISBY_COLOMBIA.md) supplies six-month Google results across 213
+locations, with the approved source screenshot, reconciled totals and consecutive-period limits.
 
 The [customer logo index](../../assets/customer-logos/README.md) supplies nine approved Demo
 marks with provenance. Customer information Seven explicitly stores for public sharing is
