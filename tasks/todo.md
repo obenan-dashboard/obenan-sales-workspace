@@ -175,4 +175,6 @@ Progress:
   ratio row escaped the tests; add the missing assertion against the stored row. Manual
   AC-to-test mapping is in test names; the shared spec helper does not parse this task format.
   All three independent reviews now approve; missing and corrupted ratio rows fail validation.
-- [ ] Independently review, push PR and merge eligible green checks; log private pointer.
+- [x] Independently review, push [PR 7](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/7)
+  and log the private pointer. Seven authorized merge after exact-head CI passes. GitHub
+  is the authority for the final merge state; this preparation record does not assert it.
