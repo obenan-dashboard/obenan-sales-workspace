@@ -67,6 +67,11 @@ results: choose discovery/actions before review automation, keep dates and scope
 present ad equivalents or assumed effort as financial outcomes. Do not replace a customer's
 own results with LPQ proof.
 
+For multi-location restaurant proof in Colombia, retrieve
+[Frisby's six-month Google results](knowledge/proof/FRISBY_COLOMBIA.md). Keep Google scope,
+the consecutive-period comparison and action definitions; do not describe clicks as completed
+calls or visits, or infer nonbrand discovery, AI visibility or causal revenue.
+
 For customer logo proof, retrieve `assets/customer-logos/README.md`. Its nine website marks
 are approved for reuse, with source provenance and static PDF guidance. Information Seven
 explicitly stores for public sharing is usable proof within its recorded scope.

@@ -44,6 +44,24 @@ performance data.
 | Review date | 2027-01-09 |
 | Prohibited | Customer images/quotes without separate approval; raw exports, account identifiers, correspondence or billing; presenting schedules, estimated savings or rule-based automation as measured outcomes |
 
+### Frisby
+
+| Field | Approved value |
+|---|---|
+| Status | `APPROVED` |
+| Name / metrics status | `APPROVED` for named public aggregate storage and pitch reuse |
+| Source screenshot status | `APPROVED` for the supplied aggregate metric-table image linked in the card only |
+| Logo / testimonial quotes / other photos | `PENDING`; no such assets were supplied or approved |
+| Approved use and claims | [Frisby Colombia evidence card](FRISBY_COLOMBIA.md), the single source of figures and reusable wording |
+| Source / public source URL | Operator-supplied screenshot and colleague summary, 2026-10-12. No public underlying dashboard/export URL supplied; the approved screenshot is linked in the card. |
+| Measurement window | October 2025 to March 2026 compared with April to September 2026 |
+| Geography and scope | 213 locations in Colombia, operator-supplied scope; stable same-store coverage unverified |
+| Material limitations | Consecutive six-month periods, not year-on-year; views/actions are not unique guests, completed calls, visits, revenue or causal attribution. Mobile breakdown is colleague-reported, not screenshot-backed. No live source-system refresh. |
+| Prohibited details | Raw account exports, identifiers, contacts, correspondence, contracts and billing; unsupported onboarding, nonbrand, AI-visibility or causal revenue claims |
+| Approved by | Seven, direct instruction to share the supplied named success story publicly and push it to main. Operator authority, not independently checked customer consent. |
+| Approval recorded | 2026-10-12 |
+| Review date | 2027-01-12 |
+
 ## Named-story policy
 
 Seven approved publishing named customer success stories on 9 October 2026. Do not anonymize
