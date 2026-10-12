@@ -62,6 +62,24 @@ performance data.
 | Approval recorded | 2026-10-12 |
 | Review date | 2027-01-12 |
 
+### Urban Fork Group
+
+| Field | Approved value |
+|---|---|
+| Status | `APPROVED` |
+| Name / metrics status | `APPROVED` for named public aggregate storage and pitch reuse |
+| Source screenshot status | `APPROVED` for the supplied aggregate metric-table image linked in the card only |
+| Logo / testimonial quotes / other photos | `PENDING`; no such assets were supplied or approved |
+| Approved use and claims | [Urban Fork Group evidence card](URBAN_FORK_GROUP.md), the single source of figures and reusable wording |
+| Source / public source URL | Operator-supplied screenshot and colleague summary, 2026-10-12. No underlying public dashboard/export URL supplied; approved screenshot linked in the card. |
+| Measurement window | April to September 2025 compared with April to September 2026 |
+| Geography and scope | Geography not supplied; 12 restaurants stated in the summary, stable same-store coverage unverified |
+| Material limitations | Unresolved seven-action discrepancy in the 2025 interaction total; no independent source-system refresh. Bookings retain the source label, not verified fulfilled reservations. Views/actions are not unique guests, completed calls, visits, revenue or causal attribution. Action-to-impression ratio declined. |
+| Prohibited details | Raw account exports, identifiers, contacts, correspondence, contracts and billing; unsupported geography, onboarding, nonbrand, AI-visibility or causal revenue claims |
+| Approved by | Seven, direct instruction to publish after review disclosed the baseline discrepancy. Operator authority, not independently checked customer consent. |
+| Approval recorded | 2026-10-12 |
+| Review date | 2027-01-12 |
+
 ## Named-story policy
 
 Seven approved publishing named customer success stories on 9 October 2026. Do not anonymize
