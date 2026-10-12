@@ -142,6 +142,45 @@ Progress:
 - [x] Submit [PR 6](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/6) and merge
   on a green validate check, under Seven's instruction to ship the rule to the repo.
 
+# Urban Fork Group success story
+
+Acceptance criteria, 12 October 2026:
+
+- AC-URBAN-1: Publish one named card for the supplied 12-location Google portfolio,
+  comparing April to September 2025 with the same months in 2026. Preserve all table values.
+- AC-URBAN-2: Check rounded growth, absolute increases and impression totals. Preserve
+  the reported interaction total and disclose the unresolved seven-action baseline gap.
+- AC-URBAN-3: Lead with reported bookings and Maps visibility. Do not equate clicks with
+  completed calls, direction requests with visits, bookings with fulfilled reservations,
+  or growth with causal revenue. Do not imply action-to-impression efficiency improved.
+- AC-URBAN-4: Preserve the supplied aggregate screenshot unchanged with its checksum.
+  Separate summary-supplied location count from image-backed figures. Geography, activation
+  date, stable same-store coverage and source-system definitions are unverified.
+- AC-URBAN-5: Record Seven's publication approval and scoped asset permissions; link one
+  canonical card from the proof index and entry point. Keep other stories/templates intact.
+- AC-URBAN-6: Add failing tests first, verify the input/output and claim matrix, obtain
+  independent review, then push a PR and merge only after exact-head checks pass. No customer
+  send, customer-account write, website deployment or unrelated change.
+
+Progress:
+
+- [x] Confirm clean main at fa19425; baseline 58 tests pass. Seven authorized publication
+  after being informed of the baseline discrepancy. Publish with that limitation, not a
+  fabricated reconciliation.
+- [x] Write seven regression tests before implementation; first run failed with seven
+  missing-card errors. Add card/source/approval and retrieval links. Full suite now passes
+  65 tests; public-safety/local-link and whitespace checks pass. Missing or corrupted
+  booking rows cannot match the approved values. The source image checksum matches.
+  Requirements review caught that the opening still led with total impressions. Add a
+  failing first-sentence regression, then lead with reported bookings and Maps impressions.
+- [x] Run all checks and independent review. All 65 tests, public-safety/local-link and
+  whitespace checks pass. Evidence, public-safety and requirements reviews approve the
+  documentary change. Nine adverse artifact/source mutations were rejected in review.
+- [x] Prepare the validated change set for Seven-authorized publication through a PR.
+  Merge requires green exact-head checks; GitHub is the authority for final release state,
+  not this preparatory record. AC-to-test coverage was mapped manually; the shared helper
+  checks zero criteria in this task-file format and is not traceability proof.
+
 # Frisby Colombia success story
 
 Acceptance criteria, 12 October 2026:

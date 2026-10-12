@@ -10,6 +10,9 @@ full supplied transcript, strongest exact excerpts and PDF placement rules. Camp
 [two-café card](SPECIALTY_COFFEE_TWO_CAFES.md) retains its filename and dated figures.
 [Frisby's Colombia card](FRISBY_COLOMBIA.md) supplies six-month Google results across 213
 locations, with the approved source screenshot, reconciled totals and consecutive-period limits.
+[Urban Fork Group's card](URBAN_FORK_GROUP.md) supplies same-months year-on-year Google
+results across 12 restaurants, led by reported bookings and Maps visibility. Its seven-action
+baseline discrepancy and metric-definition limits remain explicit.
 
 The [customer logo index](../../assets/customer-logos/README.md) supplies nine approved Demo
 marks with provenance. Customer information Seven explicitly stores for public sharing is

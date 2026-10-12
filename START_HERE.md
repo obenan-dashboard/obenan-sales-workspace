@@ -72,6 +72,11 @@ For multi-location restaurant proof in Colombia, retrieve
 the consecutive-period comparison and action definitions; do not describe clicks as completed
 calls or visits, or infer nonbrand discovery, AI visibility or causal revenue.
 
+For a 12-restaurant year-on-year comparison, retrieve
+[Urban Fork Group's Google results](knowledge/proof/URBAN_FORK_GROUP.md). Lead with reported
+bookings and Maps visibility; preserve the metric definitions and unresolved baseline gap.
+Do not claim improved conversion efficiency or infer a country.
+
 For customer logo proof, retrieve `assets/customer-logos/README.md`. Its nine website marks
 are approved for reuse, with source provenance and static PDF guidance. Information Seven
 explicitly stores for public sharing is usable proof within its recorded scope.

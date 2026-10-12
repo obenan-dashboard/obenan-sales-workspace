@@ -59,6 +59,12 @@ Last updated: 2026-10-12.
 
 ## Carried with a caveat
 
+- **Urban Fork Group proof.** Seven approved named publication on 12 October after review.
+  The same-months Google comparison preserves all supplied values and the unresolved
+  seven-action gap in the 2025 interaction total. Bookings retain the source label, not
+  verified fulfilled reservations. Geography, same-store coverage and source-system definitions
+  are unverified. The action-to-impression ratio declined. See [the card](knowledge/proof/URBAN_FORK_GROUP.md).
+
 - **Frisby Colombia proof.** Seven supplied and approved named aggregate results on
   12 October. One card stores the six-month Google comparison and approved table screenshot.
   Figures reconcile; source-system data, same-store coverage and activation date are not
