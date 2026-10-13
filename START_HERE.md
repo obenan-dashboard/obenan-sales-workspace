@@ -81,6 +81,11 @@ For customer logo proof, retrieve `assets/customer-logos/README.md`. Its nine we
 are approved for reuse, with source provenance and static PDF guidance. Information Seven
 explicitly stores for public sharing is usable proof within its recorded scope.
 
+For country-specific pitches, retrieve [the country account guide](knowledge/proof/CUSTOMER_COUNTRIES.md)
+and filter its canonical JSON by the requested country. Select relevant account references,
+not the entire roster. Country is a location market, not headquarters or whole-chain coverage.
+Names do not authorize new logos, metrics or quotes; use separately approved assets and cards.
+
 ## Map
 
 | Path | Holds | Load |

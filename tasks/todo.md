@@ -217,3 +217,33 @@ Progress:
 - [x] Independently review, push [PR 7](https://github.com/obenan-dashboard/obenan-sales-workspace/pull/7)
   and log the private pointer. Seven authorized merge after exact-head CI passes. GitHub
   is the authority for the final merge state; this preparation record does not assert it.
+
+# Country account index
+
+Acceptance criteria, 13 October 2026:
+
+- AC-COUNTRY-1: Publish one canonical JSON index with brand and country only. No account
+  identifiers, location counts, contacts, status fields, raw exports or query text.
+- AC-COUNTRY-2: Normalize country aliases and deduplicate brand-country pairs. Retain
+  accents and source account display names. Do not invent countries for missing values.
+- AC-COUNTRY-3: Country is the location market, not account headquarters or whole-chain
+  coverage. Preserve multiple countries per account. Exclude own/internal and unverified
+  personal labels; hold country conflicts privately.
+- AC-COUNTRY-4: Record Seven's explicit names-and-countries publication approval, dated
+  source, review date, asset limits and retrieval instructions for country-specific decks.
+- AC-COUNTRY-5: Preserve prior stories/templates, pass existing tests and public safety,
+  independently review the documentary change and publish through a green pull request.
+
+Progress:
+
+- [x] Inspect read-only SQL scope and receive the full 556-row CSV export.
+- [x] Record failing artifact checks before adding the index: four missing-file errors.
+- [x] Normalize and reconcile privately; add approved public extract and retrieval links.
+- [x] Verify source reconciliation and public scope: 70 tests, public-safety/local-link
+  validation and diff checks pass. Evidence, public-safety and requirements reviews approve.
+  Requirements review exposed missing corruption checks; canonical country validation and
+  a reviewed-snapshot pin now reject invented countries, held personal labels, private
+  fields, duplicates, aliases, email labels, missing rows and plausible wrong markets.
+- [x] Prepare the independently reviewed branch for publication. Seven authorized the
+  public index; merge only after exact-head CI passes. GitHub is the authority for final
+  publication; this preparation record does not assert a merge.
