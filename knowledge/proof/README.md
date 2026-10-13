@@ -3,6 +3,10 @@
 [PUBLIC_PROOF_REGISTER.md](PUBLIC_PROOF_REGISTER.md) is the approval authority.
 Each story is stored once. Link to its evidence card; do not copy figures into other playbooks.
 
+For country-specific pitches, [the country account index](CUSTOMER_COUNTRIES.md) supplies one
+canonical names-and-countries extract. It records location markets, not headquarters,
+whole-chain coverage or paid-customer status. Logo and performance permissions remain separate.
+
 Use approved customer names, not anonymized descriptors, under Seven's 9 October 2026
 named-story approval. [LPQ's results and testimonial card](LE_PAIN_QUOTIDIEN.md) contains
 the three-year measured results, matched comparisons, estimate boundaries, source provenance,

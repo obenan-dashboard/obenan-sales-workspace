@@ -80,6 +80,21 @@ performance data.
 | Approval recorded | 2026-10-12 |
 | Review date | 2027-01-12 |
 
+## Country account index
+
+| Field | Approved value |
+|---|---|
+| Status | `APPROVED` |
+| Name / country status | `APPROVED` for the exact pairs in [customer-countries.json](customer-countries.json) |
+| Approved use | Select dated, market-relevant account references for sales material. Only brand names and countries are published. |
+| Source | Complete operator-supplied read-only SQL export, checked 2026-10-13. Raw evidence remains private. |
+| Scope and limitations | [Country reference guide](CUSTOMER_COUNTRIES.md). Country is a location market, not headquarters. Account display names may represent portfolios or legal entities. No whole-chain, paid-customer, endorsement or historical metric-geography claim. |
+| Metrics / quotes / logos / images | Not authorized by this index. Existing separately approved cards and assets retain their own scope. |
+| Prohibited | Raw exports, identifiers, location counts, contacts, status fields, billing, underlying portfolio client names and query text. |
+| Approved by | Seven, direct answer: "Public obenan-sales-workspace, brand names and countries only". This records operator authority, not independently verified customer consent. |
+| Approval recorded | 2026-10-13 |
+| Review date | 2027-01-13 |
+
 ## Named-story policy
 
 Seven approved publishing named customer success stories on 9 October 2026. Do not anonymize

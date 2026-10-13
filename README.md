@@ -48,6 +48,10 @@ Approved public customer proof is governed separately in
 `knowledge/proof/PUBLIC_PROOF_REGISTER.md`. A customer name being approved does not approve
 internal metrics, account structure or private correspondence.
 
+For local-market references, use [the country account index](knowledge/proof/CUSTOMER_COUNTRIES.md).
+It publishes only approved names and countries from a dated snapshot. Filter by the requested
+market; existing logo and success-story approvals still apply separately.
+
 ## Existing-customer results review
 
 Ask your agent:

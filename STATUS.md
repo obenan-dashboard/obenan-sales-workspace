@@ -2,7 +2,7 @@
 
 What in this repository is settled, what is carried with a caveat, and what is open.
 
-Last updated: 2026-10-12.
+Last updated: 2026-10-13.
 
 ## Settled
 
@@ -58,6 +58,12 @@ Last updated: 2026-10-12.
   unapproved imagery remain private. Reviewed and approved on 9 October; no customer send.
 
 ## Carried with a caveat
+
+- **Country references.** Seven approved public names and countries only on 13 October.
+  [The country index](knowledge/proof/CUSTOMER_COUNTRIES.md) derives location markets from
+  a dated read-only export, normalizes aliases and holds unknown/conflicting rows privately.
+  It is not a billing audit, endorsement or whole-chain claim. Portfolio account names are
+  retained as labels; logos, quotes and metrics require their separate approvals.
 
 - **Urban Fork Group proof.** Seven approved named publication on 12 October after review.
   The same-months Google comparison preserves all supplied values and the unresolved
