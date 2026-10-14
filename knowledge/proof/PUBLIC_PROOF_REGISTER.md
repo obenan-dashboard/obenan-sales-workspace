@@ -122,6 +122,24 @@ record reachable from a customer account or disclosing contacts, credentials or 
 Approval covers only the indexed assets. Pending LPQ and Campos logo/photo permissions do
 not change because neither mark is in the supplied Demo set.
 
+## White-label screens
+
+### Findri white-label screens
+
+| Field | Value |
+|---|---|
+| Status | `PENDING` |
+| Name / logo / domain status | `PENDING`: showing Findri's logo and `agent.findri.nl` as an Obenan white-label example. The country index approves the Findri name and country only. |
+| Metrics / customer data status | Not authorized and not present. The underlying customer location, its metrics and a competitor name are masked. |
+| Assets | [White-label screen index](../../assets/white-label/README.md), six masked PNGs with checksums |
+| Approved use once `APPROVED` | Show the screens as interface examples when pitching white-label to agencies and resellers, with the limits in the product UI overview. |
+| Source | Captured by Ceren on the live instance on 2026-10-14, at Don's request for agency presentations. |
+| Material limitations | Interface illustration only. Not evidence of results, Findri's customers, location count or commercial terms. |
+| Prohibited | Unmasking or recreating masked content; citing any value from the screens; naming Findri's customers. |
+| Approved by | Pending Seven. Findri's own consent to being shown as running on Obenan is not recorded. |
+| Requested | 2026-10-14 |
+| Review date | Set on approval |
+
 ## Partner proof
 
 One partner reference is approved for reusable material: the locked agentic closing pair

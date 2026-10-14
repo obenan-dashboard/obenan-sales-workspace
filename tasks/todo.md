@@ -247,3 +247,29 @@ Progress:
 - [x] Prepare the independently reviewed branch for publication. Seven authorized the
   public index; merge only after exact-head CI passes. GitHub is the authority for final
   publication; this preparation record does not assert a merge.
+
+# White-label screens
+
+Acceptance criteria, 14 October 2026:
+
+- AC-WL-1: Store six captures of the live agency instance supplied by Ceren for Don's agency
+  presentations, with checksums and source in one index. No capture metadata.
+- AC-WL-2: Mask the underlying customer location (name, address, imagery, metrics, scores),
+  any competitor name, the operator's name and personal browser detail. Never name the
+  underlying customer in the repository.
+- AC-WL-3: Ceren chose to keep Findri's logo and domain visible. Record that publication as
+  `PENDING` Seven's approval; screens are not customer-facing until `APPROVED`.
+- AC-WL-4: State where Obenan stays visible (Google consent, Terms and Privacy Policy,
+  email) so agents never promise a fully invisible supplier. No implementation detail.
+- AC-WL-5: Link the index from the entry point and asset library. Preserve prior stories and
+  templates; pass tests, public-safety/local-link validation and whitespace checks; open a PR
+  for Seven's review. No merge, send or customer-account change.
+
+Progress:
+
+- [x] Baseline: 70 tests pass at 6d879d2.
+- [x] Six new tests failed before implementation (4 failures, 8 errors).
+- [x] Mask, strip metadata and inspect all six images; add index, register entry, product
+  UI boundaries and retrieval links.
+- [x] Validate: 76 tests, public-safety/local-link validation and whitespace checks pass.
+  Open the PR for Seven's review; GitHub is the authority for merge state.

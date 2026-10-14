@@ -2,7 +2,7 @@
 
 What in this repository is settled, what is carried with a caveat, and what is open.
 
-Last updated: 2026-10-13.
+Last updated: 2026-10-14.
 
 ## Settled
 
@@ -58,6 +58,14 @@ Last updated: 2026-10-13.
   unapproved imagery remain private. Reviewed and approved on 9 October; no customer send.
 
 ## Carried with a caveat
+
+- **White-label screens.** Six masked captures of Findri's live white-label instance, added
+  on 14 October at Don's request for agency pitches. The underlying customer, its metrics, a
+  competitor name and the operator's browser detail are masked. Showing Findri's logo and
+  domain is `PENDING` Seven's approval in the [register](knowledge/proof/PUBLIC_PROOF_REGISTER.md);
+  until then the screens are internal reference. Findri's own consent is not recorded. The
+  product UI overview now states where Obenan stays visible: Google consent, Terms and
+  Privacy Policy, and email.
 
 - **Country references.** Seven approved public names and countries only on 13 October.
   [The country index](knowledge/proof/CUSTOMER_COUNTRIES.md) derives location markets from

@@ -17,6 +17,30 @@ security audit or guarantee that every capability is enabled for every customer.
 | Account administration | Organize permitted users, roles, locations and groups. | Do not disclose another customer's account structure or access model. |
 | AI assistant access | Query permitted portfolio information through compatible governed workflows. | Access depends on authentication, permissions, connected data and approval controls. |
 
+## White-label
+
+Agencies and resellers can run the dashboard under their own brand. Masked screens from a live
+agency instance, with their approval status, are in
+[the white-label screen index](../../assets/white-label/README.md).
+
+| What the agency's customers see | Claim boundary |
+|---|---|
+| The agency's own subdomain, logo, favicon and browser-tab name | Set up per agency at go-live. The agency must be able to manage DNS for its domain. |
+| The agency's brand color | In the captured instance it shows on the logo and the active navigation. Product-wide styling, such as gradient headings and score bars, stays the same. Check the live instance before promising a specific recolored element. |
+| The same product, functions and data | White-label changes presentation, not capability. |
+
+Obenan stays visible in three places. Say so before the agency asks:
+
+- **Google connection.** Google's own consent screen names Obenan, because the connection runs
+  through Obenan's registered Google app. Google requires this; it cannot be rebranded.
+- **Terms and Privacy Policy.** The dashboard shows Obenan's own Terms and Privacy Policy, not
+  the agency's. This follows Google's user-data policy and Obenan's legal review.
+- **Email.** As of October 2026, password resets and notifications are sent by Obenan, not the
+  agency. Branded email is not available; do not promise a date.
+
+Never tell an agency its customers will never know Obenan is behind the dashboard. Say the
+dashboard carries the agency's brand, then name the three exceptions.
+
 ## How to use this file
 
 - Use this overview to explain the product in plain language.
