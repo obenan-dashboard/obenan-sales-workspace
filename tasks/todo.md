@@ -273,3 +273,5 @@ Progress:
   UI boundaries and retrieval links.
 - [x] Validate: 76 tests, public-safety/local-link validation and whitespace checks pass.
   Open the PR for Seven's review; GitHub is the authority for merge state.
+- [x] Seven's instruction to merge, relayed by Ceren on 14 October, recorded as approval in
+  the register (`APPROVED`, review 2027-01-14). Merge on a green exact-head check.

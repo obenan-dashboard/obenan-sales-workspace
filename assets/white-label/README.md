@@ -4,9 +4,10 @@ Six screens from a live agency white-label instance: Findri, on its own subdomai
 `agent.findri.nl`. They show what an agency's customer sees: the agency's logo, color and web
 address on the Obenan dashboard. Use them to explain white-label to agencies and resellers.
 
-**Status: pending.** Showing Findri's logo and domain publicly needs approval in the
-[public proof register](../../knowledge/proof/PUBLIC_PROOF_REGISTER.md). Until its entry reads
-`APPROVED`, these files are internal reference only and do not go into customer-facing material.
+**Status: approved.** Seven approved showing Findri's logo and domain in these six screens on
+14 October 2026; scope and review date are in the
+[public proof register](../../knowledge/proof/PUBLIC_PROOF_REGISTER.md). If the entry no longer
+reads `APPROVED`, these files are internal reference only and stay out of customer-facing material.
 
 | File | Screen | SHA-256 |
 |---|---|---|
@@ -37,6 +38,6 @@ was stripped.
   the limits in [the White-label section of the product UI overview](../../reference/product-ui/PRODUCT_UI_OVERVIEW.md#white-label).
 - Do not unmask, recreate or overlay figures, and do not cite any value from these screens.
   They illustrate the interface, not results.
-- Naming Findri as a white-label example requires the register entry to be `APPROVED`. Do not
-  infer Findri's customers, location count or commercial terms from these screens.
+- Naming Findri as a white-label example is approved for these screens only. Do not infer
+  Findri's customers, location count or commercial terms from them.
 - Withdrawals update this index, the register and `tests/test_white_label.py` together.

@@ -128,17 +128,17 @@ not change because neither mark is in the supplied Demo set.
 
 | Field | Value |
 |---|---|
-| Status | `PENDING` |
-| Name / logo / domain status | `PENDING`: showing Findri's logo and `agent.findri.nl` as an Obenan white-label example. The country index approves the Findri name and country only. |
+| Status | `APPROVED` |
+| Name / logo / domain status | `APPROVED` for showing Findri's logo and `agent.findri.nl` as an Obenan white-label example, in these six screens only. Other Findri marks remain unapproved. |
 | Metrics / customer data status | Not authorized and not present. The underlying customer location, its metrics and a competitor name are masked. |
 | Assets | [White-label screen index](../../assets/white-label/README.md), six masked PNGs with checksums |
-| Approved use once `APPROVED` | Show the screens as interface examples when pitching white-label to agencies and resellers, with the limits in the product UI overview. |
+| Approved use | Show the screens as interface examples when pitching white-label to agencies and resellers, with the limits in the product UI overview. |
 | Source | Captured by Ceren on the live instance on 2026-10-14, at Don's request for agency presentations. |
 | Material limitations | Interface illustration only. Not evidence of results, Findri's customers, location count or commercial terms. |
 | Prohibited | Unmasking or recreating masked content; citing any value from the screens; naming Findri's customers. |
-| Approved by | Pending Seven. Findri's own consent to being shown as running on Obenan is not recorded. |
-| Requested | 2026-10-14 |
-| Review date | Set on approval |
+| Approved by | Seven, instruction to merge relayed by Ceren on 2026-10-14. This records operator authority; Findri's own consent to being shown as running on Obenan is not recorded. |
+| Approval recorded | 2026-10-14 |
+| Review date | 2027-01-14 |
 
 ## Partner proof
 

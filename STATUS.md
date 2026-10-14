@@ -61,9 +61,9 @@ Last updated: 2026-10-14.
 
 - **White-label screens.** Six masked captures of Findri's live white-label instance, added
   on 14 October at Don's request for agency pitches. The underlying customer, its metrics, a
-  competitor name and the operator's browser detail are masked. Showing Findri's logo and
-  domain is `PENDING` Seven's approval in the [register](knowledge/proof/PUBLIC_PROOF_REGISTER.md);
-  until then the screens are internal reference. Findri's own consent is not recorded. The
+  competitor name and the operator's browser detail are masked. Seven approved showing
+  Findri's logo and domain in these screens on 14 October, relayed by Ceren; scope is in the
+  [register](knowledge/proof/PUBLIC_PROOF_REGISTER.md). Findri's own consent is not recorded. The
   product UI overview now states where Obenan stays visible: Google consent, Terms and
   Privacy Policy, and email.
 
