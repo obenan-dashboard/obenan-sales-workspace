@@ -34,6 +34,8 @@ STOP) and the hard stops are in `../AGENTS.md`.
 - **DECK** `templates/deck/DECK_SKELETON.html`; **PG** `templates/proposal/PROPOSAL_GENERATOR.md`;
   **PP** `templates/proposal/PROPOSAL_PROCEDURE.md`; **DRC** `templates/proposal/DESIGN_RECONCILIATION.md`
 - **EX** `examples/WORKED_EXAMPLE_upsell_brief.md`
+- **DPACK** `knowledge/engagement/DECISION_PACK.md`; operator intake
+  `templates/decision-pack/BUILD_PROMPT.md`
 
 ## Rows
 
@@ -44,6 +46,7 @@ STOP) and the hard stops are in `../AGENTS.md`.
 | Reporting | LCB, MCP, AD, ECR | EM, ODF, HV | PR for reusable proof, PSY, RDECK for rendered reviews, DP, BS, LOGO | UI, PG, PP, OBJ | Verified activation/cutoff and matched baseline. Declines visible. No raw Discovery-as-nonbrand claim, stale current score or scheduled-as-delivered work. | PARTIAL if evidence is incomplete. No causality. Check ledger, actual copy and every rendered page. |
 | New pitch | LCB, EM | HV, PSY, CP, VP, MC | PR if naming another customer, ODF, OBJ, AD, DIR when directory coverage is named, DECK, DP, BS, LOGO, EX | UI, PG, PP | One finding about their own estate, done before the meeting. | PASS only with a real finding. Otherwise it is a template. |
 | Proposal | LCB, PG, PP, DRC | EM, VP, FO | HV or WW, DIR when directory coverage is named, DECK, DP, BS, LOGO | UI, CP, EX | Transcript, Language, LOCATIONS, PRICING all present. | STOP if any input is missing. Write the recap first. |
+| Decision pack | LCB, DPACK, BU, FO | HV, DP, BS, LOGO | ECR and MCP for performance evidence, PR for intake-authorized proof, UI for product screens, DIR for coverage | PG, PP, DRC, RDECK, EX unless explicitly supplied as reference | Twelve-field intake plus example paths; buyer asks determine pages. Blue profile. Both customer-specific gates zero; inspect every rendered page. | PARTIAL with private gaps after asking once. NONE permits unpriced work, not invented terms. STOP any unsupported commercial or capability claim. |
 | Meeting recap | LCB, PP | SAP, CB | WV1, WV2, HV | UI, DP, BS, PG, DECK | Transcript only. Never invent a commitment. | PASS. Flag missing proposal inputs at the end. |
 | Outreach | LCB, HV | CP, PSY, OBJ | SAP, EM, MCP | UI, DP, BS, PG, PP, DECK | One clear next step. One voice, never blended. | PASS. Ready-to-send copy only. |
 
@@ -62,6 +65,10 @@ which wins.
 
 **Product questions** route to UI. It is a sales-safe surface overview, not an engineering or
 security audit. If a question requires implementation detail, stop and route it internally.
+
+**Decision pack** is a deliberate profile, not a replacement for the existing rows. Use its
+meeting-led layout only when requested. ECR remains the evidence standard for performance
+packs; ordinary results reviews keep RDECK. Intake authority governs proof and partner pages.
 
 **Anything rendered** uses LOGO, never a redrawn or recoloured mark. The `legacy/` marks are
 for identification only, not for new documents.

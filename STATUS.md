@@ -57,6 +57,18 @@ Last updated: 2026-10-14.
 - Naming approval is recorded per customer, not assumed from anonymization. Raw records and
   unapproved imagery remain private. Reviewed and approved on 9 October; no customer send.
 
+## Decision Pack change set
+
+- Seven selected the public sales workspace for the reusable standard on 14 October.
+  [DECISION_PACK.md](knowledge/engagement/DECISION_PACK.md) and its operator prompt route
+  explicitly requested meeting-led packs through a blue profile with no fixed page count.
+- Existing review evidence rules and ordinary Reporting, Upsell and priced Proposal routes
+  remain in place. Existing HTML templates and approved customer proof are unchanged.
+  Intake authority governs names, prices, reusable proof and optional partner closing pages.
+- No customer pack was built. Repository tests check instruction contracts, not whether an
+  agent followed them or a PDF passed its two customer-specific gates. Each actual build
+  still requires source verification, rendered-page inspection and human approval.
+
 ## Carried with a caveat
 
 - **White-label screens.** Six masked captures of Findri's live white-label instance, added

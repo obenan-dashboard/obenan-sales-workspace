@@ -275,3 +275,23 @@ Progress:
   Open the PR for Seven's review; GitHub is the authority for merge state.
 - [x] Seven's instruction to merge, relayed by Ceren on 14 October, recorded as approval in
   the register (`APPROVED`, review 2027-01-14). Merge on a green exact-head check.
+
+# Decision Pack standard
+
+Spec: `spec/features/decision-pack-standard/decision-pack-standard.md`.
+
+- [x] Confirm public sales workspace target; isolate changes from the live shared checkout.
+- [x] Read the full supplied standard and current routing, design and claim boundaries.
+- [x] Record acceptance criteria and baseline: 76 tests pass before this change.
+- [x] Write and run seven failing instruction contracts before implementation: three failures
+  and six missing-file errors. Existing template digests still match the base revision.
+- [x] Add the canonical standard, operator prompt and routing with explicit compatibility.
+- [x] Validate the exact staged export: 83 tests and public-safety/local-link checks pass.
+  Worktree-local `.git` metadata is not part of that export; the scanner itself is unchanged.
+  Whitespace and AC traceability pass: one spec, seven AC IDs, no missing annotations.
+  Both deck hashes and all existing proof/assets are unchanged from the base revision.
+- [x] Independent fidelity, public-safety and requirements reviews all APPROVE. Tests verify
+  instruction contracts, not model compliance; the missing-input/NONE matrix also received
+  manual source-to-standard review. No customer pack was built or claimed validated.
+- [x] Prepare the reviewed branch for a draft pull request. Human approval is required before
+  merge; GitHub is the authority for publication state. No customer send or deployment.

@@ -1,8 +1,12 @@
 # Agentic closing pair
 
-Every Obenan deck ends on two locked pages: **What comes next?** and **See it in three
+Both existing Obenan deck templates end on two locked pages: **What comes next?** and **See it in three
 minutes**. Seven locked them on 9 October 2026 after the first results review that used them.
 The copy lives in the two deck templates; this note says where the pair goes and what may move.
+
+The separate [Decision Pack profile](DECISION_PACK.md) is meeting-led and intake-governed.
+It may omit the pair when irrelevant or outside naming authority; inclusion uses the approved
+locked copy, not a rewritten partner claim. This does not change either existing template.
 
 ## Placement
 
