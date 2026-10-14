@@ -54,7 +54,7 @@ class WhiteLabelScreenTests(unittest.TestCase):
 
     def test_index_masks_the_underlying_customer_and_never_names_it(self):
         text = INDEX.read_text()
-        for phrase in ("masked", "Do not unmask", "pending", "PUBLIC_PROOF_REGISTER.md"):
+        for phrase in ("masked", "Do not unmask", "PUBLIC_PROOF_REGISTER.md"):
             self.assertIn(phrase.lower(), text.lower())
         for document in (INDEX, UI, REGISTER):
             with self.subTest(document=document.name):
@@ -65,9 +65,15 @@ class WhiteLabelScreenTests(unittest.TestCase):
                           REGISTER.read_text(), re.M | re.S)
         self.assertIsNotNone(entry)
         body = entry.group(1)
-        self.assertRegex(body, r"\| Status \| `(PENDING|APPROVED)` \|")
+        status = re.search(r"\| Status \| `(PENDING|APPROVED)` \|", body)
+        self.assertIsNotNone(status)
         self.assertIn("assets/white-label/README.md", body)
         self.assertRegex(body, r"(?i)metrics[^|]*\|[^|]*not")
+        index_status = re.search(r"^\*\*Status: (pending|approved)\.\*\*", INDEX.read_text(), re.M)
+        self.assertIsNotNone(index_status)
+        self.assertEqual(index_status.group(1).upper(), status.group(1))
+        if status.group(1) == "APPROVED":
+            self.assertRegex(body, r"\| Review date \| 20\d\d-\d\d-\d\d \|")
 
     def test_product_overview_names_where_obenan_stays_visible(self):
         text = section(UI.read_text(), "White-label")
