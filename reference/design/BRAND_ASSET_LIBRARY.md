@@ -30,6 +30,10 @@ Video previews are in the [video preview index](../../assets/video-previews/READ
 approved still with the play icon on it, plus a QR code. Show a video as its preview, never as
 a text-only panel.
 
+White-label screens are in the [white-label screen index](../../assets/white-label/README.md):
+masked captures of a live agency instance, for explaining white-label to agencies. Use them
+only once their register entry is approved, and never cite a value from them.
+
 - Use the supplied SVG files. Never redraw, recolor, stretch or approximate the mark.
 - Keep clear space around the logo and preserve its aspect ratio.
 - Use the wave mark as an identity signature, not as a decorative pattern repeated throughout

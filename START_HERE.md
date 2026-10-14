@@ -86,6 +86,11 @@ and filter its canonical JSON by the requested country. Select relevant account 
 not the entire roster. Country is a location market, not headquarters or whole-chain coverage.
 Names do not authorize new logos, metrics or quotes; use separately approved assets and cards.
 
+For agency or reseller pitches about white-label, retrieve the White-label section of
+`reference/product-ui/PRODUCT_UI_OVERVIEW.md` and
+[the white-label screen index](assets/white-label/README.md). State where Obenan stays visible.
+Use the screens only when their register entry is approved.
+
 ## Map
 
 | Path | Holds | Load |
@@ -103,5 +108,6 @@ Names do not authorize new logos, metrics or quotes; use separately approved ass
 | `reference/directories/` | the 104-destination directory roster, A to Z with logos and live links, plus JSON | when directory coverage is named or shown |
 | `assets/directory-logos/` | one mark per roster destination, with provenance and checksums | when a document shows directory or platform marks |
 | `assets/components/` | rendered components: the homepage channel map and the What comes next card | when a deck shows channels or closes |
+| `assets/white-label/` | masked screens of a live agency white-label instance, with approval status | when pitching white-label to an agency or reseller |
 | `templates/` | A4 sales deck, eleven-page results review, evidence methods and proposal procedure | per row |
 | `examples/` | one anonymized finished brief, as the standard to hit | when calibrating quality |
