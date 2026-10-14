@@ -27,6 +27,7 @@ Pick exactly one. They do not blend.
 | `Reporting` | a monthly, quarterly or annual account review |
 | `New pitch` | a prospect who has never bought |
 | `Proposal` | post-meeting, inputs are locked, a priced document is wanted |
+| `Decision pack` | a meeting-led decision pack is requested, with pages shaped by the buyer's questions |
 | `Meeting recap` | a transcript exists and needs structuring |
 | `Outreach` | a single message, email, LinkedIn or WhatsApp |
 
@@ -57,6 +58,14 @@ For Reporting and existing-client Upsell, read
 `knowledge/engagement/EXISTING_CLIENT_REVIEW.md`. Rendered results reviews start from
 `templates/deck/EXISTING_CLIENT_REVIEW.html`, not the generic sales deck. No connector or
 supplied evidence means a labelled template and missing-input list, not invented results.
+
+For an explicitly requested Decision Pack, follow
+[the Decision Pack standard](knowledge/engagement/DECISION_PACK.md) and fill the
+[operator prompt](templates/decision-pack/BUILD_PROMPT.md). It uses a meeting-led page count
+and blue design profile. Existing review evidence rules still apply to performance packs;
+ordinary Reporting/Upsell layouts and priced Proposal hard stops are unchanged. Its intake
+controls names, proof and partner pages: do not automatically import the proof pages below
+when naming rights are NONE.
 
 When using a success story, read `knowledge/proof/PUBLIC_PROOF_REGISTER.md` and its linked
 card. Approved stories are named, not anonymized by default. For prospect PDFs with a proof

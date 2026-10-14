@@ -69,3 +69,19 @@ The [review playbook](knowledge/engagement/EXISTING_CLIENT_REVIEW.md) defines th
 evidence and final checks. [Reusable proof](knowledge/proof/README.md) has separate name and
 metric permissions. Local checks: `python3 -m unittest discover -s tests -v` and
 `bash scripts/validate_public_repo.sh`.
+
+## Meeting-led Decision Pack
+
+Use [the operator prompt](templates/decision-pack/BUILD_PROMPT.md) to supply the meeting,
+private build folder, language, price/naming authority and reviewer. Ask your agent:
+
+```text
+Read this repository and follow START_HERE.md. Prepare a Decision Pack for <prospect>.
+Use knowledge/engagement/DECISION_PACK.md. Start with the operator intake and a page list
+that answers their questions in order. Draft only; do not send or publish.
+```
+
+The [standard](knowledge/engagement/DECISION_PACK.md) defines the blue design, source-bound
+build, two customer-specific gates and private evidence/reviewer handoff. It does not replace
+the existing results-review or priced SME proposal formats. No customer reference bundle or
+build data is published here. Missing inputs are recorded privately, not filled with guesses.
