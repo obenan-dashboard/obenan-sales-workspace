@@ -19,6 +19,7 @@ FILM = ROOT / "assets/product-film"
 BUILD = ROOT / "scripts/build_toolkit_example.cjs"
 HELD_RENDITION = "1d1dc9d8120d892aedefb1418b6cf7596cf14c03513c5db7d8f9c7fcb4f1dee0"
 HELD_FILM = Path(os.environ.get("TOOLKIT_FILM_DIR", ROOT / "out/private-film"))
+PINNED = re.compile(r"^https://github\.com/obenan-dashboard/obenan-sales-workspace/blob/([0-9a-f]{40})/([^#]+)(#.*)?$")
 
 
 def build(example, out, *extra):
@@ -247,6 +248,75 @@ class SalesToolkitTests(unittest.TestCase):
             self.assertNotIn("autoplay", video)
             self.assertIn('class="tk-poster"', html)
 
+    def test_AC_TOOLKIT_6_build_refuses_a_nonempty_output_folder(self):
+        def snapshot(folder):
+            return {p.relative_to(folder): p.read_bytes() for p in folder.rglob("*") if p.is_file()}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            reused = Path(tmp) / "reused"
+            if (HELD_FILM / "obenan-concept-film-720p.mp4").exists():
+                first = build("coffee", reused, "--film-dir", str(HELD_FILM))
+                self.assertEqual(first.returncode, 0, first.stderr)
+            else:
+                (reused / "film").mkdir(parents=True)
+                (reused / "film/obenan-concept-film-720p.mp4").write_bytes(b"earlier private film")
+                (reused / "index.html").write_text("<video src=film/obenan-concept-film-720p.mp4>")
+            unrelated = Path(tmp) / "unrelated"
+            unrelated.mkdir()
+            (unrelated / "notes.txt").write_text("keep me")
+            for folder in (reused, unrelated):
+                with self.subTest(folder=folder.name):
+                    before = snapshot(folder)
+                    result = build("coffee", folder)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn("not empty", result.stderr)
+                    self.assertEqual(snapshot(folder), before)
+            as_file = Path(tmp) / "a-file"
+            as_file.write_text("keep me")
+            self.assertNotEqual(build("coffee", as_file).returncode, 0)
+            self.assertEqual(as_file.read_text(), "keep me")
+            empty = Path(tmp) / "empty"
+            empty.mkdir()
+            self.assertEqual(build("coffee", empty).returncode, 0)
+
+    def test_AC_TOOLKIT_11_document_links_open_pinned_public_source(self):
+        pins, every = set(), set()
+        builds = [(name, ()) for name in EXAMPLES]
+        if (HELD_FILM / "obenan-concept-film-720p.mp4").exists():
+            builds.append(("coffee", ("--film-dir", str(HELD_FILM))))
+        for name, extra in builds:
+            template = (SECTIONS / f"{name}.html").read_text()
+            documents = {r.split("#")[0] for r in local_refs(template) if r.split("#")[0].endswith(".md")}
+            with self.subTest(example=name, film=bool(extra)), tempfile.TemporaryDirectory() as tmp:
+                out = Path(tmp) / "site"
+                result = build(name, out, *extra)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                html = (out / "index.html").read_text()
+                self.assertEqual([p.name for p in out.rglob("*.md")], [])
+                linked = set()
+                for ref in re.findall(r'href="([^"]+)"', html):
+                    if ref.startswith(("#", "toolkit.css", "files/")) and not ref.split("#")[0].endswith(".md"):
+                        continue
+                    match = PINNED.match(ref)
+                    self.assertIsNotNone(match, ref)
+                    pins.add(match.group(1))
+                    linked.add(match.group(2))
+                expected = {os.path.relpath(SECTIONS / d, ROOT).replace(os.sep, "/") for d in documents}
+                self.assertLessEqual(linked, expected)
+                if extra:
+                    self.assertIn("assets/product-film/DESCRIPTION.md", linked)
+                every |= linked
+        self.assertTrue(every)
+        self.assertLessEqual(len(pins), 1, pins)
+        if pins and subprocess.run(["git", "-C", str(ROOT), "rev-parse"], capture_output=True).returncode == 0:
+            pin = pins.pop()
+            for path in sorted(every | {"assets/product-film/README.md"}):
+                with self.subTest(pinned=path):
+                    shown = subprocess.run(["git", "-C", str(ROOT), "show", f"{pin}:{path}"], capture_output=True)
+                    self.assertEqual(shown.returncode, 0, shown.stderr)
+                    self.assertEqual(shown.stdout, (ROOT / path).read_bytes())
+        self.assertIn("pinned", read(DOC))
+
     def test_AC_TOOLKIT_11_built_examples_are_self_contained(self):
         for name in EXAMPLES:
             with self.subTest(example=name), tempfile.TemporaryDirectory() as tmp:
@@ -267,7 +337,8 @@ class SalesToolkitTests(unittest.TestCase):
     def test_AC_TOOLKIT_8_and_9_browser_check_is_present_and_documented(self):
         script = (ROOT / "scripts/check_toolkit_browser.cjs").read_text()
         for check in ("overflow", "currentTime", "replay", "reduced-motion", "no-js",
-                      "fast-scroll", "keyboard", "Unknown", "1.10", "pdf", "jsQR"):
+                      "fast-scroll", "keyboard", "Unknown", "1.10", "pdf", "jsQR",
+                      "caseTogether", "publicLinks", "loopback"):
             with self.subTest(check=check):
                 self.assertIn(check, script)
         self.assertIn("node scripts/build_toolkit_example.cjs", read(DOC))

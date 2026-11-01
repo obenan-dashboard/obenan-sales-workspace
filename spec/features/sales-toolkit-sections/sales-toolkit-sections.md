@@ -61,6 +61,7 @@ Scenario: The concept film stays private until its release is approved
   And the build refuses a supplied film whose checksum differs from the recorded rendition
   And a built page loads a supplied film with preload="none", visible controls, a poster and no autoplay
   And a build without a supplied film leaves the teaser section out instead of showing an empty slot
+  And the build refuses an output folder that is not empty before writing anything, so earlier film files never survive a film-free build
 
 @AC-TOOLKIT-7
 Scenario: The business case uses only buyer inputs
@@ -80,6 +81,8 @@ Scenario: The coffee example renders as a static PDF
   Then both observed and proposed states, the static review cards, the full conversation and the blank business case appear
   And a supplied film prints as its poster, and a supplied film address prints as a clickable poster, a clickable link and a QR that decodes to that address
   And no motion control or duplicated review card is printed
+  And the business case label, every input and the result print on one page, both blank and filled
+  And every link in the PDF opens outside the machine that printed it, never a local server address
 
 @AC-TOOLKIT-10
 Scenario: Existing material stays compatible
@@ -91,6 +94,7 @@ Scenario: An agent outside Obenan builds a self-contained example
   Given a clean copy of the repository and only its public instructions
   When the agent builds an example into a folder outside the repository
   Then every local link and asset in the folder resolves inside that folder
+  And every link to a repository document opens its public source pinned to a commit that holds the same text
   And nothing in it points to the repository checkout, a home directory or a private file
 ```
 

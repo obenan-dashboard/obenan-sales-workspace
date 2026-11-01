@@ -17,9 +17,11 @@ Customer builds live in a private workspace, never in this repository.
 3. **Collect evidence privately.** Each figure needs a source and a date in your private
    `EVIDENCE.md`. Missing values stay `Unknown`, never zero.
 4. **Build the closest example** into a private folder outside the repository with
-   `node scripts/build_toolkit_example.cjs --example coffee --out DIR`. It copies `toolkit.css`,
-   `toolkit.js` and every referenced asset. Replace synthetic rows with checked findings in the
-   built copy. Keep every disclosure label.
+   `node scripts/build_toolkit_example.cjs --example coffee --out DIR`. `DIR` must be new or
+   empty; the build refuses anything else before writing. It copies `toolkit.css`, `toolkit.js`
+   and every referenced image. Links to repository documents open their public source on GitHub,
+   pinned to a commit, so they work in the PDF and on any machine. Replace synthetic rows with
+   checked findings in the built copy. Keep every disclosure label.
 5. **Render, check and hand over** with the commands at the end. A person reviews and sends.
 
 ## Copy-paste instruction for an agency agent
@@ -130,12 +132,15 @@ The browser check builds every example into a temporary folder, serves it on a l
 and tests 390, 768, 1440 and 1920 px, keyboard tabs and filters, Unknown sorting, the business
 case arithmetic, the chat replay, the review stream pause, reduced motion, no JavaScript, fast
 scrolling and the A4 PDF. It writes captures, PDFs and `receipt.json` to `out/toolkit/` and
-exits 1 on any failure. Set `CHROME=/path/to/chrome` if Chrome is not found. Film checks are
+exits 1 on any failure. It fails a PDF with a local link or a business case split across
+pages. Only `coffee-film-url-loopback.pdf` may carry a loopback address: it is a diagnostic of
+the film link mechanism, never a handover file. Set `CHROME=/path/to/chrome` if Chrome is not found. Film checks are
 reported as skipped unless `TOOLKIT_FILM_DIR` points at the held rendition.
 
 To preview one build, serve the build folder on loopback and open it:
 
 ```bash
+rm -rf /tmp/toolkit-coffee
 node scripts/build_toolkit_example.cjs --example coffee --out /tmp/toolkit-coffee
 python3 -m http.server 8765 --bind 127.0.0.1 --directory /tmp/toolkit-coffee
 ```

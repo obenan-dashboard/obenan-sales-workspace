@@ -369,8 +369,42 @@ function pageFill(pdfFile, label) {
     return Math.round((100 * last) / h);
   });
   fs.rmSync(tmp, { recursive: true, force: true });
-  const short = fills.slice(0, -1).filter((f) => f < 45).length;
-  check(`${label} pages are filled`, short === 0, `${fills.length} pages, content ends at ${fills.join('%, ')}% of each page`);
+  const short = fills.slice(0, -1).filter((f) => f < 45).length + fills.filter((f) => f === 0).length;
+  check(`${label} pages are filled, none blank`, short === 0, `${fills.length} pages, content ends at ${fills.join('%, ')}% of each page`);
+}
+
+// Links in a handed-over PDF must open on any machine. Only files named *-loopback.pdf are diagnostic.
+function publicLinks(pdfFile, label) {
+  let urls;
+  try {
+    urls = cp.execFileSync('pdfinfo', ['-url', pdfFile], { encoding: 'utf8' }).split('\n').slice(1)
+      .map((l) => l.trim().split(/\s+/).pop()).filter(Boolean);
+  } catch (err) {
+    record(`${label} links open outside this machine`, null, 'pdfinfo (poppler) not installed');
+    return;
+  }
+  const local = urls.filter((u) => /^(file:|https?:\/\/(127\.|localhost|\[::1\]|0\.0\.0\.0))/i.test(u) || !/^(https?|mailto):/i.test(u));
+  check(`${label} links open outside this machine`, local.length === 0, local.length ? local.join(', ') : `${urls.length} links: ${[...new Set(urls)].join(', ')}`);
+}
+
+function pdfPages(pdfFile) {
+  const n = Number(/Pages:\s+(\d+)/.exec(cp.execFileSync('pdfinfo', [pdfFile], { encoding: 'utf8' }))[1]);
+  return Array.from({ length: n }, (_, i) => cp.execFileSync('pdftotext', ['-f', `${i + 1}`, '-l', `${i + 1}`, pdfFile, '-'], { encoding: 'utf8' }).replace(/\s+/g, ' '));
+}
+
+// The business case reads as one unit: its label, every input, the result and the note on one printed page.
+async function caseTogether(page, pdfFile, label) {
+  const parts = await page.$$eval('[data-section="business-case"] .tk-label, [data-section="business-case"] form label, [data-section="business-case"] .tk-result p',
+    (els) => els.map((e) => e.textContent.replace(/\s+/g, ' ').trim().slice(0, 40)));
+  let pages;
+  try { pages = pdfPages(pdfFile); } catch (err) {
+    record(`${label} business case prints on one page`, null, 'pdftotext (poppler) not installed');
+    return;
+  }
+  const holding = parts.map((t) => pages.map((p, i) => (p.includes(t) ? i + 1 : 0)).filter(Boolean));
+  const same = holding.every((h) => h.length === 1) && new Set(holding.map((h) => h[0])).size === 1;
+  check(`${label} business case prints on one page`, parts.length >= 5 && same,
+    `${pages.length} pages; ${parts.map((t, i) => `"${t}" p${holding[i].join('/') || 'none'}`).join('; ')}`);
 }
 
 async function qr(page, url, pdfFile, label) {
@@ -480,6 +514,26 @@ async function qr(page, url, pdfFile, label) {
     await pdfPage.pdf({ path: path.join(OUT, name), format: 'A4', printBackground: true, preferCSSPageSize: true });
     record(`${dir} pdf written`, true, path.join(OUT, name));
     pageFill(path.join(OUT, name), `${dir} pdf`);
+    if (!name.includes('loopback')) publicLinks(path.join(OUT, name), `${dir} pdf`);
+  }
+  // Business case cohesion, blank and filled, for every example that has a calculator.
+  for (const ex of EXAMPLES) {
+    await pdfPage.goto(`${base}/${ex}/index.html`, { waitUntil: 'load' });
+    const form = pdfPage.locator('[data-section="business-case"] form');
+    if (!(await form.count())) continue;
+    for (const state of ['blank', 'filled']) {
+      if (state === 'filled') {
+        await form.locator('[data-role="cost"]').fill('900');
+        await form.locator('[data-role="value"]').fill('45');
+        const rates = await form.locator('[data-role="rate"]').count();
+        for (let i = 0; i < rates; i++) await form.locator('[data-role="rate"]').nth(i).fill('20');
+      }
+      const file = path.join(OUT, `${ex}-business-case-${state}.pdf`);
+      await pdfPage.pdf({ path: file, format: 'A4', printBackground: true, preferCSSPageSize: true });
+      await caseTogether(pdfPage, file, `${ex} ${state} pdf`);
+      pageFill(file, `${ex} ${state} pdf`);
+      publicLinks(file, `${ex} ${state} pdf`);
+    }
   }
   if (haveFilm) {
     const vp = await pdfCtx.newPage();

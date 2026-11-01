@@ -8,6 +8,11 @@
 // (assets/product-film/README.md). With --film-dir the rendition and poster must match the
 // checksums recorded in that README. --film-url adds a clickable poster, link and QR to the
 // printed page; pass it only for an approved, working public address.
+//
+// --out must be a new or empty folder; the build refuses anything else before writing.
+// Images and styles are copied into the folder. Links to repository documents open their
+// public source at SOURCE_COMMIT, so they work in a PDF or a copy on any machine. Move the pin
+// to a newer public commit when a linked document changes; the tests check the text matches.
 'use strict';
 const fs = require('fs');
 const path = require('path');
@@ -18,6 +23,8 @@ const SECTIONS = path.join(ROOT, 'templates/sections');
 const EXAMPLES = ['coffee', 'banking', 'fitness'];
 const FILM = 'obenan-concept-film-720p.mp4';
 const POSTER = 'obenan-concept-film-poster.jpg';
+const SOURCE_COMMIT = '2d8572a07b590a84f85840092733e76a36faeb26';
+const SOURCE = `https://github.com/obenan-dashboard/obenan-sales-workspace/blob/${SOURCE_COMMIT}/`;
 
 function fail(message) {
   process.stderr.write(`build_toolkit_example: ${message}\n`);
@@ -109,7 +116,8 @@ async function filmMarkup(opts, outDir) {
   };
 }
 
-// Copies each local src or href target into files/<repository path> and rewrites the reference.
+// Copies each local src target into files/<repository path>; points each local href at its
+// pinned public source.
 function localise(html, copies) {
   return html.replace(/((?:src|href)=")([^"]+)(")/g, (whole, pre, ref, post) => {
     if (/^(https?:|mailto:|data:|#)/.test(ref) || /^(toolkit\.(css|js)|film\/)/.test(ref)) return whole;
@@ -119,7 +127,9 @@ function localise(html, copies) {
     if (rel.startsWith('..') || path.isAbsolute(rel) || !fs.existsSync(source)) {
       fail(`local reference ${ref} does not resolve inside the repository`);
     }
-    const dest = `files/${rel.split(path.sep).join('/')}`;
+    const repoPath = rel.split(path.sep).join('/');
+    if (pre.startsWith('href')) return `${pre}${SOURCE}${repoPath}${hash ? `#${hash}` : ''}${post}`;
+    const dest = `files/${repoPath}`;
     copies.push([source, dest]);
     return `${pre}${dest}${hash ? `#${hash}` : ''}${post}`;
   });
@@ -130,6 +140,10 @@ async function main() {
   const outDir = path.resolve(opts.out);
   if (!path.relative(ROOT, outDir).startsWith('..')) {
     process.stderr.write('build_toolkit_example: note: --out is inside the repository; keep builds outside it\n');
+  }
+  if (fs.existsSync(outDir)) {
+    if (!fs.statSync(outDir).isDirectory()) fail(`--out ${opts.out} is not a folder`);
+    if (fs.readdirSync(outDir).length) fail(`--out ${opts.out} is not empty; choose a new or empty folder so no earlier files survive`);
   }
   let html = fs.readFileSync(path.join(SECTIONS, `${opts.example}.html`), 'utf8');
   const copies = [
