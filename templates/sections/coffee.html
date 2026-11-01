@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Coffee Group: discovery, menus and consistency</title>
+<link rel="stylesheet" href="toolkit.css">
+<script src="toolkit.js" defer></script>
+</head>
+<body>
+
+<header class="tk-cover">
+  <div class="tk-inner">
+    <img src="../../assets/logos/Logo.svg" alt="Obenan">
+    <p class="tk-eyebrow">Toolkit example: coffee and restaurants</p>
+    <h1>Can guests find the right café, the current menu and the real hours, every time?</h1>
+    <p class="tk-lede">A buyer question from a coffee group with four cafés and one kiosk. Each section below answers part of it: discovery, menus, consistency between cafés and the guest experience they lead to.</p>
+  </div>
+</header>
+
+<main>
+
+<section class="tk" data-section="teaser" aria-labelledby="teaser-h">
+  <div class="tk-inner">
+    <p class="tk-label">Concept product film. A historical product concept without sound; names and screens in it are not this customer's data and do not show a deployment.</p>
+    <h2 id="teaser-h">One record of every café, kept right wherever guests ask.</h2>
+    <div class="tk-film" data-film="obenan-concept-film-720p.mp4" data-poster="obenan-concept-film-poster.jpg">
+      <p class="tk-film-held">The film is held until its release is approved. A build adds it here only when the reviewed copy is supplied.</p>
+    </div>
+    <p id="teaser-desc" class="tk-source">67 second film without sound. <a href="../../assets/product-film/DESCRIPTION.md">Read the scene by scene description</a>.</p>
+  </div>
+</section>
+
+<section class="tk" data-section="compare" aria-labelledby="compare-h">
+  <div class="tk-inner">
+    <p class="tk-label">Synthetic example. The Proposed state is a proposal, not published content and not a forecast.</p>
+    <h2 id="compare-h">Harbour Street café: what a guest sees today, and what we would correct.</h2>
+    <div class="tk-tabs" role="tablist" aria-label="Profile state">
+      <button type="button" role="tab" id="tab-obs" aria-controls="state-obs" aria-selected="true">Observed</button>
+      <button type="button" role="tab" id="tab-pro" aria-controls="state-pro" aria-selected="false" tabindex="-1">Proposed</button>
+    </div>
+    <div class="tk-states">
+      <article class="tk-state" id="state-obs" role="tabpanel" aria-labelledby="tab-obs" data-state="observed">
+        <h3>Observed <span class="tk-chip">as listed</span></h3>
+        <dl class="tk-rows">
+          <div><dt>Sunday hours</dt><dd>Closed, while the website says 08:00 to 15:00</dd></div>
+          <div><dt>Menu link</dt><dd>A PDF from last winter, without the oat and seasonal drinks</dd></div>
+          <div><dt>Description</dt><dd>Two lines, no mention of breakfast or seating</dd></div>
+          <div><dt>Latest review reply</dt><dd>Unknown, replies were not checked for this café</dd></div>
+        </dl>
+      </article>
+      <article class="tk-state" id="state-pro" role="tabpanel" aria-labelledby="tab-pro" data-state="proposed">
+        <h3>Proposed <span class="tk-chip">for approval</span></h3>
+        <dl class="tk-rows">
+          <div><dt>Sunday hours</dt><dd>08:00 to 15:00, once the café manager confirms them</dd></div>
+          <div><dt>Menu link</dt><dd>The current menu page, kept in step with the till menu</dd></div>
+          <div><dt>Description</dt><dd>Breakfast until 11:00, 40 seats, step free entrance</dd></div>
+          <div><dt>Review replies</dt><dd>Answered in the group's voice after a person approves the rules</dd></div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tk" data-section="portfolio" aria-labelledby="portfolio-h">
+  <div class="tk-inner">
+    <p class="tk-label">Synthetic rows for this example. Replace them with checked findings per location and keep each source.</p>
+    <h2 id="portfolio-h">Five locations, one standard. Where does each one differ?</h2>
+    <ul class="tk-tally">
+      <li><strong>4</strong> cafés</li>
+      <li><strong>1</strong> kiosk</li>
+      <li><strong>3</strong> differ from the website</li>
+      <li><strong>1</strong> Unknown, not yet checked</li>
+    </ul>
+    <div class="tk-controls" role="group" aria-label="Filter locations">
+      <button type="button" class="tk-button tk-filter" data-type="all" aria-pressed="true">All</button>
+      <button type="button" class="tk-button tk-filter" data-type="cafe" aria-pressed="false">Cafés</button>
+      <button type="button" class="tk-button tk-filter" data-type="kiosk" aria-pressed="false">Kiosk</button>
+    </div>
+    <p class="tk-source" data-role="shown" aria-live="polite"></p>
+    <div class="tk-table-wrap">
+      <table class="tk-table">
+        <caption class="tk-source">Each row is one location. Unknown means not checked, never zero.</caption>
+        <thead><tr>
+          <th scope="col"><button type="button">Location</button></th>
+          <th scope="col"><button type="button">Type</button></th>
+          <th scope="col"><button type="button">Hours vs website</button></th>
+          <th scope="col"><button type="button">Menu link</button></th>
+          <th scope="col"><button type="button">Source</button></th>
+        </tr></thead>
+        <tbody>
+          <tr data-type="cafe"><td data-label="Location">Harbour Street</td><td data-label="Type">Café</td><td data-label="Hours vs website"><span class="tk-status" data-status="differs">Differs on Sunday</span></td><td data-label="Menu link">Out of date</td><td data-label="Source">Profile and website, checked by hand</td></tr>
+          <tr data-type="cafe"><td data-label="Location">Market Square</td><td data-label="Type">Café</td><td data-label="Hours vs website"><span class="tk-status" data-status="matches">Matches</span></td><td data-label="Menu link">Current</td><td data-label="Source">Profile and website, checked by hand</td></tr>
+          <tr data-type="cafe"><td data-label="Location">Station Road</td><td data-label="Type">Café</td><td data-label="Hours vs website"><span class="tk-status" data-status="differs">Differs on holidays</span></td><td data-label="Menu link">Current</td><td data-label="Source">Profile and website, checked by hand</td></tr>
+          <tr data-type="cafe"><td data-label="Location">Riverside</td><td data-label="Type">Café</td><td data-label="Hours vs website" class="tk-unknown">Unknown</td><td data-label="Menu link" class="tk-unknown">Unknown</td><td data-label="Source">Not checked yet</td></tr>
+          <tr data-type="kiosk"><td data-label="Location">Park Kiosk</td><td data-label="Type">Kiosk</td><td data-label="Hours vs website"><span class="tk-status" data-status="differs">Shows winter hours</span></td><td data-label="Menu link">None listed</td><td data-label="Source">Profile and website, checked by hand</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="tk" data-section="reviews" aria-labelledby="reviews-h">
+  <div class="tk-inner">
+    <p class="tk-label">Synthetic review themes written for this example, 6 unique cards. The moving stream repeats them and adds nothing to the count.</p>
+    <h2 id="reviews-h">What guests say, grouped by theme, good and bad.</h2>
+    <div class="tk-controls">
+      <button type="button" class="tk-button" data-action="pause" aria-pressed="false">Pause stream</button>
+    </div>
+    <div class="tk-stream">
+      <ul class="tk-stream-track">
+        <li class="tk-review" data-theme="consistency"><span class="tk-chip">Consistency</span><p>The flat white tastes the same in every café we have tried.</p></li>
+        <li class="tk-review" data-theme="hours"><span class="tk-chip">Hours</span><p>Walked over on Sunday because the map said open. It was closed.</p></li>
+        <li class="tk-review" data-theme="menu"><span class="tk-chip">Menu</span><p>The menu online did not show the oat drinks I ordered in store.</p></li>
+        <li class="tk-review" data-theme="staff"><span class="tk-chip">Staff</span><p>Friendly team, remembered my order on the second visit.</p></li>
+        <li class="tk-review" data-theme="wait"><span class="tk-chip">Wait time</span><p>Long queue at 08:30 and no sign of mobile ordering.</p></li>
+        <li class="tk-review" data-theme="seating"><span class="tk-chip">Seating</span><p>Good place to sit and work, though the photos make it look bigger.</p></li>
+      </ul>
+    </div>
+    <p class="tk-source">Use themes, not reviewer names. Quote a real review only with approval, and never count repeated cards.</p>
+  </div>
+</section>
+
+<section class="tk" data-section="assistant" aria-labelledby="assistant-h">
+  <div class="tk-inner">
+    <p class="tk-label">Scripted demonstration, not a live connection to any account. It shows the shape of an answer, using this page's synthetic rows.</p>
+    <h2 id="assistant-h">Ask the question a regional manager asks on Monday.</h2>
+    <div class="tk-controls">
+      <button type="button" class="tk-button" data-action="replay">Replay</button>
+    </div>
+    <div class="tk-chat" aria-live="polite">
+      <div class="tk-msg" data-role="question"><h3>Question</h3><p>Which cafés will send guests to a closed door this weekend?</p></div>
+      <p class="tk-working" aria-hidden="true">Checking the five locations</p>
+      <div class="tk-msg" data-role="response"><h3>Response</h3><ul><li>Harbour Street shows Sunday as closed, the website says 08:00 to 15:00.</li><li>Park Kiosk still shows winter hours.</li><li>Riverside has not been checked, so it is Unknown.</li></ul></div>
+      <div class="tk-msg" data-role="conclusion"><h3>Conclusion</h3><p>Two locations need an hours decision from their managers before Saturday. Riverside needs a check first.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tk" data-section="network" aria-labelledby="network-h">
+  <div class="tk-inner">
+    <p class="tk-label">Directory roster as reviewed on 9 October 2026. A listed destination is not necessarily active for a customer.</p>
+    <h2 id="network-h">One record, sent to every place guests look.</h2>
+    <p>The roster lists 104 destinations, 4 marked inactive. 90 are sent by interface and 14 by export. Which ones apply depends on the country and the account.</p>
+    <img class="tk-network tk-network-wide" src="../../assets/components/channel-network.png" alt="One business record feeding 20 public discovery surfaces, the business website, more directories and AI assistants">
+    <img class="tk-network tk-network-narrow" src="../../assets/components/channel-network-mobile.png" alt="One business record feeding public discovery surfaces, shown for narrow screens">
+    <p class="tk-source">Source: <a href="../../reference/directories/DIRECTORY_ROSTER.md">directory roster</a>.</p>
+  </div>
+</section>
+
+<section class="tk" data-section="proof" aria-labelledby="proof-h">
+  <div class="tk-inner">
+    <p class="tk-label">Approved customer proof, quoted as written.</p>
+    <h2 id="proof-h">What two specialty cafés showed.</h2>
+    <blockquote class="tk-quote"><p>Across Campos Coffee's two cafés in Sydney and Melbourne, about half the reviewed search-term counts were non-brand queries. One café's profile actions rose from 2,969 to 4,398 over the matched four-month window, while the other declined. Both cafés' reviews were fully answered. The operational opportunity is automating that work and fixing verified profile gaps, not claiming Obenan caused every increase.</p></blockquote>
+    <p class="tk-source">Source: <a href="../../knowledge/proof/SPECIALTY_COFFEE_TWO_CAFES.md">specialty coffee proof card</a>.</p>
+  </div>
+</section>
+
+<section class="tk" data-section="business-case" aria-labelledby="case-h">
+  <div class="tk-inner">
+    <p class="tk-label">Buyer inputs only. Nothing is prefilled and the result is a break-even threshold, not a forecast.</p>
+    <h2 id="case-h">What would have to be true, and who decides next.</h2>
+    <div class="tk-case">
+      <form data-unit="extra visits a month" data-waiting="Enter all three numbers to see the threshold.">
+        <div class="tk-field"><label for="c-cost">Monthly cost, to agree (EUR)</label><input id="c-cost" data-role="cost" inputmode="decimal" autocomplete="off"></div>
+        <div class="tk-field"><label for="c-value">Contribution per extra visit, from your figures (EUR)</label><input id="c-value" data-role="value" inputmode="decimal" autocomplete="off"></div>
+        <div class="tk-field"><label for="c-rate">Profile actions that become a visit (%)</label><input id="c-rate" data-role="rate" data-unit="profile actions a month" inputmode="decimal" autocomplete="off"></div>
+        <div class="tk-result"><p class="tk-source">Break-even threshold</p><output for="c-cost c-value c-rate" aria-live="polite">?</output><p data-role="note">Enter all three numbers to see the threshold.</p></div>
+      </form>
+      <div>
+        <h3>Next decision</h3>
+        <ol class="tk-steps">
+          <li>Confirm the Sunday and holiday hours for Harbour Street, Station Road and Park Kiosk.</li>
+          <li>Choose one menu source that every café profile links to.</li>
+          <li>Agree who approves review reply rules.</li>
+        </ol>
+        <table class="tk-owners">
+          <tr><th scope="row">Hours</th><td>Café managers</td></tr>
+          <tr><th scope="row">Menu</th><td>Operations lead</td></tr>
+          <tr><th scope="row">Review replies</th><td>Guest experience lead</td></tr>
+        </table>
+        <p class="tk-source">Proposal only. No approval, contract or activation is implied, and nothing is sent automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

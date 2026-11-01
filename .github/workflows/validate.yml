@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install validation dependencies
-        run: sudo apt-get update && sudo apt-get install -y ripgrep
+        run: sudo apt-get update && sudo apt-get install -y ripgrep poppler-utils
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -20,3 +20,7 @@ jobs:
           python-version: '3.12'
       - run: python3 -m unittest discover -s tests -v
       - run: bash scripts/validate_public_repo.sh
+      - name: Install pinned browser check tools
+        run: npm install --no-save --no-package-lock --prefix out/.tools playwright-core@1.56.1 qrcode@1.5.4 jsqr@1.4.0 pngjs@7.0.0
+      - name: Sales toolkit browser check
+        run: node scripts/check_toolkit_browser.cjs
