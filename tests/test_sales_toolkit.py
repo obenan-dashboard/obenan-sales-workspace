@@ -491,6 +491,34 @@ class SalesToolkitTests(unittest.TestCase):
             with self.subTest(claim=claim):
                 self.assertNotIn(claim, coffee)
 
+    def test_AC_TOOLKIT_13_banking_observed_service_agrees_in_built_surfaces(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "site"
+            result = build("banking", out)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            html = (out / "index.html").read_text()
+            row = re.search(r'<tr[^>]*><td[^>]*>Station concourse</td>.*?</tr>', html, re.S).group()
+            service = re.search(r'<td data-label="Services listed">(.*?)</td>', row).group(1)
+            observed = re.search(r'<article[^>]*data-state="observed".*?</article>', html, re.S).group()
+            detail = re.search(r'<dt>Services</dt><dd>(.*?)</dd>', observed).group(1)
+            self.assertEqual(service, detail)
+            self.assertEqual(service, "None listed")
+
+    def test_AC_TOOLKIT_14_fitness_summary_and_answer_follow_visible_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "site"
+            result = build("fitness", out)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            html = (out / "index.html").read_text()
+            with self.subTest(summary="missing or outdated"):
+                self.assertIn('<strong>2</strong>have a missing or outdated offer', html)
+            assistant = html.split('data-section="assistant"', 1)[1].split('</section>', 1)[0]
+            with self.subTest(answer="no unsupported class type"):
+                self.assertNotIn("spin", assistant)
+            with self.subTest(outcome="decision support, not certainty"):
+                self.assertNotIn("decide whether this person books", assistant)
+                self.assertIn("help this person decide whether to book", assistant)
+
     def test_AC_TOOLKIT_10_pinned_templates_unchanged(self):
         pins = {
             "templates/deck/DECK_SKELETON.html":
@@ -500,6 +528,19 @@ class SalesToolkitTests(unittest.TestCase):
         }
         for path, digest in pins.items():
             self.assertEqual(sha256((ROOT / path).read_bytes()).hexdigest(), digest)
+
+    def test_AC_TOOLKIT_11_15_agency_handoff_preserves_work_and_approved_sources(self):
+        doc = read(DOC)
+        preview = doc.split("To preview one build", 1)[1].split("Then open", 1)[0]
+        self.assertNotRegex(preview, r"\brm\s+-[a-zA-Z]*r")
+        self.assertIn("mktemp -d", preview)
+        self.assertIn('--out "$toolkit_preview_dir"', preview)
+        self.assertIn('--directory "$toolkit_preview_dir"', preview)
+        brief = doc.split("## Copy-paste instruction for an agency agent", 1)[1].split("## The six sections", 1)[0]
+        self.assertIn("vertical stylesheet, fonts, layout and motion", brief)
+        guide = doc.split("## Vertical reference guide", 1)[1].split("## Video:", 1)[0]
+        self.assertIn("assets/customer-logos/README.md", guide)
+        self.assertNotIn("Customer logos need their own written permission and never enter this repository", guide)
 
 
 if __name__ == "__main__":

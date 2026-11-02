@@ -41,7 +41,9 @@ customer names, figures, photographs and logos are never copied.
 | Restrictions | Quote the LPQ and Campos cards verbatim from the proof register. Roster counts from `directories.json`. No delivery promise beyond the destinations that apply to an account | No bank name, logo, photo or figure. Branches and ATMs counted apart. No calculator, no cost or outcome | No club name, logo, photo or figure. Inputs start empty; the result is a threshold, not a forecast |
 
 `assets/logos/Logo_Dark.svg` is the third approved logo file; use only these three Obenan logo
-files. Customer logos need their own written permission and never enter this repository.
+files. Reuse approved customer marks within the scope recorded in
+`assets/customer-logos/README.md` and the public proof register. Unapproved source-prospect
+logos remain excluded.
 
 Exact build commands, from the repository root, each into a new or empty folder:
 
@@ -86,8 +88,9 @@ Commercial authority: [exact prices permitted, or NONE]
 Output: [web page | PDF | both]
 Reviewer and sender: [human who approves and sends]
 
-Pick the sections that answer the buyer question, in that order. Start from the closest
-example in templates/sections/ and the shared toolkit.css and toolkit.js. Keep every
+Pick the sections that answer the buyer question, in that order. Build the closest example
+with scripts/build_toolkit_example.cjs. Preserve its vertical stylesheet, fonts, layout and motion
+alongside the shared toolkit.css and toolkit.js. Adapt evidence and copy, not the design. Keep every
 disclosure label on screen and in print. Missing values read Unknown. Quote approved proof
 exactly. Inputs in the business case start empty. Render the PDF with Chrome, view every page,
 run the checks and record sources in a private EVIDENCE.md. Draft only. Send nothing.
@@ -186,9 +189,9 @@ reported as skipped unless `TOOLKIT_FILM_DIR` points at the held rendition.
 To preview one build, serve the build folder on loopback and open it:
 
 ```bash
-rm -rf /tmp/toolkit-coffee
-node scripts/build_toolkit_example.cjs --example coffee --out /tmp/toolkit-coffee
-python3 -m http.server 8765 --bind 127.0.0.1 --directory /tmp/toolkit-coffee
+toolkit_preview_dir=$(mktemp -d)
+node scripts/build_toolkit_example.cjs --example coffee --out "$toolkit_preview_dir"
+python3 -m http.server 8765 --bind 127.0.0.1 --directory "$toolkit_preview_dir"
 ```
 
 Then open `http://127.0.0.1:8765/`. Render the PDF from the build with Chrome headless

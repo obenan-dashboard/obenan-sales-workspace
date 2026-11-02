@@ -96,6 +96,7 @@ Scenario: An agent outside Obenan builds a self-contained example
   Then every local link and asset in the folder resolves inside that folder
   And every link to a repository document opens its public source pinned to a commit that holds the same text
   And nothing in it points to the repository checkout, a home directory or a private file
+  And the documented preview uses a fresh temporary folder without deleting an earlier build
 
 @AC-TOOLKIT-12
 Scenario: The coffee example is a port of the Bluestone Lane pitch, not a new design
@@ -114,6 +115,7 @@ Scenario: The banking example is a port of the bank pitch sites, not a new desig
   Then it links banking.css after toolkit.css and no other vertical stylesheet, and banking.css carries the source colour tokens and Inter, scoped to the banking page
   And no bank's name, logo, photograph or figure appears in the example
   And the toolkit document names the source commits and maps each banking section to its source section with every intentional difference
+  And a location's observed services agree between its portfolio row and its detail card
 
 @AC-TOOLKIT-14
 Scenario: The fitness example is a port of the TrainMore pitch site, not a new design
@@ -122,6 +124,7 @@ Scenario: The fitness example is a port of the TrainMore pitch site, not a new d
   Then it links fitness.css after toolkit.css and no other vertical stylesheet, and fitness.css carries the source colour tokens and Inter, scoped to the fitness page
   And no club's name, logo, photograph or figure appears in the example
   And the toolkit document names the source commit and maps each fitness section to its source section with every intentional difference
+  And the summary distinguishes missing and expired offers, and the scripted assistant uses only the displayed facts without promising a booking outcome
 
 @AC-TOOLKIT-15
 Scenario: An agency agent finds what each vertical may reuse, and the claims stay within the proof
@@ -129,6 +132,8 @@ Scenario: An agency agent finds what each vertical may reuse, and the claims sta
   Then for each vertical it finds the source reference and commit, the reusable sections, the logo files, the media it may use, the usage restrictions and the exact build command
   And the LPQ interview is described as usable and the concept film as held, with each approval the film still needs
   And the coffee example promises no delivery to every directory and no closed door that the proof does not show
+  And the agency instruction preserves the selected vertical's layout, stylesheet, fonts and motion
+  And logo instructions reuse the existing approval register instead of banning approved assets
 ```
 
 ## Scope
