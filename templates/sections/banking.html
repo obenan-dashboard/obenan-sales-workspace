@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Bank: branch and ATM information governance</title>
+<link rel="stylesheet" href="toolkit.css">
+<link rel="stylesheet" href="banking.css">
+<script src="toolkit.js" defer></script>
+</head>
+<body class="v-banking">
+
+<header class="tk-cover bk-hero">
+  <div class="tk-inner">
+    <p class="bk-lockup"><img src="../../assets/logos/Logo.svg" alt="Obenan"><span>Obenan &times; Example Bank</span></p>
+    <p class="tk-eyebrow">Toolkit example: banking</p>
+    <h1>Who owns the truth <span>about each branch and each ATM?</span></h1>
+    <p class="tk-lede">A buyer question from a retail bank. Branches and ATMs are different things with different owners, so they are counted and governed separately.</p>
+    <ul class="bk-chips">
+      <li><strong>8</strong>sample locations</li>
+      <li><strong>4</strong>branches</li>
+      <li><strong>4</strong>ATMs</li>
+      <li><strong>2</strong>Unknown</li>
+    </ul>
+    <p class="bk-date">Synthetic example, not a customer audit. Replace every row with checked findings before use.</p>
+  </div>
+</header>
+
+<main>
+
+<section class="tk" data-section="portfolio" aria-labelledby="portfolio-h">
+  <div class="tk-inner">
+    <div class="bk-head">
+      <p class="tk-label">Synthetic rows for this example. Replace them with checked findings and keep each source.</p>
+      <span class="bk-eyebrow">The network as customers see it</span>
+      <h2 id="portfolio-h">4 branches and 4 ATMs in this sample, <span class="bk-accent">counted apart.</span></h2>
+      <p class="bk-sub">An ATM inside a branch is still its own listing, with its own hours and its own owner.</p>
+    </div>
+    <ul class="tk-tally">
+      <li><strong>4</strong> branches</li>
+      <li><strong>4</strong> ATMs</li>
+      <li class="bk-watch"><strong>4</strong> differ from the bank's own record</li>
+      <li class="bk-ok"><strong>2</strong> Unknown, not yet checked</li>
+    </ul>
+    <div class="bk-card">
+      <div class="bk-card-head">
+        <div>
+          <h3>Sample network, listing by listing</h3>
+          <p>Hours and services as listed, compared with the bank's own record.</p>
+        </div>
+        <div class="tk-controls" role="group" aria-label="Filter locations">
+          <button type="button" class="tk-button tk-filter" data-type="all" aria-pressed="true">All</button>
+          <button type="button" class="tk-button tk-filter" data-type="branch" aria-pressed="false">Branches</button>
+          <button type="button" class="tk-button tk-filter" data-type="atm" aria-pressed="false">ATMs</button>
+        </div>
+      </div>
+      <p class="tk-source" data-role="shown" aria-live="polite"></p>
+      <div class="tk-table-wrap">
+        <table class="tk-table">
+          <caption class="tk-source">Sample rows. Unknown means not checked, never zero.</caption>
+          <thead><tr>
+            <th scope="col"><button type="button">Location</button></th>
+            <th scope="col"><button type="button">Type</button></th>
+            <th scope="col"><button type="button">Hours vs bank record</button></th>
+            <th scope="col"><button type="button">Services listed</button></th>
+            <th scope="col"><button type="button">Owner</button></th>
+          </tr></thead>
+          <tbody>
+            <tr data-type="branch"><td data-label="Location">Central</td><td data-label="Type">Branch</td><td data-label="Hours vs bank record"><span class="tk-status" data-status="matches">Matches</span></td><td data-label="Services listed">Advice by appointment</td><td data-label="Owner">Branch network team</td></tr>
+            <tr data-type="branch"><td data-label="Location">Old Town</td><td data-label="Type">Branch</td><td data-label="Hours vs bank record"><span class="tk-status" data-status="differs">Shows Saturday opening that ended</span></td><td data-label="Services listed">Cash desk listed, now closed</td><td data-label="Owner">Branch network team</td></tr>
+            <tr data-type="atm"><td data-label="Location">Central lobby</td><td data-label="Type">ATM</td><td data-label="Hours vs bank record"><span class="tk-status" data-status="matches">Matches</span></td><td data-label="Services listed">Cash in and out</td><td data-label="Owner">Self service team</td></tr>
+            <tr data-type="atm"><td data-label="Location">Station concourse</td><td data-label="Type">ATM</td><td data-label="Hours vs bank record"><span class="tk-status" data-status="differs">Listed as a branch</span></td><td data-label="Services listed">None listed</td><td data-label="Owner">Self service team</td></tr>
+            <tr data-type="atm"><td data-label="Location">Retail park</td><td data-label="Type">ATM</td><td data-label="Hours vs bank record" class="tk-unknown">Unknown</td><td data-label="Services listed" class="tk-unknown">Unknown</td><td data-label="Owner">Self service team</td></tr>
+            <tr data-type="branch"><td data-label="Location">University</td><td data-label="Type">Branch</td><td data-label="Hours vs bank record"><span class="tk-status" data-status="differs">Term time hours all year</span></td><td data-label="Services listed">Student accounts</td><td data-label="Owner">Branch network team</td></tr>
+            <tr data-type="atm"><td data-label="Location">Old Town wall</td><td data-label="Type">ATM</td><td data-label="Hours vs bank record"><span class="tk-status" data-status="differs">Still listed after removal</span></td><td data-label="Services listed">Cash out</td><td data-label="Owner">Self service team</td></tr>
+            <tr data-type="branch"><td data-label="Location">Harbour</td><td data-label="Type">Branch</td><td data-label="Hours vs bank record" class="tk-unknown">Unknown</td><td data-label="Services listed">Mortgage advice</td><td data-label="Owner">Branch network team</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tk" data-section="compare" aria-labelledby="compare-h">
+  <div class="tk-inner">
+    <div class="bk-head">
+      <p class="tk-label">Synthetic example. The Proposed state is a proposal, not published content and not a forecast.</p>
+      <span class="bk-eyebrow">Evidence, one listing at a time</span>
+      <h2 id="compare-h">Station concourse: an ATM that customers <span class="bk-accent">think is a branch.</span></h2>
+    </div>
+    <div class="bk-evidence">
+      <article class="bk-case is-open">
+        <div class="bk-case-head">
+          <span class="bk-icon bk-icon-watch" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
+          <div>
+            <h3>Listed category and hours belong to a different place</h3>
+            <p class="bk-where">Station concourse, ATM, self service team</p>
+          </div>
+        </div>
+        <div class="bk-case-body">
+          <span class="bk-kicker">As listed, and as proposed</span>
+          <div class="tk-tabs" role="tablist" aria-label="Listing state">
+            <button type="button" role="tab" id="tab-obs" aria-controls="state-obs" aria-selected="true">Observed</button>
+            <button type="button" role="tab" id="tab-pro" aria-controls="state-pro" aria-selected="false" tabindex="-1">Proposed</button>
+          </div>
+          <div class="tk-states">
+            <article class="tk-state" id="state-obs" role="tabpanel" aria-labelledby="tab-obs" data-state="observed">
+              <h3>Observed <span class="tk-chip">as listed</span></h3>
+              <dl class="tk-rows">
+                <div><dt>Category</dt><dd>Bank branch</dd></div>
+                <div><dt>Hours</dt><dd>09:00 to 17:00, copied from the nearest branch</dd></div>
+                <div><dt>Services</dt><dd>None listed</dd></div>
+              </dl>
+            </article>
+            <article class="tk-state" id="state-pro" role="tabpanel" aria-labelledby="tab-pro" data-state="proposed">
+              <h3>Proposed <span class="tk-chip">for approval</span></h3>
+              <dl class="tk-rows">
+                <div><dt>Category</dt><dd>ATM</dd></div>
+                <div><dt>Hours</dt><dd>The station's opening hours, as confirmed by the self service team</dd></div>
+                <div><dt>Services</dt><dd>Cash withdrawal; nearest branch named with its own hours</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
+      </article>
+      <details class="bk-case">
+        <summary>
+          <span class="bk-icon bk-icon-watch" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><h3>Saturday opening still listed after it ended</h3><p class="bk-where">Old Town, branch, branch network team</p></div>
+        </summary>
+        <div class="bk-case-body"><p>Synthetic row. The listing shows Saturday hours the branch no longer keeps, and a cash desk that has closed.</p></div>
+      </details>
+      <details class="bk-case">
+        <summary>
+          <span class="bk-icon bk-icon-watch" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></span>
+          <div><h3>A removed ATM is still listed</h3><p class="bk-where">Old Town wall, ATM, self service team</p></div>
+        </summary>
+        <div class="bk-case-body"><p>Synthetic row. Customers can still find a machine the bank has taken away.</p></div>
+      </details>
+    </div>
+    <p class="bk-foot">Each card is a synthetic finding. In a real build, each one names its source and the date it was checked.</p>
+  </div>
+</section>
+
+<section class="tk" data-section="assistant" aria-labelledby="assistant-h">
+  <div class="tk-inner">
+    <div class="bk-head">
+      <p class="tk-label">Scripted demonstration, not a live connection to any account. It uses this page's synthetic rows.</p>
+      <span class="bk-eyebrow">Ask the network a question</span>
+      <h2 id="assistant-h">The question the network <span class="bk-accent">governance lead asks.</span></h2>
+    </div>
+    <div class="bk-shell">
+      <div class="bk-side" aria-hidden="true">
+        <p class="bk-new">New chat</p>
+        <p class="bk-search">Search chats</p>
+        <p class="bk-group">Example threads</p>
+        <p class="bk-active">Removed ATMs still listed</p>
+        <p>Branch hours by region</p>
+        <p>Unknown rows to check</p>
+      </div>
+      <div class="bk-main">
+        <div class="bk-bar">
+          <span>Obenan</span>
+          <div class="tk-controls">
+            <button type="button" class="tk-button" data-action="replay">Replay</button>
+          </div>
+        </div>
+        <div class="tk-chat" aria-live="polite">
+          <div class="tk-msg" data-role="question"><h3>Question</h3><p>Which ATMs are still listed after we removed them, and who signs off the change?</p></div>
+          <p class="tk-working" aria-hidden="true">Comparing listings with the bank record</p>
+          <div class="tk-msg" data-role="response">
+            <div class="bk-bot">
+              <span class="bk-avatar" aria-hidden="true">O</span>
+              <div>
+                <h3>Response</h3>
+                <p class="bk-title">ATM listings that differ from the bank record</p>
+                <table class="bk-data">
+                  <tr><th scope="row">Old Town wall</th><td>Still listed after removal</td></tr>
+                  <tr><th scope="row">Station concourse</th><td>Listed as a branch</td></tr>
+                  <tr><th scope="row">Retail park</th><td>Unknown</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="tk-msg" data-role="conclusion"><h3>Conclusion</h3><p>Two ATM listings need a decision from the self service team. Branch listings stay with the branch network team. Retail park is checked before anything is proposed.</p></div>
+        </div>
+        <div class="bk-input" aria-hidden="true"><span>Ask about any branch or ATM</span><span class="bk-send"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tk" data-section="network" aria-labelledby="network-h">
+  <div class="tk-inner">
+    <div class="bk-head">
+      <p class="tk-label">Directory roster as reviewed on 9 October 2026. A listed destination is not necessarily active for a customer.</p>
+      <span class="bk-eyebrow">The governance layer</span>
+      <h2 id="network-h">One approved record per branch and per ATM, <span class="bk-accent">with a named owner.</span></h2>
+      <p class="bk-sub">What the bank would hold in one place before anything is published. A proposal to agree, not a description of the bank's current setup.</p>
+    </div>
+    <ul class="bk-grid">
+      <li><span class="bk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></span><h3>Branches and ATMs apart</h3><p>Each has its own listing, hours and owner, even when an ATM sits inside a branch.</p></li>
+      <li><span class="bk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><h3>One bank record</h3><p>The bank's own record is the source each listing is compared with.</p></li>
+      <li><span class="bk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0M16 11l2 2 4-4"/></svg></span><h3>A named approver per field</h3><p>Hours, services, closures and public wording each have an owner who signs off.</p></li>
+      <li><span class="bk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.7M12 17h.01"/></svg></span><h3>Unknown stays Unknown</h3><p>A listing that has not been checked is shown as Unknown, never as zero or as fine.</p></li>
+      <li><span class="bk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span><h3>Proposed, then approved</h3><p>Every change is shown as a proposal first. Nothing is sent automatically.</p></li>
+      <li><span class="bk-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><h3>Where customers look</h3><p>The roster lists 104 destinations, 4 marked inactive. Which ones apply depends on the country and the account.</p></li>
+    </ul>
+    <p class="tk-source bk-roster">Source: <a href="../../reference/directories/DIRECTORY_ROSTER.md">directory roster</a>.</p>
+  </div>
+</section>
+
+<section class="tk" data-section="business-case" aria-labelledby="case-h">
+  <div class="tk-inner">
+    <div class="bk-head">
+      <p class="tk-label">Proposal only. Owners, steps and weeks are for the bank to agree; no cost or outcome is assumed.</p>
+      <span class="bk-eyebrow">Execution plan</span>
+      <h2 id="case-h">Governance first: <span class="bk-accent">who approves what.</span></h2>
+    </div>
+    <ol class="bk-steps">
+      <li><span class="bk-num">1</span><h3>Agree the record</h3><p>One bank record as the source for every branch and ATM.</p></li>
+      <li><span class="bk-num">2</span><h3>Name the approvers</h3><p>One owner per field, from the table below.</p></li>
+      <li><span class="bk-num">3</span><h3>Check the Unknowns</h3><p>The two Unknown rows are checked before any change is proposed.</p></li>
+    </ol>
+    <div class="bk-panels">
+      <div class="bk-panel">
+        <h3>The bank decides</h3>
+        <ul class="bk-check">
+          <li>Which record is the source</li>
+          <li>Who approves each field</li>
+          <li>Which proposed changes go ahead</li>
+        </ul>
+      </div>
+      <div class="bk-panel bk-panel-ok">
+        <h3>Obenan prepares, for approval</h3>
+        <ul class="bk-check">
+          <li>Each listing compared with the bank record</li>
+          <li>A proposed change per finding, with its source</li>
+          <li>Unknown rows listed for checking</li>
+        </ul>
+      </div>
+    </div>
+    <span class="bk-kicker">Example four-week sequence, to agree</span>
+    <ol class="bk-weeks">
+      <li><span class="bk-w">W1</span><div><h3>Record and owners</h3><p>Agree the source record and the approver per field.</p></div></li>
+      <li><span class="bk-w">W2</span><div><h3>Check</h3><p>Compare every branch and ATM listing; mark Unknown rows.</p></div></li>
+      <li><span class="bk-w">W3</span><div><h3>Propose</h3><p>Show each proposed change to its owner.</p></div></li>
+      <li><span class="bk-w">W4</span><div><h3>Decide</h3><p>Owners approve, change or reject each proposal.</p></div></li>
+    </ol>
+    <div class="tk-case">
+      <table class="tk-owners">
+        <tr><th scope="row">Branch hours and services</th><td>Branch network team</td></tr>
+        <tr><th scope="row">ATM status and location</th><td>Self service team</td></tr>
+        <tr><th scope="row">Closures and openings</th><td>Network planning</td></tr>
+        <tr><th scope="row">Public wording</th><td>Brand and compliance</td></tr>
+      </table>
+      <div>
+        <h3>Next decision</h3>
+        <ol class="tk-steps">
+          <li>Agree one bank record as the source for every branch and ATM.</li>
+          <li>Name the approver for each field above.</li>
+          <li>Check the two Unknown rows before any change is proposed.</li>
+        </ol>
+        <p class="tk-source">No approval, contract or activation is implied, and nothing is sent automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bk-close">
+  <p class="bk-prepared">Prepared for [bank name] by Obenan</p>
+  <img src="../../assets/logos/Logo.svg" alt="Obenan">
+  <p>Toolkit example. Every row, finding and message on this page is synthetic.</p>
+</footer>
+</body>
+</html>

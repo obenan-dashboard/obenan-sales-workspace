@@ -295,3 +295,22 @@ Spec: `spec/features/decision-pack-standard/decision-pack-standard.md`.
   manual source-to-standard review. No customer pack was built or claimed validated.
 - [x] Prepare the reviewed branch for a draft pull request. Human approval is required before
   merge; GitHub is the authority for publication state. No customer send or deployment.
+
+# Sales toolkit final release review, 2 November 2026
+
+Spec: `spec/features/sales-toolkit-sections/sales-toolkit-sections.md`.
+
+- [x] Inspect PR 12 at 15bc489 and the three source-derived verticals. Seven authorizes publication.
+- [x] Add failing instruction contracts for safe preview folders, source-style preservation and approved-logo reuse.
+- [x] Correct the handoff instructions and inconsistent synthetic banking/fitness claims; preserve the designs and the concept-film hold.
+- [x] Run independent requirements, security/media and simplicity reviews; all findings resolved.
+  Full suite: 113 tests pass. Public validation passes. Browser: 162 pass with local-only
+  held-film diagnostics. All 19 standard PDF pages inspected (coffee 7, banking 7, fitness 5).
+  Final corrections have test-first evidence: one handoff failure, then four claims failures,
+  followed by green results. The original bank/fitness port RED chronology was unavailable;
+  retrospective checks fail on pre-port cf0d3c3 and pass now, not claimed as original RED.
+- [ ] Push the reviewed correction, verify exact-head CI, merge through PR 12 and verify public main.
+
+This release publishes the reusable Sales Workspace, not a customer site or the held film.
+The publication checkbox is a pre-merge checkpoint; GitHub PR 12 is the authority for its
+subsequent merge and exact-head CI state.

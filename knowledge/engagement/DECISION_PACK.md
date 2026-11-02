@@ -114,6 +114,12 @@ Never put production commentary on a customer page: `illustrative`, `draft`, `pl
 `not published`, `demo`, `mock`, `sample data`, or explanations of how the pack was made.
 If evidence is unavailable, omit the unsupported page and flag it privately.
 
+Toolkit exception: when an interactive page reuses a section from `templates/sections`
+([SALES_TOOLKIT.md](SALES_TOOLKIT.md)), keep that section's visible disclosure label, such as
+a scripted demonstration, a concept film or a proposed state, on screen and in print. Never
+remove a disclosure to satisfy this wording list. The exception covers only those labels and
+the section's own play, pause, replay, tab and filter controls. Every other customer page rule stands.
+
 ## Language and claims
 
 Write natively in the requested language, never translate mechanically. The buyer is not

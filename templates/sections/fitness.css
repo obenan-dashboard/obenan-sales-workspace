@@ -1,0 +1,213 @@
+/* Fitness example: a port of the TrainMore pitch site's design, scoped to .v-fitness.
+   Source tokens, Inter and compositions only; no club name, logo, photo or figure.
+   The source map is in knowledge/engagement/SALES_TOOLKIT.md. */
+
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(fonts/inter-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(fonts/inter-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Source tokens (HSL channels, as in the source index.css). */
+.v-fitness {
+  --foreground: 0 0% 0%;
+  --navy: 0 0% 0%;
+  --navy-foreground: 0 0% 100%;
+  --primary: 344 96% 52%;
+  --cta: 174 72% 40%;
+  --secondary: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --border: 220 13% 91%;
+  --excellent: 142 76% 36%;
+  --strong: 217 91% 60%;
+  --watch: 38 92% 50%;
+  --focus: 45 93% 47%;
+  --dark-card: 0 0% 8%;
+  --dark-border: 0 0% 18%;
+  --radius: 0.75rem;
+  --gradient-cta: linear-gradient(135deg, hsl(174 72% 40%), hsl(174 72% 32%));
+  /* toolkit variables, remapped to the source palette */
+  --ink: hsl(var(--foreground)); --paper: #fff; --soft: hsl(var(--secondary)); --line: hsl(var(--border));
+  --mid: hsl(var(--muted-foreground)); --accent: hsl(var(--cta)); --key: hsl(var(--cta));
+  --tint-a: hsl(var(--secondary)); --tint-c: hsl(var(--excellent));
+  background: #fff;
+  color: hsl(var(--foreground));
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.v-fitness h1, .v-fitness h2, .v-fitness h3 { letter-spacing: -0.02em; }
+.v-fitness h2 { font-size: clamp(30px, 4.4vw, 48px); font-weight: 700; line-height: 1.1; margin: 0; }
+.v-fitness h2 span { display: block; }
+.v-fitness h3 { font-size: 17px; font-weight: 600; letter-spacing: 0; }
+.v-fitness p { max-width: none; }
+
+/* Layout: px-5 py-16 md:py-24, container max-w-6xl. */
+.v-fitness .tk { padding: 96px 20px; background: #fff; }
+.v-fitness .tk + .tk { border-top: 0; }
+.v-fitness .tk-inner { max-width: 1152px; }
+.v-fitness .fm-alt { background: hsl(var(--secondary)); }
+.v-fitness .tk-label { border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 600; background: #fff; border-color: hsl(var(--border)); color: hsl(var(--foreground)); }
+.v-fitness .tk-label::before { background: hsl(var(--cta)); }
+.fm-eyebrow { display: block; font-size: 12px; font-weight: 600; color: hsl(var(--cta)); margin: 0 0 16px; letter-spacing: 0.02em; }
+.fm-split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: end; margin: 0 0 32px; }
+.fm-split p { margin: 0; color: hsl(var(--muted-foreground)); line-height: 1.65; }
+.fm-note { font-size: 12px; color: hsl(var(--muted-foreground)); margin: 16px 0 0; }
+
+/* Sticky header (source Index): logo line and the membership case link. */
+.fm-nav { position: sticky; top: 0; z-index: 30; background: rgb(255 255 255 / 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid hsl(var(--border)); padding: 8px 12px; }
+.fm-nav div { max-width: 1152px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; font-weight: 600; }
+.fm-nav a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 8px; background: hsl(var(--foreground)); color: #fff; text-decoration: none; }
+
+/* Hero (source HeroSection): black field, ruled top line, very large headline, two actions, stat grid. */
+.v-fitness .tk-cover.fm-hero { background: linear-gradient(to top, #000, rgb(0 0 0 / 0.88) 55%, #1a1a1a); color: #fff; padding: 80px 20px 64px; min-height: 680px; display: flex; flex-direction: column; justify-content: flex-end; }
+.fm-hero .tk-inner { width: 100%; max-width: 1152px; }
+.fm-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgb(255 255 255 / 0.25); padding-bottom: 16px; margin: 0 0 56px; }
+.fm-brand { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 18px; font-weight: 700; }
+.v-fitness .tk-cover .fm-brand img { width: 28px; height: 28px; margin: 0; }
+.fm-brand span { color: rgb(255 255 255 / 0.6); font-weight: 400; }
+.fm-dated { margin: 0; font-size: 12px; color: rgb(255 255 255 / 0.85); }
+.v-fitness .fm-hero .tk-eyebrow { color: hsl(var(--cta)); font-weight: 600; font-size: 12px; }
+.v-fitness .fm-hero h1 { font-size: clamp(48px, 8vw, 96px); font-weight: 700; line-height: 0.98; letter-spacing: -0.03em; max-width: 900px; margin: 0 0 24px; color: #fff; }
+.v-fitness .fm-hero .tk-lede { font-size: clamp(16px, 1.6vw, 20px); color: rgb(255 255 255 / 0.85); max-width: 672px; line-height: 1.6; margin: 0 0 32px; }
+.fm-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 40px; }
+.fm-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; }
+.fm-actions .fm-go { background: hsl(var(--cta)); color: #fff; }
+.fm-actions .fm-ghost { border: 1px solid rgb(255 255 255 / 0.4); color: #fff; }
+.fm-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0 0 32px; padding: 0; list-style: none; }
+.fm-stats li { border: 1px solid rgb(255 255 255 / 0.15); border-radius: 8px; padding: 14px; font-size: 13px; color: rgb(255 255 255 / 0.6); }
+.fm-stats strong { display: block; font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.fm-flag { border-left: 2px solid hsl(var(--watch)); padding-left: 16px; max-width: 672px; margin: 0; }
+.fm-flag strong { display: block; font-size: clamp(18px, 2vw, 24px); font-weight: 600; }
+.fm-flag span { display: block; font-size: 14px; color: rgb(255 255 255 / 0.75); margin-top: 4px; }
+
+/* Compare (source PreviewSection): segmented toggle, club card, proposed card, headquarters strip. */
+.v-fitness .tk-tabs { background: #fff; border: 1px solid hsl(var(--border)); padding: 4px; }
+.v-fitness .tk-tabs [role="tab"] { font-size: 14px; font-weight: 600; }
+.v-fitness .tk-tabs [aria-selected="true"] { background: hsl(var(--foreground)); color: #fff; }
+.v-fitness .tk-state { background: #fff; border: 1px solid hsl(var(--border)); border-radius: 8px; padding: 20px; }
+.v-fitness .tk-state[data-state="observed"] { border-style: dashed; }
+.v-fitness .tk-state[data-state="proposed"] { border-color: hsl(var(--excellent) / 0.5); }
+.v-fitness .tk-state h3 { display: flex; align-items: center; gap: 8px; }
+.v-fitness .tk-chip { margin-left: auto !important; background: transparent; padding: 0; font-size: 11px; font-weight: 600; color: hsl(var(--muted-foreground)); }
+.v-fitness .tk-state[data-state="proposed"] .tk-chip { color: hsl(var(--excellent)); }
+.v-fitness .tk-rows dt { font-size: 13px; }
+.fm-hq { margin-top: 32px; display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; border: 1px solid hsl(var(--border)); border-radius: 8px; background: #fff; padding: 20px; }
+.fm-hq h3 { margin: 0; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.fm-hq h3::before { content: ""; width: 10px; height: 10px; border-radius: 2px; background: hsl(var(--cta)); }
+.fm-hq ul { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 0; padding: 0; list-style: none; font-size: 14px; color: hsl(var(--muted-foreground)); }
+
+/* Teaser (source TimelineSection): black band, outlined pill, gradient rule. */
+.v-fitness .fm-dark { background: #000; color: #fff; }
+.v-fitness .fm-dark h2 { color: #fff; }
+.v-fitness .fm-dark .fm-eyebrow { color: rgb(255 255 255 / 0.7); }
+.v-fitness .fm-dark .tk-label { background: transparent; border-color: rgb(255 255 255 / 0.3); color: #fff; }
+.fm-rule { height: 4px; border-radius: 999px; background: linear-gradient(to right, rgb(255 255 255 / 0.3), hsl(var(--cta)), hsl(var(--cta))); margin: 32px 0; }
+.v-fitness .fm-dark .tk-film { background: hsl(var(--dark-card)); border: 1px solid hsl(var(--dark-border)); border-radius: 8px; color: rgb(255 255 255 / 0.85); }
+.v-fitness .fm-dark .tk-source { color: rgb(255 255 255 / 0.65); }
+.v-fitness .fm-dark a { color: hsl(var(--cta)); }
+
+/* Assistant: the source's card language (bordered card, black question, teal working line). */
+.v-fitness .tk-chat { max-width: 820px; background: #fff; border: 1px solid hsl(var(--border)); border-radius: 8px; }
+.v-fitness .tk-msg { border-radius: 8px; }
+.v-fitness .tk-msg[data-role="question"] { background: #000; border-color: #000; }
+.v-fitness .tk-msg[data-role="question"] h3 { color: rgb(255 255 255 / 0.6); }
+.v-fitness .tk-msg[data-role="conclusion"] { border-color: hsl(var(--cta)); background: hsl(var(--cta) / 0.06); }
+.v-fitness .tk-msg h3 { font-size: 11px; font-weight: 600; }
+.v-fitness .tk-working { color: hsl(var(--cta)); font-weight: 600; }
+.v-fitness .tk-button { border-radius: 8px; border-color: hsl(var(--border)); font-size: 14px; font-weight: 600; }
+
+/* Portfolio (source ClubStoriesSection): watch boxes with large numbers, club rows. */
+.v-fitness .tk-tally { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 24px; }
+.v-fitness .tk-tally li { border-radius: 6px; border: 1px solid hsl(var(--border)); background: #fff; padding: 16px; font-size: 13px; color: hsl(var(--muted-foreground)); }
+.v-fitness .tk-tally li.fm-watch { border-color: hsl(var(--watch) / 0.5); background: hsl(var(--watch) / 0.1); }
+.v-fitness .tk-tally strong { font-size: 36px; font-weight: 700; color: hsl(var(--foreground)); margin: 4px 0; }
+.v-fitness .tk-controls[role="group"] { display: none; gap: 4px; padding: 4px; border: 1px solid hsl(var(--border)); border-radius: 999px; background: #fff; width: max-content; max-width: 100%; }
+.js .v-fitness .tk-controls[role="group"] { display: flex; }
+.v-fitness .tk-filter { min-height: 40px; border: 0; border-radius: 999px; background: transparent; }
+.v-fitness .tk-filter[aria-pressed="true"] { background: #000; color: #fff; }
+.v-fitness .tk-table-wrap { border-radius: 8px; background: #fff; }
+.v-fitness .tk-table th { background: #fff; font-size: 12px; font-weight: 600; color: hsl(var(--muted-foreground)); }
+.v-fitness .tk-table td:first-child { font-weight: 600; }
+.v-fitness .tk-status[data-status="differs"]::before { background: hsl(var(--watch)); }
+.v-fitness .tk-status[data-status="matches"]::before { background: hsl(var(--excellent)); border: 0; }
+
+/* Business case (source BusinessCaseSection and DecisionSection). */
+.v-fitness .tk-case { grid-template-columns: 1.15fr 1fr; gap: 32px; align-items: start; }
+.v-fitness .tk-case form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; align-content: start; }
+.fm-form-head { grid-column: 1 / -1; font-size: 18px; font-weight: 600; margin: 0 0 20px; display: flex; align-items: center; gap: 8px; }
+.fm-form-head::before { content: ""; width: 12px; height: 12px; border-radius: 3px; background: hsl(var(--cta)); }
+.v-fitness .tk-field { display: flex; flex-direction: column; justify-content: flex-end; }
+.v-fitness .tk-field label { font-size: 12px; min-height: 32px; }
+.v-fitness .tk-field input { border-color: hsl(var(--border)); border-radius: 6px; background: #fff; }
+.v-fitness .tk-field input::placeholder { color: hsl(var(--muted-foreground)); }
+.v-fitness .tk-result { grid-column: 1 / -1; background: #000; color: #fff; border: 0; border-radius: 8px; padding: 28px; }
+.v-fitness .tk-result .tk-source { color: rgb(255 255 255 / 0.7); font-size: 12px; font-weight: 600; margin: 0 0 12px; }
+.v-fitness .tk-result output { font-weight: 700; padding-bottom: 12px; border-bottom: 1px solid rgb(255 255 255 / 0.15); }
+.v-fitness .tk-result [data-role="note"] { font-size: 14px; color: hsl(var(--watch)); margin: 12px 0 0; }
+.fm-decide h3 { margin: 0 0 4px; }
+.v-fitness .fm-decide .tk-steps { list-style: none; padding: 0; border-top: 1px solid hsl(var(--border)); counter-reset: fm; margin: 12px 0 24px; }
+.v-fitness .fm-decide .tk-steps li { counter-increment: fm; display: flex; gap: 16px; padding: 18px 0; margin: 0; border-bottom: 1px solid hsl(var(--border)); font-size: 15px; }
+.v-fitness .fm-decide .tk-steps li::before { content: counter(fm, decimal-leading-zero); flex: none; font-size: 12px; font-weight: 600; color: hsl(var(--cta)); margin-top: 3px; }
+.v-fitness .tk-owners { font-size: 14px; }
+.v-fitness .tk-owners td { color: hsl(var(--muted-foreground)); }
+.fm-measure { margin-top: 48px; border-top: 1px solid hsl(var(--border)); padding-top: 32px; }
+.fm-measure h3 { margin: 0 0 20px; }
+.fm-measure ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.fm-measure b { display: block; font-size: 12px; font-weight: 700; color: hsl(var(--cta)); margin-bottom: 8px; }
+.fm-measure strong { display: block; font-size: 14px; }
+.fm-measure span { display: block; font-size: 12px; color: hsl(var(--muted-foreground)); margin-top: 4px; }
+
+/* Closing (source ClosingSection): black band, light logo, proposal line. */
+.fm-close { background: #000; color: rgb(255 255 255 / 0.75); padding: 64px 20px; text-align: center; font-size: 13px; }
+.fm-close img { width: 36px; height: 36px; margin: 0 auto 16px; }
+.fm-close p { margin: 0 auto; max-width: 640px; }
+
+@media (max-width: 899px) {
+  .fm-split, .v-fitness .tk-case { grid-template-columns: 1fr; }
+  .fm-stats, .fm-measure ol { grid-template-columns: 1fr 1fr; }
+  .fm-hq { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .v-fitness .tk { padding: 64px 20px; }
+  .v-fitness .tk-cover.fm-hero { min-height: 0; padding: 40px 20px 40px; }
+  .fm-top { margin-bottom: 32px; }
+  .v-fitness .tk-tally { grid-template-columns: 1fr 1fr; }
+  .v-fitness .tk-tally li:first-child { grid-column: 1 / -1; }
+  .v-fitness .tk-case form { grid-template-columns: 1fr; }
+  .v-fitness .tk-controls[role="group"] { width: 100%; }
+  .v-fitness .tk-filter { flex: 1; padding: 6px 8px; }
+}
+
+@media print {
+  .v-fitness .tk, .v-fitness .fm-alt { background: #fff !important; padding: 0; }
+  .fm-nav, .fm-actions { display: none !important; }
+  .v-fitness .tk-cover.fm-hero, .v-fitness .fm-dark, .fm-close, .v-fitness .tk-result, .v-fitness .tk-msg[data-role="question"], .fm-stats li,
+  .v-fitness .tk-tally li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .v-fitness .tk-cover.fm-hero { min-height: 0; padding: 14mm 10mm 10mm; break-after: page; }
+  .v-fitness .fm-hero h1 { font-size: 40pt; }
+  .v-fitness h2 { font-size: 20pt; }
+  .v-fitness .fm-dark { padding: 8mm 10mm !important; background: #000 !important; break-inside: avoid; }
+  .fm-split { grid-template-columns: 1.7fr 1fr; margin-bottom: 5mm; }
+  .v-fitness [data-section="portfolio"] { break-before: page; break-inside: avoid; }
+  .v-fitness .tk-chat { padding: 8mm; break-inside: avoid; }
+  .v-fitness .tk-msg { padding: 5mm 6mm; margin-bottom: 4mm; }
+  .v-fitness .tk-msg p, .v-fitness .tk-msg li { font-size: 11.5pt; line-height: 1.55; }
+  .v-fitness .tk-states, .js .v-fitness .tk-states.is-tabbed { grid-template-columns: 1fr 1fr; }
+  .fm-hq { margin-top: 5mm; padding: 4mm; break-inside: avoid; }
+  .v-fitness .tk-tally { grid-template-columns: repeat(3, 1fr); }
+  .v-fitness .tk-case { grid-template-columns: 1.15fr 1fr; gap: 6mm; }
+  .v-fitness .tk-case form { grid-template-columns: 1fr 1fr; }
+  .v-fitness .tk-field label { min-height: 0; }
+  .v-fitness .tk-result { padding: 5mm; }
+  .v-fitness .tk-result output { font-size: 20pt; line-height: 1.15; }
+  .v-fitness .tk-result [data-role="note"] { font-size: 9.5pt; }
+  .fm-measure { margin-top: 4mm; padding-top: 4mm; break-inside: avoid; }
+  .fm-measure ol { grid-template-columns: repeat(4, 1fr); }
+  .fm-close { padding: 5mm; break-inside: avoid; break-before: avoid; }
+  .v-fitness .tk-field input { border: 1px solid #9ca3af !important; min-height: 9mm; background: #fff; }
+}

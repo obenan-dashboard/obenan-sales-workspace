@@ -70,6 +70,14 @@ evidence and final checks. [Reusable proof](knowledge/proof/README.md) has separ
 metric permissions. Local checks: `python3 -m unittest discover -s tests -v` and
 `bash scripts/validate_public_repo.sh`.
 
+## Interactive sections
+
+[The sales toolkit](knowledge/engagement/SALES_TOOLKIT.md) holds six reusable HTML, CSS and
+print sections (teaser film, observed and proposed, review stream, location explorer,
+assistant walkthrough, business case) with coffee, banking and fitness examples in
+`templates/sections/`. Every demonstration stays labelled on screen and in the PDF. The
+concept film is held privately, so builds leave the teaser out for now.
+
 ## Meeting-led Decision Pack
 
 Use [the operator prompt](templates/decision-pack/BUILD_PROMPT.md) to supply the meeting,

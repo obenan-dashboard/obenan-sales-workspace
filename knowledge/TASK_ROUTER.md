@@ -36,6 +36,7 @@ STOP) and the hard stops are in `../AGENTS.md`.
 - **EX** `examples/WORKED_EXAMPLE_upsell_brief.md`
 - **DPACK** `knowledge/engagement/DECISION_PACK.md`; operator intake
   `templates/decision-pack/BUILD_PROMPT.md`
+- **TK** `knowledge/engagement/SALES_TOOLKIT.md`; sections and examples `templates/sections/`; film `assets/product-film/`
 
 ## Rows
 
@@ -47,6 +48,7 @@ STOP) and the hard stops are in `../AGENTS.md`.
 | New pitch | LCB, EM | HV, PSY, CP, VP, MC | PR if naming another customer, ODF, OBJ, AD, DIR when directory coverage is named, DECK, DP, BS, LOGO, EX | UI, PG, PP | One finding about their own estate, done before the meeting. | PASS only with a real finding. Otherwise it is a template. |
 | Proposal | LCB, PG, PP, DRC | EM, VP, FO | HV or WW, DIR when directory coverage is named, DECK, DP, BS, LOGO | UI, CP, EX | Transcript, Language, LOCATIONS, PRICING all present. | STOP if any input is missing. Write the recap first. |
 | Decision pack | LCB, DPACK, BU, FO | HV, DP, BS, LOGO | ECR and MCP for performance evidence, PR for intake-authorized proof, UI for product screens, DIR for coverage | PG, PP, DRC, RDECK, EX unless explicitly supplied as reference | Twelve-field intake plus example paths; buyer asks determine pages. Blue profile. Both customer-specific gates zero; inspect every rendered page. | PARTIAL with private gaps after asking once. NONE permits unpriced work, not invented terms. STOP any unsupported commercial or capability claim. |
+| Interactive sections | LCB, TK | HV, PR, DIR | DPACK for a Decision Pack page, MCP for an existing customer, BU for banking units | PG, PP, DRC, RDECK, UI | The buyer's question picks the sections. Every film, scripted chat, synthetic row and proposed state keeps its label. Unknown is never zero. | PARTIAL with synthetic rows still in place. STOP on an unsourced figure, price or claim. |
 | Meeting recap | LCB, PP | SAP, CB | WV1, WV2, HV | UI, DP, BS, PG, DECK | Transcript only. Never invent a commitment. | PASS. Flag missing proposal inputs at the end. |
 | Outreach | LCB, HV | CP, PSY, OBJ | SAP, EM, MCP | UI, DP, BS, PG, PP, DECK | One clear next step. One voice, never blended. | PASS. Ready-to-send copy only. |
 

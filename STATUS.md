@@ -2,7 +2,7 @@
 
 What in this repository is settled, what is carried with a caveat, and what is open.
 
-Last updated: 2026-10-14.
+Last updated: 2026-11-01.
 
 ## Settled
 
@@ -69,6 +69,18 @@ Last updated: 2026-10-14.
   agent followed them or a PDF passed its two customer-specific gates. Each actual build
   still requires source verification, rendered-page inspection and human approval.
 
+## Sales toolkit change set
+
+- 1 November: six reusable sections in [SALES_TOOLKIT.md](knowledge/engagement/SALES_TOOLKIT.md)
+  with one shared `toolkit.css` and `toolkit.js`, and synthetic coffee, banking and fitness
+  examples in `templates/sections/`. `scripts/build_toolkit_example.cjs` builds an example into
+  a private folder; `scripts/check_toolkit_browser.cjs` drives Chrome at 390, 768, 1440 and
+  1920 px, reduced motion, no JavaScript, fast scrolling and the A4 PDF.
+- The validator no longer mistakes a git worktree's `.git` file for a private path; real
+  paths, private information and prohibited names are still caught.
+- Existing templates, approved proof and directory assets are unchanged. No customer page was
+  built and nothing was sent.
+
 ## Carried with a caveat
 
 - **White-label screens.** Six masked captures of Findri's live white-label instance, added
@@ -116,6 +128,11 @@ Last updated: 2026-10-14.
   sales-safe overview, not route maps, customer counts, security findings or internal audits.
 
 ## Open
+
+- **Concept film.** Held privately and left out of builds until Obenan records, in writing,
+  consent for a real restaurant, a real hotel and a pictured person, the origin of the food
+  photographs, a soundtrack licence or a silent cut, and an approved public host and address.
+  Details in `assets/product-film/README.md`. A disclaimer does not replace permission.
 
 - **Logo authority.** The design workspace records logo authority as unresolved. This
   repository ships the canonical marks used on the website and on shipped decks, and keeps the

@@ -6,10 +6,29 @@ cd "$ROOT"
 
 fail=0
 
+# Every check below depends on ripgrep. Without it each check would see "command not
+# found" and pass silently, so stop instead.
+if ! command -v rg >/dev/null 2>&1; then
+  printf 'FAIL: ripgrep (rg) is required to validate this repository\n' >&2
+  exit 2
+fi
+
+# rg exits 0 on a match, 1 on no match and 2 or more on an error. An error must fail.
+scan() {
+  local status=0
+  rg "$@" || status=$?
+  if [ "$status" -ge 2 ]; then
+    printf 'FAIL: ripgrep error %s\n' "$status" >&2
+    exit 2
+  fi
+  return "$status"
+}
+
 check_forbidden() {
   local label="$1"
   local pattern="$2"
-  if rg -n -I --hidden \
+  if scan -n -I --hidden \
+    --glob '!/.git' \
     --glob '!.git/**' \
     --glob '!scripts/validate_public_repo.sh' \
     --glob '!tasks/todo.md' \
@@ -32,7 +51,8 @@ check_forbidden 'unapproved partner names remain' 'Mastercard'
 # Every line naming Visa must carry one of the approved fragments.
 check_visa_scope() {
   local hits
-  hits="$(rg -n -I --hidden \
+  hits="$(scan -n -I --hidden \
+    --glob '!/.git' \
     --glob '!.git/**' \
     --glob '!scripts/validate_public_repo.sh' \
     --glob '!tasks/todo.md' \
@@ -54,8 +74,17 @@ const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
 
-const files = cp.execFileSync('rg', ['--files', '-g', '*.md', '-g', '!tasks/todo.md'], { encoding: 'utf8' })
-  .trim().split('\n').filter(Boolean);
+// rg exits 1 when it lists no files; that is an empty list, not an error.
+function listFiles(args) {
+  try {
+    return cp.execFileSync('rg', ['--files', ...args], { encoding: 'utf8' }).trim().split('\n').filter(Boolean);
+  } catch (err) {
+    if (err.status === 1) return [];
+    throw err;
+  }
+}
+
+const files = listFiles(['-g', '*.md', '-g', '!tasks/todo.md']);
 const missing = [];
 
 for (const file of files) {
@@ -75,8 +104,7 @@ for (const file of files) {
   }
 }
 
-const htmlFiles = cp.execFileSync('rg', ['--files', '-g', '*.html'], { encoding: 'utf8' })
-  .trim().split('\n').filter(Boolean);
+const htmlFiles = listFiles(['-g', '*.html']);
 
 for (const file of htmlFiles) {
   if (!fs.existsSync(file)) continue;

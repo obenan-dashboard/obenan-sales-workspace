@@ -34,7 +34,9 @@ First propose the page list in the order of our buyer's questions. Use the stand
 profile and a meeting-led length, not an automatic product pitch or fixed page count.
 Build with a source-bound generator and two customer-specific gates. Render and view every
 page, run both gates after every change and record actual outputs and hashes in EVIDENCE.md.
-Keep the customer HTML/PDF free of presenter notes and controls. Bring those files and the
+Keep the customer HTML/PDF free of presenter notes and controls. For film, chat, review,
+explorer or business case pages, reuse the sections in knowledge/engagement/SALES_TOOLKIT.md
+and keep their disclosure labels. Bring those files and the
 separate private reviewer note to the human. Update account STATUS.md and DECISIONS_LOG.md.
 Draft only. Do not send, publish or change email, CRM, calendar or customer-account data.
 ```

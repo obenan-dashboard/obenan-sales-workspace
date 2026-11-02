@@ -28,6 +28,7 @@ Pick exactly one. They do not blend.
 | `New pitch` | a prospect who has never bought |
 | `Proposal` | post-meeting, inputs are locked, a priced document is wanted |
 | `Decision pack` | a meeting-led decision pack is requested, with pages shaped by the buyer's questions |
+| `Interactive sections` | a web page or PDF needs a film, observed and proposed states, a review stream, a location explorer, an assistant walkthrough or a business case |
 | `Meeting recap` | a transcript exists and needs structuring |
 | `Outreach` | a single message, email, LinkedIn or WhatsApp |
 
@@ -66,6 +67,13 @@ and blue design profile. Existing review evidence rules still apply to performan
 ordinary Reporting/Upsell layouts and priced Proposal hard stops are unchanged. Its intake
 controls names, proof and partner pages: do not automatically import the proof pages below
 when naming rights are NONE.
+
+For an interactive HTML or PDF page with a film, observed and proposed states, a review
+stream, a location explorer, a scripted assistant walkthrough or a business case, read
+[the sales toolkit](knowledge/engagement/SALES_TOOLKIT.md). It picks sections by the buyer's
+question and reuses one shared implementation in `templates/sections/`.
+Its **Vertical reference guide** names, for coffee, banking and fitness, the source design and
+commit, reusable sections, logos, media, restrictions and the exact build command.
 
 When using a success story, read `knowledge/proof/PUBLIC_PROOF_REGISTER.md` and its linked
 card. Approved stories are named, not anonymized by default. For prospect PDFs with a proof
