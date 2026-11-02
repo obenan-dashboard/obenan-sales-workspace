@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Install validation dependencies
         run: sudo apt-get update && sudo apt-get install -y ripgrep poppler-utils
       - uses: actions/setup-node@v4
