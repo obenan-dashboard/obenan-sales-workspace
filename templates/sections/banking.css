@@ -1,0 +1,262 @@
+/* Banking example: a port of the bank pitch sites' design (Yapı Kredi layout, İşbank and Akbank as references),
+   scoped to .v-banking. Source tokens, Inter and compositions only; no bank name, logo, photo or figure.
+   The source map is in knowledge/engagement/SALES_TOOLKIT.md. */
+
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(fonts/inter-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url(fonts/inter-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Source tokens (HSL channels, as in the source index.css). */
+.v-banking {
+  --primary: 209 100% 29%;
+  --foreground: 220 13% 13%;
+  --muted-foreground: 220 9% 46%;
+  --border: 220 13% 91%;
+  --secondary: 220 14% 96%;
+  --cta: 173 77% 32%;
+  --excellent: 142 71% 45%;
+  --strong: 217 91% 60%;
+  --watch: 38 92% 50%;
+  --focus: 48 96% 53%;
+  --radius: 0.75rem;
+  --gradient-subtle: linear-gradient(180deg, hsl(220 14% 99%), hsl(220 14% 97%));
+  --gradient-keynote: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(209 100% 29% / 0.08), transparent);
+  --shadow-lg: 0 10px 15px -3px hsl(220 13% 13% / 0.08), 0 4px 6px -4px hsl(220 13% 13% / 0.03);
+  --shadow-keynote: 0 25px 50px -12px hsl(209 100% 29% / 0.12), 0 0 0 1px hsl(209 100% 29% / 0.05);
+  --shadow-chip: 0 1px 3px hsl(209 100% 29% / 0.08), 0 0 0 1px hsl(209 100% 29% / 0.04);
+  /* toolkit variables, remapped to the source palette */
+  --ink: hsl(var(--foreground)); --paper: #fff; --soft: hsl(var(--secondary)); --line: hsl(var(--border));
+  --mid: hsl(var(--muted-foreground)); --accent: hsl(var(--primary)); --key: hsl(var(--primary));
+  --tint-a: hsl(var(--primary) / 0.1); --tint-c: hsl(var(--excellent));
+  background: var(--gradient-subtle);
+  color: hsl(var(--foreground));
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.v-banking h1, .v-banking h2, .v-banking h3 { letter-spacing: -0.01em; color: hsl(var(--foreground)); }
+.v-banking h2 { font-size: clamp(30px, 3.4vw, 36px); font-weight: 700; line-height: 1.2; }
+.v-banking h3 { font-size: 18px; font-weight: 600; }
+.v-banking p { max-width: none; }
+
+/* Layout: py-24 px-4, container max-w-6xl. */
+.v-banking .tk { padding: 96px 16px; background: transparent; }
+.v-banking .tk + .tk { border-top: 0; }
+.v-banking .tk-inner { max-width: 1152px; }
+.v-banking .tk-label { border-color: hsl(var(--primary) / 0.2); background: hsl(var(--primary) / 0.05); color: hsl(var(--primary)); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 500; }
+.v-banking .tk-label::before { background: hsl(var(--primary)); }
+.bk-head { text-align: center; max-width: 768px; margin: 0 auto 48px; }
+.bk-eyebrow { display: block; font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: hsl(var(--primary)); margin: 0 0 16px; }
+.bk-sub { font-size: 18px; line-height: 1.6; color: hsl(var(--muted-foreground)); max-width: 672px; margin: 0 auto; }
+.bk-accent { color: hsl(var(--cta)); }
+.bk-blue { color: hsl(var(--primary)); }
+.bk-icon { flex: none; display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: hsl(var(--primary) / 0.1); color: hsl(var(--primary)); }
+.bk-icon svg { width: 24px; height: 24px; }
+.bk-icon-watch { background: hsl(var(--watch) / 0.12); color: hsl(38 92% 38%); }
+.bk-icon-ok { background: hsl(var(--excellent) / 0.12); color: hsl(142 71% 30%); }
+
+/* Hero (source HeroSection): light grid, logo pill, two-line headline, chips, date line. */
+.v-banking .tk-cover.bk-hero {
+  position: relative; text-align: center; padding: 112px 16px 96px; overflow: hidden;
+  background: var(--gradient-keynote), #fff;
+}
+.bk-hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(hsl(var(--border) / 0.6) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border) / 0.6) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+}
+.bk-hero .tk-inner { position: relative; max-width: 960px; }
+.bk-lockup { display: inline-flex; align-items: center; gap: 12px; padding: 8px 18px; margin: 0 0 40px; border-radius: 999px; background: #fff; box-shadow: var(--shadow-chip); font-size: 14px; font-weight: 600; }
+.v-banking .tk-cover .bk-lockup img { width: 24px; height: 24px; margin: 0; }
+.bk-lockup span { padding-left: 12px; border-left: 1px solid hsl(var(--border)); }
+.v-banking .bk-hero h1 { font-size: clamp(40px, 6.4vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 24px; }
+.v-banking .bk-hero h1 span { display: block; color: hsl(var(--primary)); }
+.bk-hero .tk-lede { font-size: clamp(18px, 1.6vw, 20px); color: hsl(var(--muted-foreground)); max-width: 640px; margin: 0 auto 40px; }
+.bk-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 0 0 32px; padding: 0; list-style: none; }
+.bk-chips li { padding: 10px 18px; border-radius: 999px; background: #fff; box-shadow: var(--shadow-chip); font-size: 14px; color: hsl(var(--muted-foreground)); }
+.bk-chips strong { color: hsl(var(--foreground)); font-weight: 700; margin-right: 4px; }
+.bk-date { font-size: 13px; color: hsl(var(--muted-foreground)); margin: 0; }
+
+/* Portfolio (source VisibilityCrisisSection footprint cards and DuplicatesSection table card). */
+.v-banking .tk-tally { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 0 0 48px; }
+.v-banking .tk-tally li { text-align: center; padding: 28px 20px; border-radius: 16px; border: 1px solid hsl(var(--border)); background: hsl(var(--secondary) / 0.3); color: hsl(var(--muted-foreground)); font-size: 15px; font-weight: 500; }
+.v-banking .tk-tally strong { font-size: 48px; font-weight: 700; color: hsl(var(--foreground)); margin-bottom: 8px; }
+.v-banking .tk-tally .bk-ok { background: hsl(var(--excellent) / 0.05); border-color: hsl(var(--excellent) / 0.2); }
+.v-banking .tk-tally .bk-ok strong { color: hsl(142 71% 32%); }
+.v-banking .tk-tally .bk-watch { background: hsl(var(--watch) / 0.05); border-color: hsl(var(--watch) / 0.2); }
+.v-banking .tk-tally .bk-watch strong { color: hsl(38 92% 40%); }
+.bk-card { background: #fff; border: 1px solid hsl(var(--border)); border-radius: 16px; box-shadow: var(--shadow-lg); }
+.bk-card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 24px 24px 8px; }
+.bk-card-head h3 { margin: 0 0 4px; }
+.bk-card-head p { margin: 0; font-size: 14px; color: hsl(var(--muted-foreground)); }
+.v-banking .bk-card-head .tk-controls { margin: 0; gap: 4px; padding: 4px; border-radius: 999px; background: hsl(var(--secondary)); }
+.v-banking .tk-filter { min-height: 40px; padding: 6px 16px; border: 0; background: transparent; font-size: 14px; font-weight: 500; }
+.v-banking .tk-filter[aria-pressed="true"] { background: #fff; color: hsl(var(--primary)); box-shadow: var(--shadow-chip); }
+.bk-card [data-role="shown"] { margin: 0; padding: 0 24px 12px; }
+.v-banking .bk-card .tk-table-wrap { border: 0; border-top: 1px solid hsl(var(--border)); border-radius: 0 0 16px 16px; }
+.v-banking .tk-table th { background: hsl(var(--secondary) / 0.5); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: hsl(var(--muted-foreground)); }
+.v-banking .tk-table th button { font-weight: 600; }
+.v-banking .tk-table td:first-child { font-weight: 600; }
+.v-banking .tk-table caption { caption-side: bottom; padding: 12px 24px; text-align: left; }
+.v-banking .tk-status[data-status="differs"] { color: hsl(38 92% 36%); font-weight: 500; }
+.v-banking .tk-status[data-status="differs"]::before { background: hsl(var(--watch)); border-radius: 50%; }
+.v-banking .tk-status[data-status="matches"] { color: hsl(142 71% 30%); }
+.v-banking .tk-status[data-status="matches"]::before { background: hsl(var(--excellent)); border: 0; border-radius: 50%; }
+
+/* Compare (source SmokingGunsSection): evidence cards, the first one open. */
+.bk-evidence { display: grid; gap: 16px; max-width: 1024px; margin: 0 auto; }
+.bk-case { background: #fff; border: 1px solid hsl(var(--border)); border-radius: 16px; box-shadow: var(--shadow-lg); overflow: hidden; }
+.bk-case.is-open { border-color: hsl(var(--primary) / 0.4); box-shadow: var(--shadow-keynote); }
+.bk-case-head, .bk-case summary { display: flex; gap: 20px; align-items: flex-start; padding: 24px; }
+.bk-case summary { cursor: pointer; list-style: none; }
+.bk-case summary::-webkit-details-marker { display: none; }
+.bk-case summary::after { content: ""; margin-left: auto; flex: none; width: 10px; height: 10px; border-right: 2px solid hsl(var(--muted-foreground)); border-bottom: 2px solid hsl(var(--muted-foreground)); transform: rotate(45deg); margin-top: 6px; }
+.bk-case[open] summary::after { transform: rotate(-135deg); margin-top: 12px; }
+.bk-case-head h3, .bk-case summary h3 { margin: 0 0 4px; }
+.bk-where { margin: 0; font-size: 14px; color: hsl(var(--muted-foreground)); }
+.bk-case-body { border-top: 1px solid hsl(var(--border)); padding: 24px; background: hsl(var(--secondary) / 0.2); }
+.bk-case-body p { margin: 0; color: hsl(var(--muted-foreground)); }
+.bk-kicker { display: block; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: hsl(var(--muted-foreground)); margin: 0 0 12px; }
+.v-banking .tk-tabs { background: #fff; box-shadow: var(--shadow-chip); }
+.v-banking .tk-tabs [role="tab"] { font-size: 14px; font-weight: 600; }
+.v-banking .tk-tabs [aria-selected="true"] { background: hsl(var(--primary)); color: #fff; }
+.v-banking .tk-state { background: #fff; border-radius: 12px; }
+.v-banking .tk-state[data-state="proposed"] { border-color: hsl(var(--excellent) / 0.4); background: hsl(var(--excellent) / 0.04); }
+.v-banking .tk-chip { background: hsl(var(--primary) / 0.1); color: hsl(var(--primary)); font-size: 12px; font-weight: 600; }
+.v-banking .tk-state[data-state="proposed"] .tk-chip { background: hsl(var(--excellent) / 0.15); color: hsl(142 71% 28%); }
+.bk-foot { text-align: center; font-size: 14px; color: hsl(var(--muted-foreground)); margin: 48px auto 0; }
+
+/* Assistant (source AIDataChatSection): dark chat shell with a thread sidebar. */
+.bk-shell { display: flex; min-height: 550px; border-radius: 12px; overflow: hidden; border: 1px solid rgb(255 255 255 / 0.1); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); max-width: 1024px; margin: 0 auto; }
+.bk-side { flex: none; width: 256px; background: #171717; border-right: 1px solid rgb(255 255 255 / 0.1); padding: 12px; color: rgb(255 255 255 / 0.7); font-size: 14px; }
+.bk-side p { margin: 0; padding: 10px 12px; border-radius: 8px; }
+.bk-side .bk-new { background: rgb(255 255 255 / 0.05); color: #fff; }
+.bk-side .bk-search { color: rgb(255 255 255 / 0.5); }
+.bk-side .bk-group { font-size: 12px; color: rgb(255 255 255 / 0.4); padding-top: 20px; }
+.bk-side .bk-active { background: rgb(255 255 255 / 0.05); }
+.bk-main { flex: 1; min-width: 0; display: flex; flex-direction: column; background: #212121; color: #fff; }
+.bk-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid rgb(255 255 255 / 0.1); font-weight: 600; }
+.v-banking .bk-bar .tk-controls { margin: 0; }
+.v-banking .bk-bar .tk-button { min-height: 36px; padding: 6px 14px; border-color: rgb(255 255 255 / 0.2); background: transparent; color: rgb(255 255 255 / 0.8); font-size: 13px; }
+.v-banking .bk-bar .tk-button:hover { background: rgb(255 255 255 / 0.08); }
+.v-banking .bk-main .tk-chat { flex: 1; max-width: none; border: 0; border-radius: 0; background: transparent; padding: 24px; }
+.v-banking .bk-main .tk-msg { background: transparent; border: 0; color: #fff; padding: 0; margin: 0 0 24px; }
+.v-banking .bk-main .tk-msg h3 { font-size: 12px; color: rgb(255 255 255 / 0.4); }
+.v-banking .bk-main .tk-msg[data-role="question"] { margin-left: auto; max-width: 80%; background: #2f2f2f; border-radius: 16px; padding: 12px 16px; }
+.v-banking .bk-main .tk-msg[data-role="question"] h3 { color: rgb(255 255 255 / 0.5); }
+.bk-bot { display: flex; gap: 12px; }
+.bk-avatar { flex: none; width: 32px; height: 32px; border-radius: 50%; background: hsl(var(--primary)); display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+.bk-bot > div { flex: 1; min-width: 0; }
+.bk-title { font-size: 18px; font-weight: 600; margin: 4px 0 12px; }
+.bk-data { width: 100%; border-collapse: collapse; background: rgb(255 255 255 / 0.05); border-radius: 8px; font-size: 14px; }
+.bk-data th, .bk-data td { padding: 10px 12px; border-bottom: 1px solid rgb(255 255 255 / 0.1); text-align: left; font-weight: 400; }
+.bk-data tr:last-child th, .bk-data tr:last-child td { border-bottom: 0; }
+.bk-data th { color: rgb(255 255 255 / 0.7); }
+.bk-data td { text-align: right; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+.v-banking .bk-main .tk-working { color: rgb(255 255 255 / 0.5); }
+.bk-input { display: flex; align-items: center; justify-content: space-between; margin: 0 16px 16px; padding: 10px 10px 10px 16px; border-radius: 16px; background: #2f2f2f; color: rgb(255 255 255 / 0.4); font-size: 14px; }
+.bk-send { width: 32px; height: 32px; border-radius: 50%; background: hsl(var(--primary)); }
+
+/* Network (source GovernanceLayerSection): capability cards in a 3 by 2 grid. */
+.bk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.bk-grid li { background: #fff; border: 1px solid hsl(var(--border)); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 24px; }
+.bk-grid .bk-icon { margin-bottom: 16px; }
+.bk-grid h3 { margin: 0 0 8px; }
+.bk-grid p { margin: 0; font-size: 15px; line-height: 1.6; color: hsl(var(--muted-foreground)); }
+.bk-roster { margin: 32px auto 0; text-align: center; }
+.bk-roster strong { color: hsl(var(--primary)); }
+
+/* Business case (source ExecutionPlanSection): numbered steps, two panels, a four-week plan. */
+.bk-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 0 0 32px; padding: 0; list-style: none; }
+.bk-steps li { position: relative; background: #fff; border: 1px solid hsl(var(--border)); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 24px; }
+.bk-num { position: absolute; top: -12px; left: 24px; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: hsl(var(--primary)); color: #fff; font-size: 13px; font-weight: 700; }
+.bk-steps li:last-child .bk-num { background: hsl(var(--excellent)); }
+.bk-steps h3 { margin: 8px 0 8px; }
+.bk-steps p { margin: 0; font-size: 15px; color: hsl(var(--muted-foreground)); }
+.bk-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 0 0 48px; }
+.bk-panel { border-radius: 16px; padding: 24px; border: 1px solid hsl(var(--primary) / 0.2); background: hsl(var(--primary) / 0.05); }
+.bk-panel-ok { border-color: hsl(var(--excellent) / 0.2); background: hsl(var(--excellent) / 0.05); }
+.bk-panel h3 { margin: 0 0 12px; }
+.bk-check { margin: 0; padding: 0; list-style: none; font-size: 14px; }
+.bk-check li { position: relative; padding: 4px 0 4px 26px; }
+.bk-check li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 6px; height: 11px; border-right: 2px solid hsl(var(--primary)); border-bottom: 2px solid hsl(var(--primary)); transform: rotate(45deg); }
+.bk-panel-ok .bk-check li::before { border-color: hsl(142 71% 32%); }
+.bk-weeks { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 16px 0 48px; padding: 0; list-style: none; }
+.bk-weeks::before { content: ""; position: absolute; left: 24px; right: 24px; top: 20px; height: 2px; background: hsl(var(--border)); }
+.bk-weeks li { position: relative; }
+.bk-w { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: #fff; border: 2px solid hsl(var(--border)); font-size: 13px; font-weight: 700; color: hsl(var(--muted-foreground)); margin-bottom: 16px; }
+.bk-weeks li:first-child .bk-w { background: hsl(var(--cta)); border-color: hsl(var(--cta) / 0.4); color: #fff; box-shadow: 0 0 0 3px hsl(var(--cta) / 0.2); }
+.bk-weeks div { background: #fff; border: 1px solid hsl(var(--border)); border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px -1px hsl(220 13% 13% / 0.06); }
+.bk-weeks h3 { font-size: 16px; margin: 0 0 6px; }
+.bk-weeks p { margin: 0; font-size: 14px; color: hsl(var(--muted-foreground)); }
+.v-banking .tk-case { background: #fff; border: 1px solid hsl(var(--border)); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 24px; }
+.v-banking .tk-owners th { font-weight: 600; }
+.v-banking .tk-owners td { color: hsl(var(--muted-foreground)); }
+
+/* Closing (source ClosingCTASection): prepared-for line, logo, date. */
+.bk-close { text-align: center; padding: 64px 16px; border-top: 1px solid hsl(var(--border)); background: #fff; }
+.bk-close img { width: 40px; height: 40px; margin: 16px auto; }
+.bk-close p { margin: 0 auto; font-size: 14px; color: hsl(var(--muted-foreground)); }
+.bk-close .bk-prepared { font-size: 18px; font-weight: 600; color: hsl(var(--foreground)); }
+
+@media (max-width: 899px) {
+  .v-banking .tk-tally { grid-template-columns: repeat(2, 1fr); }
+  .bk-grid, .bk-steps { grid-template-columns: 1fr 1fr; }
+  .bk-side { display: none; }
+  .bk-weeks { grid-template-columns: 1fr 1fr; }
+  .bk-weeks::before { display: none; }
+}
+@media (max-width: 640px) {
+  .v-banking .tk { padding: 64px 16px; }
+  .v-banking .tk-cover.bk-hero { padding: 72px 16px 56px; }
+  .bk-grid, .bk-steps, .bk-panels, .bk-weeks { grid-template-columns: 1fr; }
+  .v-banking .tk-tally { gap: 12px; }
+  .v-banking .tk-tally li { padding: 20px 12px; }
+  .v-banking .tk-tally strong { font-size: 36px; }
+  .bk-card-head { padding: 20px 16px 8px; }
+  .bk-card [data-role="shown"] { padding: 0 16px 12px; }
+  .bk-case-head, .bk-case summary, .bk-case-body { padding: 16px; gap: 14px; }
+  .bk-icon { width: 40px; height: 40px; }
+  .bk-shell { min-height: 0; }
+  .v-banking .bk-main .tk-chat { padding: 16px; }
+  .v-banking .bk-main .tk-msg[data-role="question"] { max-width: 92%; }
+  .bk-data th, .bk-data td { padding: 8px; font-size: 13px; }
+  .v-banking .tk-table caption { padding: 12px 16px; }
+}
+
+@media print {
+  .v-banking, .v-banking .tk, .v-banking .tk-cover.bk-hero { background: #fff !important; }
+  .v-banking .tk { padding: 0; }
+  .v-banking .tk-cover.bk-hero { padding: 20mm 0 0; break-after: page; }
+  .v-banking .bk-hero h1 { font-size: 34pt; }
+  .v-banking h2 { font-size: 18pt; }
+  .bk-head { margin-bottom: 6mm; }
+  .bk-hero::before, .bk-side, .bk-input { display: none !important; }
+  .bk-card, .bk-case, .bk-grid li, .bk-steps li, .bk-weeks div, .v-banking .tk-case { box-shadow: none; }
+  .bk-shell, .bk-main, .bk-avatar, .bk-num, .bk-w, .bk-panel, .v-banking .tk-tally li, .v-banking .tk-label, .v-banking .tk-chip,
+  .v-banking .bk-main .tk-msg[data-role="question"] { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .bk-shell { display: block; min-height: 0; break-inside: avoid; }
+  .v-banking .tk-tally { grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-bottom: 6mm; }
+  .v-banking .tk-tally li { padding: 4mm; }
+  .v-banking .tk-tally strong { font-size: 24pt; }
+  .bk-case-head, .bk-case summary, .bk-case-body { padding: 4mm 5mm; }
+  .bk-case:not([open]) { break-inside: avoid; }
+  .v-banking .tk-states, .js .v-banking .tk-states.is-tabbed { grid-template-columns: 1fr 1fr; }
+  .bk-grid { grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .bk-grid li { padding: 4mm; break-inside: avoid; }
+  .bk-steps { grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .bk-panels { grid-template-columns: 1fr 1fr; gap: 4mm; margin-bottom: 6mm; }
+  .bk-weeks { grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 6mm; break-inside: avoid; }
+  .bk-steps li, .bk-panel, .bk-weeks div { padding: 4mm; break-inside: avoid; }
+  .v-banking .tk-case { break-inside: avoid; }
+  .bk-foot { margin-top: 6mm; }
+  .bk-close { padding: 10mm 0 0; break-inside: avoid; }
+}

@@ -5,16 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Example Fitness Clubs: from discovery to membership</title>
 <link rel="stylesheet" href="toolkit.css">
+<link rel="stylesheet" href="fitness.css">
 <script src="toolkit.js" defer></script>
 </head>
-<body>
+<body class="v-fitness">
 
-<header class="tk-cover">
+<nav class="fm-nav" aria-label="Page">
+  <div><span>Obenan &times; Example Clubs</span><a href="#case-h">Membership case</a></div>
+</nav>
+
+<header class="tk-cover fm-hero">
   <div class="tk-inner">
-    <img src="../../assets/logos/Logo.svg" alt="Obenan">
+    <div class="fm-top">
+      <p class="fm-brand"><img src="../../assets/logos/Logo_Light.svg" alt="Obenan">OBENAN <span>&times; Example Clubs</span></p>
+      <p class="fm-dated">Synthetic example, not a customer audit</p>
+    </div>
     <p class="tk-eyebrow">Toolkit example: fitness</p>
     <h1>Do people nearby understand the offer well enough to book a trial?</h1>
     <p class="tk-lede">A buyer question from a group of fitness clubs. It runs from club discovery, to an offer people understand, to trials that become memberships.</p>
+    <p class="fm-actions"><a class="fm-go" href="#compare-h">See one club's offer</a><a class="fm-ghost" href="#case-h">Membership case</a></p>
+    <ul class="fm-stats">
+      <li><strong>5</strong>clubs in this example</li>
+      <li><strong>2</strong>show a trial offer</li>
+      <li><strong>2</strong>list an offer that differs</li>
+      <li><strong>1</strong>Unknown, not yet checked</li>
+    </ul>
+    <p class="fm-flag"><strong>Found is not the same as understood.</strong><span>A club can appear in an answer and still lose the trial if the offer is unclear.</span></p>
   </div>
 </header>
 
@@ -22,8 +38,12 @@
 
 <section class="tk" data-section="compare" aria-labelledby="compare-h">
   <div class="tk-inner">
+    <p class="fm-eyebrow">01 / ONE CLUB, AS LISTED AND AS PROPOSED</p>
+    <div class="fm-split">
+      <h2 id="compare-h">North club: <span>the offer as listed, and the offer made clear.</span></h2>
+      <p>The same club, the same facts. The proposed version states the trial the club actually runs, a readable timetable and a booking link for this club.</p>
+    </div>
     <p class="tk-label">Synthetic example. The Proposed state is a proposal, not published content and not a forecast.</p>
-    <h2 id="compare-h">North club: the offer as listed, and the offer made clear.</h2>
     <div class="tk-tabs" role="tablist" aria-label="Offer state">
       <button type="button" role="tab" id="tab-obs" aria-controls="state-obs" aria-selected="true">Observed</button>
       <button type="button" role="tab" id="tab-pro" aria-controls="state-pro" aria-selected="false" tabindex="-1">Proposed</button>
@@ -46,13 +66,24 @@
         </dl>
       </article>
     </div>
+    <div class="fm-hq">
+      <h3>What headquarters does</h3>
+      <ul>
+        <li>Confirms the offer and brand rules</li>
+        <li>Grants scoped access</li>
+        <li>Handles exceptions</li>
+        <li>Obenan prepares the recurring updates for approval</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<section class="tk" data-section="teaser" aria-labelledby="teaser-h">
+<section class="tk fm-dark" data-section="teaser" aria-labelledby="teaser-h">
   <div class="tk-inner">
+    <p class="fm-eyebrow">02 / THE PRODUCT, IN A CONCEPT FILM</p>
     <p class="tk-label">Concept product film. A historical product concept without sound; names and screens in it are not this customer's data and do not show a deployment.</p>
-    <h2 id="teaser-h">Every club's facts, kept right wherever people look.</h2>
+    <h2 id="teaser-h">One approved record <span>for every club's facts.</span></h2>
+    <div class="fm-rule" aria-hidden="true"></div>
     <div class="tk-film" data-film="obenan-concept-film-720p.mp4" data-poster="obenan-concept-film-poster.jpg">
       <p class="tk-film-held">The film is held until its release is approved. A build adds it here only when the reviewed copy is supplied.</p>
     </div>
@@ -60,8 +91,9 @@
   </div>
 </section>
 
-<section class="tk" data-section="assistant" aria-labelledby="assistant-h">
+<section class="tk fm-alt" data-section="assistant" aria-labelledby="assistant-h">
   <div class="tk-inner">
+    <p class="fm-eyebrow">03 / WHAT AN ASSISTANT CAN ANSWER</p>
     <p class="tk-label">Scripted demonstration, not a live connection to any account. It uses this page's synthetic rows.</p>
     <h2 id="assistant-h">The question a prospective member asks an assistant.</h2>
     <div class="tk-controls">
@@ -78,12 +110,16 @@
 
 <section class="tk" data-section="portfolio" aria-labelledby="portfolio-h">
   <div class="tk-inner">
+    <p class="fm-eyebrow">04 / EVERY CLUB, CHECKED THE SAME WAY</p>
+    <div class="fm-split">
+      <h2 id="portfolio-h">Which clubs can a newcomer <span>understand and book?</span></h2>
+      <p>One row per club, with the trial offer and the timetable as a newcomer finds them. Unknown stays Unknown until someone checks it.</p>
+    </div>
     <p class="tk-label">Synthetic rows for this example. Replace them with checked findings per club and keep each source.</p>
-    <h2 id="portfolio-h">Which clubs can a newcomer understand and book?</h2>
     <ul class="tk-tally">
       <li><strong>5</strong> clubs</li>
       <li><strong>2</strong> show a trial offer</li>
-      <li><strong>1</strong> Unknown, not yet checked</li>
+      <li class="fm-watch"><strong>1</strong> Unknown, not yet checked</li>
     </ul>
     <div class="tk-controls" role="group" aria-label="Filter clubs">
       <button type="button" class="tk-button tk-filter" data-type="all" aria-pressed="true">All</button>
@@ -112,19 +148,24 @@
   </div>
 </section>
 
-<section class="tk" data-section="business-case" aria-labelledby="case-h">
+<section class="tk fm-alt" data-section="business-case" aria-labelledby="case-h">
   <div class="tk-inner">
+    <p class="fm-eyebrow">05 / THE MEMBERSHIP DECISION, CALCULATED</p>
+    <div class="fm-split">
+      <h2 id="case-h">How many trials would have to <span>become memberships?</span></h2>
+      <p>Your figures only. The page shows the threshold that would cover the monthly cost, never a forecast.</p>
+    </div>
     <p class="tk-label">Buyer inputs only. Nothing is prefilled and the result is a break-even threshold, not a forecast.</p>
-    <h2 id="case-h">How many trials would have to become memberships?</h2>
     <div class="tk-case">
       <form data-unit="new memberships a month" data-waiting="Enter all four numbers to see the threshold.">
+        <p class="fm-form-head">Entered by the club group</p>
         <div class="tk-field"><label for="f-cost">Monthly cost, to agree (EUR)</label><input id="f-cost" data-role="cost" inputmode="decimal" autocomplete="off"></div>
         <div class="tk-field"><label for="f-value">Contribution per new membership a month, from your figures (EUR)</label><input id="f-value" data-role="value" inputmode="decimal" autocomplete="off"></div>
         <div class="tk-field"><label for="f-trial">Trials that become a membership (%)</label><input id="f-trial" data-role="rate" data-unit="trials a month" inputmode="decimal" autocomplete="off"></div>
         <div class="tk-field"><label for="f-visit">Profile visits that book a trial (%)</label><input id="f-visit" data-role="rate" data-unit="profile visits a month" inputmode="decimal" autocomplete="off"></div>
         <div class="tk-result"><p class="tk-source">Break-even threshold</p><output for="f-cost f-value f-trial f-visit" aria-live="polite">?</output><p data-role="note">Enter all four numbers to see the threshold.</p></div>
       </form>
-      <div>
+      <div class="fm-decide">
         <h3>Next decision</h3>
         <ol class="tk-steps">
           <li>Agree the trial offer each club can state publicly.</li>
@@ -139,9 +180,23 @@
         <p class="tk-source">Proposal only. No approval, contract or activation is implied, and nothing is sent automatically.</p>
       </div>
     </div>
+    <div class="fm-measure">
+      <h3>How it would be measured</h3>
+      <ol>
+        <li><b>STEP 1</b><strong>Baseline</strong><span>Trials and memberships per club before any change.</span></li>
+        <li><b>STEP 2</b><strong>Approved changes</strong><span>Offer wording and timetables, each approved by its owner.</span></li>
+        <li><b>STEP 3</b><strong>Same counting</strong><span>The same trial and membership count, per club.</span></li>
+        <li><b>STEP 4</b><strong>Compare</strong><span>Against the threshold above, with your figures.</span></li>
+      </ol>
+    </div>
   </div>
 </section>
 
 </main>
+
+<footer class="fm-close">
+  <img src="../../assets/logos/Logo_Light.svg" alt="Obenan">
+  <p>Prepared for [club group name] by Obenan. Every club, row and conversation on this page is synthetic.</p>
+</footer>
 </body>
 </html>

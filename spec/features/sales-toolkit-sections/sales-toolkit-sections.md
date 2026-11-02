@@ -28,7 +28,7 @@ Scenario: A zero-context agent reaches one toolkit document from the existing en
 Scenario: Six sections share one implementation
   Given templates/sections/toolkit.css and templates/sections/toolkit.js
   When an example page is built
-  Then it links only those shared files and carries no inline style or script block
+  Then it links those shared files, plus at most one stylesheet ported from its named source design, and carries no inline style or script block
   And the teaser and the assistant walkthrough are separate sections
 
 @AC-TOOLKIT-3
@@ -96,6 +96,39 @@ Scenario: An agent outside Obenan builds a self-contained example
   Then every local link and asset in the folder resolves inside that folder
   And every link to a repository document opens its public source pinned to a commit that holds the same text
   And nothing in it points to the repository checkout, a home directory or a private file
+
+@AC-TOOLKIT-12
+Scenario: The coffee example is a port of the Bluestone Lane pitch, not a new design
+  Given the Bluestone Lane pitch site as the coffee source design
+  When coffee.html is built
+  Then it links coffee.css after toolkit.css, and coffee.css carries the source colour tokens and fonts scoped to the coffee page
+  And the fonts are vendored with their OFL licences, so the page makes no request outside its own folder
+  And Joost's interview appears as the approved linked still, the QR labelled Scan to watch and the caption with its printed address, beside his verbatim lead quote
+  And the banking and fitness examples do not link the coffee stylesheet
+  And the toolkit document maps each coffee section to its source section and names every intentional difference
+
+@AC-TOOLKIT-13
+Scenario: The banking example is a port of the bank pitch sites, not a new design
+  Given the Yapı Kredi pitch site as the banking layout, with the İşbank and Akbank pitch sites as its references
+  When banking.html is built
+  Then it links banking.css after toolkit.css and no other vertical stylesheet, and banking.css carries the source colour tokens and Inter, scoped to the banking page
+  And no bank's name, logo, photograph or figure appears in the example
+  And the toolkit document names the source commits and maps each banking section to its source section with every intentional difference
+
+@AC-TOOLKIT-14
+Scenario: The fitness example is a port of the TrainMore pitch site, not a new design
+  Given the TrainMore pitch site as the fitness source design
+  When fitness.html is built
+  Then it links fitness.css after toolkit.css and no other vertical stylesheet, and fitness.css carries the source colour tokens and Inter, scoped to the fitness page
+  And no club's name, logo, photograph or figure appears in the example
+  And the toolkit document names the source commit and maps each fitness section to its source section with every intentional difference
+
+@AC-TOOLKIT-15
+Scenario: An agency agent finds what each vertical may reuse, and the claims stay within the proof
+  Given a zero-context agent reading START_HERE.md and the toolkit document
+  Then for each vertical it finds the source reference and commit, the reusable sections, the logo files, the media it may use, the usage restrictions and the exact build command
+  And the LPQ interview is described as usable and the concept film as held, with each approval the film still needs
+  And the coffee example promises no delivery to every directory and no closed door that the proof does not show
 ```
 
 ## Scope
@@ -103,4 +136,4 @@ Scenario: An agent outside Obenan builds a self-contained example
 In: shared CSS/JS, six sections, three examples, one recipe document, a build script that
 exports a self-contained example, the product film's provenance and release conditions, a narrow Decision Pack exception, routing updates, contract tests
 and a local browser check. Out: customer builds, pitch datasets, backends, analytics, login,
-hosting or deployment, new design tokens, and changes to existing deck templates.
+hosting or deployment, invented design tokens (source tokens ported per vertical are in), and changes to existing deck templates.

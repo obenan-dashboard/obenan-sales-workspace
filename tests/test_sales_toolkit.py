@@ -295,8 +295,10 @@ class SalesToolkitTests(unittest.TestCase):
                 self.assertEqual([p.name for p in out.rglob("*.md")], [])
                 linked = set()
                 for ref in re.findall(r'href="([^"]+)"', html):
-                    if ref.startswith(("#", "toolkit.css", "files/")) and not ref.split("#")[0].endswith(".md"):
+                    if ref.startswith(("#", "toolkit.css", "coffee.css", "banking.css", "fitness.css", "files/")) and not ref.split("#")[0].endswith(".md"):
                         continue
+                    if ref.startswith("https://www.youtube.com/watch?v=vxrYXjTXJp4&amp;t="):
+                        continue  # approved LPQ interview, not a repository document
                     match = PINNED.match(ref)
                     self.assertIsNotNone(match, ref)
                     pins.add(match.group(1))
@@ -353,6 +355,141 @@ class SalesToolkitTests(unittest.TestCase):
         self.assertIn("BigInt", js)
         self.assertNotIn("parseFloat", js)
         self.assertNotIn("innerHTML", js)
+
+    def test_AC_TOOLKIT_12_coffee_is_a_scoped_port_of_its_source(self):
+        p = page("coffee")
+        self.assertIn("coffee.css", p.links)
+        self.assertLess(p.links.index("toolkit.css"), p.links.index("coffee.css"))
+        for name in ("banking", "fitness"):
+            with self.subTest(example=name):
+                self.assertNotIn("coffee.css", page(name).links)
+        css = (SECTIONS / "coffee.css").read_text()
+        for token in ("231 43% 25%", "40 33% 97%", "210 45% 85%", "160 84% 39%", "38 92% 50%"):
+            with self.subTest(token=token):
+                self.assertIn(token, css)
+        self.assertRegex(css, r"\.v-coffee")
+        fonts = re.findall(r"url\(['\"]?([^'\")]+)['\"]?\)", css)
+        self.assertTrue(fonts)
+        for family in ("Nunito Sans", "Montserrat"):
+            self.assertRegex(css, rf"@font-face\s*{{[^}}]*{family}")
+        for ref in fonts:
+            with self.subTest(font=ref):
+                self.assertTrue(ref.startswith("fonts/"), ref)
+                self.assertTrue((SECTIONS / ref).is_file(), ref)
+        for licence in ("OFL-nunitosans.txt", "OFL-montserrat.txt"):
+            self.assertIn("SIL Open Font License", (SECTIONS / "fonts" / licence).read_text())
+        for f in [SECTIONS / f"{n}.html" for n in EXAMPLES] + list(SECTIONS.glob("*.css")):
+            with self.subTest(external=f.name):
+                self.assertNotRegex(f.read_text(), r"googleapis|gstatic|@import|cdn\.")
+
+    def test_AC_TOOLKIT_12_lpq_interview_follows_the_preview_rule(self):
+        body = (SECTIONS / "coffee.html").read_text()
+        url = "https://www.youtube.com/watch?v=vxrYXjTXJp4&amp;t=144s"
+        self.assertRegex(body, re.escape(f'<a class="cf-video" href="{url}">') + r"\s*<img src=\"../../assets/video-previews/lpq-joost-interview.jpg\"")
+        self.assertIn("lpq-joost-interview-qr.svg", body)
+        self.assertIn("Scan to watch", body)
+        self.assertIn("Watch Joost's interview from 2:24", body)
+        self.assertIn("youtube.com/watch?v=vxrYXjTXJp4&amp;t=144s</a>", body)
+        card = " ".join(read("knowledge/proof/LE_PAIN_QUOTIDIEN.md").split())
+        lead = "Obenan is way more advanced on the technology than any other competitor that I've met or seen out there."
+        self.assertIn(lead, card)
+        self.assertIn(lead, text("coffee"))
+        self.assertIn("Joost Vastenavondt", body)
+        self.assertNotRegex(text("coffee"), r"8\.7|31\.8x|30\+ countries|250\+ locations")
+
+    def test_AC_TOOLKIT_12_build_carries_the_port_and_its_fonts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "site"
+            result = build("coffee", out)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            css = (out / "coffee.css").read_text()
+            for ref in re.findall(r"url\(['\"]?([^'\")]+)['\"]?\)", css):
+                with self.subTest(font=ref):
+                    self.assertTrue((out / ref).is_file(), ref)
+            self.assertTrue((out / "fonts/OFL-nunitosans.txt").is_file())
+            self.assertTrue((out / "fonts/OFL-montserrat.txt").is_file())
+            self.assertIn('href="coffee.css"', (out / "index.html").read_text())
+
+    def test_AC_TOOLKIT_12_source_map_names_differences(self):
+        doc = read(DOC)
+        self.assertIn("Coffee source map", doc)
+        for source in ("InternalProof", "PortfolioIntelligence", "Reputation", "TalkToData", "Testimonial"):
+            with self.subTest(source=source):
+                self.assertIn(source, doc)
+        self.assertIn("Intentional differences", doc)
+
+    def assert_scoped_port(self, name, tokens, others):
+        p = page(name)
+        self.assertIn(f"{name}.css", p.links)
+        self.assertLess(p.links.index("toolkit.css"), p.links.index(f"{name}.css"))
+        for other in others:
+            self.assertNotIn(f"{other}.css", p.links)
+        css = (SECTIONS / f"{name}.css").read_text()
+        for token in tokens:
+            with self.subTest(token=token):
+                self.assertIn(token, css)
+        self.assertRegex(css, rf"\.v-{name}")
+        self.assertIn(f'class="v-{name}', (SECTIONS / f"{name}.html").read_text())
+        self.assertRegex(css, r"@font-face\s*{[^}]*Inter")
+        for ref in re.findall(r"url\(['\"]?([^'\")]+)['\"]?\)", css):
+            with self.subTest(font=ref):
+                self.assertTrue(ref.startswith("fonts/") and (SECTIONS / ref).is_file(), ref)
+        self.assertIn("SIL Open Font License", (SECTIONS / "fonts/OFL-inter.txt").read_text())
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "site"
+            result = build(name, out)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue((out / f"{name}.css").is_file())
+            self.assertTrue((out / "fonts/inter-latin.woff2").is_file())
+            self.assertTrue((out / "fonts/OFL-inter.txt").is_file())
+
+    def assert_source_map(self, title, commits, sources):
+        doc = read(DOC)
+        self.assertIn(title, doc)
+        section = doc.split(title, 1)[1].split("\n## ", 1)[0]
+        for item in commits + sources + ("Intentional differences",):
+            with self.subTest(item=item):
+                self.assertIn(item, section)
+
+    def test_AC_TOOLKIT_13_banking_is_a_scoped_port_of_the_bank_sites(self):
+        self.assert_scoped_port("banking", ("209 100% 29%", "173 77% 32%", "220 13% 13%"), ("coffee", "fitness"))
+        body = text("banking")
+        self.assertNotRegex(body, r"(?i)yap[ıi] kredi|i̇?şbank|isbank|akbank|garanti|6,753|7,852|1,618|gölcük")
+        self.assertNotRegex((SECTIONS / "banking.html").read_text(), r'(?i)yapikredi|isbank|akbank|(src|href)="[^"]*\.(png|jpe?g|webp)"')
+        self.assert_source_map("Banking source map", ("157e4c1a2b68", "d8b55b890a3b", "b725cbf51f6a"),
+                               ("HeroSection", "AIDataChatSection", "DuplicatesSection", "ExecutionPlanSection", "GovernanceLayerSection"))
+
+    def test_AC_TOOLKIT_14_fitness_is_a_scoped_port_of_trainmore(self):
+        self.assert_scoped_port("fitness", ("344 96% 52%", "174 72% 40%"), ("coffee", "banking"))
+        self.assertNotRegex(text("fitness"), r"(?i)trainmore|train more")
+        self.assertNotRegex((SECTIONS / "fitness.html").read_text(), r'(?i)trainmore|(src|href)="[^"]*\.(png|jpe?g|webp)"')
+        self.assert_source_map("Fitness source map", ("3b9f41443d16",),
+                               ("HeroSection", "PreviewSection", "BusinessCaseSection", "DecisionSection", "ClubStoriesSection"))
+
+    def test_AC_TOOLKIT_15_agency_guide_media_and_claims(self):
+        doc = read(DOC)
+        guide = doc.split("Vertical reference guide", 1)[1].split("\n## ", 1)[0]
+        for item in ("bluestonelane", "20461fe00a66", "157e4c1a2b68", "3b9f41443d16", "assets/logos/Logo.svg",
+                     "lpq-joost-interview.jpg", "Restrictions",
+                     "node scripts/build_toolkit_example.cjs --example coffee --out",
+                     "node scripts/build_toolkit_example.cjs --example banking --out",
+                     "node scripts/build_toolkit_example.cjs --example fitness --out"):
+            with self.subTest(item=item):
+                self.assertIn(item, guide)
+        media = doc.split("Video: what is usable and what is held", 1)[1].split("\n## ", 1)[0]
+        self.assertIn("usable", media)
+        self.assertIn("held", media)
+        for approval in ("restaurant", "hotel", "pictured person", "food photographs", "soundtrack", "public host"):
+            with self.subTest(approval=approval):
+                self.assertIn(approval, media)
+        start = read("START_HERE.md")
+        self.assertIn("Vertical reference guide", start)
+        for name in ("coffee", "banking", "fitness"):
+            self.assertIn(name, start)
+        coffee = " ".join(text("coffee").lower().split())
+        for claim in ("closed door", "every listed place", "every place guests look", "sent to every", "everywhere guests"):
+            with self.subTest(claim=claim):
+                self.assertNotIn(claim, coffee)
 
     def test_AC_TOOLKIT_10_pinned_templates_unchanged(self):
         pins = {

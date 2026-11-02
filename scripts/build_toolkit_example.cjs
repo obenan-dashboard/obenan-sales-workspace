@@ -120,7 +120,7 @@ async function filmMarkup(opts, outDir) {
 // pinned public source.
 function localise(html, copies) {
   return html.replace(/((?:src|href)=")([^"]+)(")/g, (whole, pre, ref, post) => {
-    if (/^(https?:|mailto:|data:|#)/.test(ref) || /^(toolkit\.(css|js)|film\/)/.test(ref)) return whole;
+    if (/^(https?:|mailto:|data:|#)/.test(ref) || /^(toolkit\.(css|js)|[a-z]+\.css|fonts\/|film\/)/.test(ref)) return whole;
     const [target, hash] = ref.split('#');
     const source = path.resolve(SECTIONS, decodeURIComponent(target));
     const rel = path.relative(ROOT, source);
@@ -150,7 +150,12 @@ async function main() {
     [path.join(SECTIONS, 'toolkit.css'), 'toolkit.css'],
     [path.join(SECTIONS, 'toolkit.js'), 'toolkit.js'],
   ];
-  const teaser = /\n<section class="tk" data-section="teaser"[\s\S]*?<\/section>\n/;
+  const own = path.join(SECTIONS, `${opts.example}.css`);
+  if (fs.existsSync(own)) {
+    copies.push([own, `${opts.example}.css`]);
+    for (const f of fs.readdirSync(path.join(SECTIONS, 'fonts'))) copies.push([path.join(SECTIONS, 'fonts', f), `fonts/${f}`]);
+  }
+  const teaser = /\n<section class="tk[^"]*" data-section="teaser"[\s\S]*?<\/section>\n/;
   const slot = /    <div class="tk-film"[^>]*>[\s\S]*?<\/div>\n/;
   let qr = null;
   if (teaser.test(html)) {

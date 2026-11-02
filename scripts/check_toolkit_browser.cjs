@@ -503,10 +503,10 @@ async function qr(page, url, pdfFile, label) {
     await nojs.close();
   }
 
-  // PDFs: the public coffee build, and when the film is held here, a private build with its poster.
+  // PDFs: every public example build, and when the film is held here, a private build with its poster.
   const pdfCtx = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
   const pdfPage = await pdfCtx.newPage();
-  const pdfs = [['coffee', 'coffee.pdf']];
+  const pdfs = [['coffee', 'coffee.pdf'], ['banking', 'banking.pdf'], ['fitness', 'fitness.pdf']];
   if (haveFilm) pdfs.push(['coffee-film', 'coffee-with-film-poster.pdf'], ['coffee-film-url', 'coffee-film-url-loopback.pdf']);
   for (const [dir, name] of pdfs) {
     await pdfPage.goto(`${base}/${dir}/index.html`, { waitUntil: 'load' });

@@ -72,6 +72,8 @@ For an interactive HTML or PDF page with a film, observed and proposed states, a
 stream, a location explorer, a scripted assistant walkthrough or a business case, read
 [the sales toolkit](knowledge/engagement/SALES_TOOLKIT.md). It picks sections by the buyer's
 question and reuses one shared implementation in `templates/sections/`.
+Its **Vertical reference guide** names, for coffee, banking and fitness, the source design and
+commit, reusable sections, logos, media, restrictions and the exact build command.
 
 When using a success story, read `knowledge/proof/PUBLIC_PROOF_REGISTER.md` and its linked
 card. Approved stories are named, not anonymized by default. For prospect PDFs with a proof
