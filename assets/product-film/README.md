@@ -1,17 +1,24 @@
-# Concept product film
+# Obenan dashboard preview
 
-Obenan's concept product film is **held privately**. No rendition, poster or QR is stored in
-this public repository, and no public address for it exists yet. The toolkit teaser section
-shows it only when a person supplies the reviewed rendition to the build (see
-[SALES_TOOLKIT.md](../../knowledge/engagement/SALES_TOOLKIT.md)). Without it, the build
-leaves the teaser section out.
+**APPROVED for public sales reuse by Seven on 2026-11-03.** This is the supplied Obenan
+dashboard teaser, not confidential customer footage. The earlier agent-created publication
+hold is superseded by that explicit approval. See the exact scope in the
+[public proof register](../../knowledge/proof/PUBLIC_PROOF_REGISTER.md#obenan-dashboard-preview).
+
+[Watch or download the dashboard preview](https://raw.githubusercontent.com/obenan-dashboard/obenan-sales-workspace/main/assets/product-film/obenan-concept-film-720p.mp4).
+
+The 67.6-second silent video, [poster](obenan-concept-film-poster.jpg) and
+[QR](obenan-concept-film-qr.svg) are stored here. Ordinary coffee and fitness builds embed
+them automatically, with a clickable poster, public link and QR in the PDF. No private file,
+login, new provider or extra package installation is needed. See
+[SALES_TOOLKIT.md](../../knowledge/engagement/SALES_TOOLKIT.md). Use `--no-film` to omit the
+teaser when it does not answer the buyer's question. Banking remains film-free.
 
 [DESCRIPTION.md](DESCRIPTION.md) is the scene by scene text alternative.
 
-## Why it is held
+## Scope of the supplied footage
 
-Frame review of the 1080p master on 1 November 2026 found third party content in most of
-the product screens, so a short clean cut would not show the product:
+Frame review of the 1080p master on 1 November 2026 recorded the following content:
 
 | Time | Content |
 | --- | --- |
@@ -21,32 +28,26 @@ the product screens, so a short clean cut would not show the product:
 | About 20 to 21 s | A grid of food photographs of unknown origin |
 | 0 to 67 s | A song with vocals on the master's soundtrack |
 
-A disclaimer does not replace permission.
+Approval records Seven's authority to distribute this supplied sales asset, not independently
+verified third-party licences or permission to extract its people, business identities or
+figures as separate proof. Only the silent rendition is published; no soundtrack is included.
+Do not infer current features, account state or customer performance from its illustrative screens.
 
-## Approval needed
-
-Before the film is published or sent outside a meeting, Obenan needs, in writing:
-
-1. The restaurant's consent to show its name and address, or a cut that removes it.
-2. The hotel's consent to show its name, address and photograph, or a cut that removes it.
-3. The pictured person's consent to show their photograph, or a cut that replaces it.
-4. The origin and licence of the food photographs.
-5. A licence for the soundtrack, or keep the film silent as the rendition is.
-6. An approved public host and address for the film. No new storage provider is added here.
-
-Once these are recorded, add the approved address to the build with `--film-url` so the PDF
-carries a clickable poster, link and QR.
-
-## Held files
+## Public files
 
 | File | Use | SHA-256 |
 | --- | --- | --- |
 | `obenan-concept-film-720p.mp4` | Web rendition, 1280x720 H.264, no audio, 67.6 s, 3,719,495 bytes | `1d1dc9d8120d892aedefb1418b6cf7596cf14c03513c5db7d8f9c7fcb4f1dee0` |
 | `obenan-concept-film-poster.jpg` | Poster frame at 10 s and the PDF still | `52550d4b36da8a7f87efcce20089f52df582795677271ca035e446d0c2dd6cbe` |
+| `obenan-concept-film-qr.svg` | QR for the public video URL above, not a loopback address | `e502080dc418b7e25626d6a7ed5076b9fc31d4ef11ba909b19f2b722f5b35142` |
 
-The build refuses a rendition or poster whose checksum differs from this table.
+The build refuses a rendition, poster or default QR whose checksum differs from this table.
+The existing filenames remain stable for compatibility; the customer-facing name is
+"Obenan dashboard preview". A custom approved address can use `--film-url URL`; generating
+its QR requires the existing optional `qrcode` tool described in the toolkit guide.
 
-Two masters are held privately by Obenan:
+Two source masters remain outside this repository; only the optimized silent rendition is
+needed for reuse:
 
 | Master | Format | Bytes | SHA-256 |
 | --- | --- | --- | --- |
@@ -64,7 +65,7 @@ ffmpeg -ss 10 -i obenan-concept-film-720p.mp4 -frames:v 1 -q:v 3 obenan-concept-
 
 ## Labelling
 
-Every page that shows the film labels it a historical concept film. It shows product ideas,
+Every page that shows the film labels it "Obenan dashboard preview". It shows the product,
 not a deployment, a customer result or a live account. It uses legacy wave branding and
 concept gauges; never quote a score or number from it. Built pages load it with
 `preload="none"`, visible controls, a poster and no autoplay. PDFs show the poster, never

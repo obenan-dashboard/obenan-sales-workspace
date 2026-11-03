@@ -8,6 +8,22 @@ Public naming permission does not authorize internal account identifiers, locati
 user or role counts, private correspondence, contracts, billing information or unpublished
 performance data.
 
+## Approved product media
+
+### Obenan dashboard preview
+
+| Field | Approved value |
+|---|---|
+| Status | `APPROVED` |
+| Approved use | Public repository distribution and agency reuse of the supplied Obenan dashboard teaser, its poster and public-link QR in sales pages and decks. |
+| Asset | [Video, poster, QR and provenance](../../assets/product-film/README.md); 67.6-second silent 720p H.264 rendition. |
+| Video SHA-256 | `1d1dc9d8120d892aedefb1418b6cf7596cf14c03513c5db7d8f9c7fcb4f1dee0` |
+| Poster SHA-256 | `52550d4b36da8a7f87efcce20089f52df582795677271ca035e446d0c2dd6cbe` |
+| Approved by | Seven, explicit instruction that the supplied dashboard preview is not confidential and must be pushed publicly. Operator authority, not independently verified third-party licences. |
+| Approval recorded | 2026-11-03; supersedes the previous agent-created hold for this asset. |
+| Required wording | Obenan dashboard preview. Product demonstration, not the prospect's account or customer-results proof. |
+| Excluded | Source audio/masters, extraction of depicted identities or figures as separate proof, guaranteed outcomes, or a claim that the film verifies today's production functionality. |
+
 ## Approved customer proof
 
 ### Le Pain Quotidien

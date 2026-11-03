@@ -74,6 +74,8 @@ stream, a location explorer, a scripted assistant walkthrough or a business case
 question and reuses one shared implementation in `templates/sections/`.
 Its **Vertical reference guide** names, for coffee, banking and fitness, the source design and
 commit, reusable sections, logos, media, restrictions and the exact build command.
+The [Obenan dashboard preview](assets/product-film/README.md) is approved for public sales
+reuse and included in coffee and fitness builds. Use the supplied video and poster, not a placeholder.
 
 When using a success story, read `knowledge/proof/PUBLIC_PROOF_REGISTER.md` and its linked
 card. Approved stories are named, not anonymized by default. For prospect PDFs with a proof

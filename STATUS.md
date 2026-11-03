@@ -129,10 +129,10 @@ Last updated: 2026-11-01.
 
 ## Open
 
-- **Concept film.** Held privately and left out of builds until Obenan records, in writing,
-  consent for a real restaurant, a real hotel and a pictured person, the origin of the food
-  photographs, a soundtrack licence or a silent cut, and an approved public host and address.
-  Details in `assets/product-film/README.md`. A disclaimer does not replace permission.
+- **Dashboard preview, resolved 3 November.** Seven explicitly approved public distribution
+  of the supplied teaser. The optimized silent video, poster and public QR are now bundled
+  in `assets/product-film/`; coffee and fitness builds include them by default. The approval
+  supersedes the earlier hold, not the limits on customer-result claims or unrelated assets.
 
 - **Logo authority.** The design workspace records logo authority as unresolved. This
   repository ships the canonical marks used on the website and on shipped decks, and keeps the
