@@ -2,12 +2,11 @@
 // Builds one toolkit example into a self-contained folder outside the repository.
 //
 //   node scripts/build_toolkit_example.cjs --example coffee --out DIR
-//        [--film-dir DIR] [--film-url URL]
+//        [--film-dir DIR] [--film-url URL] [--no-film]
 //
-// Without --film-dir the teaser section is left out: the concept film is held privately
-// (assets/product-film/README.md). With --film-dir the rendition and poster must match the
-// checksums recorded in that README. --film-url adds a clickable poster, link and QR to the
-// printed page; pass it only for an approved, working public address.
+// Coffee and fitness include the approved dashboard preview from assets/product-film.
+// --no-film omits it. --film-dir accepts only the checksum-matched rendition and poster;
+// --film-url overrides the public link and QR for an approved alternate address.
 //
 // --out must be a new or empty folder; the build refuses anything else before writing.
 // Images and styles are copied into the folder. Links to repository documents open their
@@ -23,7 +22,10 @@ const SECTIONS = path.join(ROOT, 'templates/sections');
 const EXAMPLES = ['coffee', 'banking', 'fitness'];
 const FILM = 'obenan-concept-film-720p.mp4';
 const POSTER = 'obenan-concept-film-poster.jpg';
-const SOURCE_COMMIT = '2d8572a07b590a84f85840092733e76a36faeb26';
+const QR = 'obenan-concept-film-qr.svg';
+const FILM_DIR = path.join(ROOT, 'assets/product-film');
+const FILM_URL = `https://raw.githubusercontent.com/obenan-dashboard/obenan-sales-workspace/main/assets/product-film/${FILM}`;
+const SOURCE_COMMIT = '5d17b959eb4b90f465494a5da2239e2ce68ce887';
 const SOURCE = `https://github.com/obenan-dashboard/obenan-sales-workspace/blob/${SOURCE_COMMIT}/`;
 
 function fail(message) {
@@ -33,18 +35,21 @@ function fail(message) {
 
 function args(argv) {
   const out = {};
-  for (let i = 0; i < argv.length; i += 2) {
+  for (let i = 0; i < argv.length; i++) {
     const key = argv[i];
-    const value = argv[i + 1];
-    if (!/^--(example|out|film-dir|film-url)$/.test(key) || value === undefined) {
+    if (key === '--no-film') { out['no-film'] = true; continue; }
+    const value = argv[++i];
+    if (!/^--(example|out|film-dir|film-url)$/.test(key) || value === undefined || value.startsWith('--')) {
       fail(`unknown or incomplete option ${key}`);
     }
     out[key.slice(2)] = value;
   }
   if (!EXAMPLES.includes(out.example)) fail(`--example must be one of ${EXAMPLES.join(', ')}`);
   if (!out.out) fail('--out is required');
-  if (out['film-url'] && !out['film-dir']) fail('--film-url needs --film-dir');
+  if (out['no-film'] && (out['film-dir'] || out['film-url'])) fail('--no-film cannot be combined with --film-dir or --film-url');
   if (out['film-url'] && !/^https?:\/\/[^\s"'<>]+$/.test(out['film-url'])) fail('--film-url must be an http(s) address');
+  out['film-dir'] ||= FILM_DIR;
+  out['film-url'] ||= FILM_URL;
   return out;
 }
 
@@ -52,7 +57,7 @@ function sha256(file) {
   return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 }
 
-// The README's held-files table is the single record of the approved checksums.
+// The README's public-files table is the single record of the approved checksums.
 function recordedDigests() {
   const readme = fs.readFileSync(path.join(ROOT, 'assets/product-film/README.md'), 'utf8');
   const digest = (name) => {
@@ -61,7 +66,7 @@ function recordedDigests() {
     if (!m) fail(`no recorded checksum for ${name} in assets/product-film/README.md`);
     return m[1];
   };
-  return { [FILM]: digest(FILM), [POSTER]: digest(POSTER) };
+  return { [FILM]: digest(FILM), [POSTER]: digest(POSTER), [QR]: digest(QR) };
 }
 
 function escapeAttr(s) {
@@ -82,16 +87,23 @@ function qrSvg(url) {
   });
 }
 
-async function filmMarkup(opts, outDir) {
+async function filmMarkup(opts) {
   const dir = opts['film-dir'];
   const want = recordedDigests();
   for (const name of [FILM, POSTER]) {
     const file = path.join(dir, name);
-    if (!fs.existsSync(file)) fail(`missing ${name} in --film-dir`);
+    if (!fs.existsSync(file)) fail(`missing ${name} in film assets`);
     if (sha256(file) !== want[name]) fail(`checksum of ${name} does not match assets/product-film/README.md`);
   }
   const url = opts['film-url'];
-  const qr = url ? await qrSvg(url) : null;
+  let qr;
+  if (url === FILM_URL) {
+    const file = path.join(FILM_DIR, QR);
+    if (!fs.existsSync(file) || sha256(file) !== want[QR]) fail('missing or changed approved film QR');
+    qr = fs.readFileSync(file, 'utf8');
+  } else {
+    qr = await qrSvg(url);
+  }
   return {
     files: [[path.join(dir, FILM), `film/${FILM}`], [path.join(dir, POSTER), `film/${POSTER}`]],
     qr,
@@ -102,15 +114,15 @@ async function filmMarkup(opts, outDir) {
       '      </video>',
       '    </div>',
       '    <div class="tk-print-only">',
-      url ? `      <a href="${escapeAttr(url)}">` : '',
-      `      <img class="tk-poster" src="film/${POSTER}" alt="Still from the concept product film: an assistant asks how it can help">`,
-      url ? '      </a>' : '',
-      url ? [
+      `      <a href="${escapeAttr(url)}">`,
+      `      <img class="tk-poster" src="film/${POSTER}" alt="Obenan dashboard preview: an assistant asks how it can help">`,
+      '      </a>',
+      [
         '      <div class="tk-film-meta">',
-        '        <img class="tk-qr" src="film/qr.svg" alt="QR code for the concept product film address">',
+        '        <img class="tk-qr" src="film/qr.svg" alt="Scan to watch the Obenan dashboard preview">',
         `        <p>Scan or open <a class="tk-film-link" href="${escapeAttr(url)}">${escapeAttr(url)}</a></p>`,
         '      </div>',
-      ].join('\n') : '      <p class="tk-film-meta">Shown in the meeting. No public address is approved for this film yet.</p>',
+      ].join('\n'),
       '    </div>',
     ].filter(Boolean).join('\n'),
   };
@@ -159,8 +171,8 @@ async function main() {
   const slot = /    <div class="tk-film"[^>]*>[\s\S]*?<\/div>\n/;
   let qr = null;
   if (teaser.test(html)) {
-    if (opts['film-dir']) {
-      const film = await filmMarkup(opts, outDir);
+    if (!opts['no-film']) {
+      const film = await filmMarkup(opts);
       if (!slot.test(html)) fail('teaser section has no tk-film slot');
       html = html.replace(slot, `${film.html}\n`);
       copies.push(...film.files);

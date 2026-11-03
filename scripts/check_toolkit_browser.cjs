@@ -6,8 +6,7 @@
 // Builds every example into a temporary folder outside the repository, serves it on a
 // random loopback port and drives system Chrome through playwright-core. Writes captures,
 // PDFs and receipt.json to DIR (default out/toolkit, ignored by git). Exits 1 on any failure.
-// The held film is used when TOOLKIT_FILM_DIR (or out/private-film) holds the reviewed copy;
-// otherwise film checks are reported as skipped, never as passed.
+// Bundled dashboard preview playback and PDF links/QR are required, never optional skips.
 'use strict';
 const fs = require('fs');
 const os = require('os');
@@ -20,6 +19,7 @@ const TOOLS = path.join(ROOT, 'out/.tools/node_modules');
 const EXAMPLES = ['coffee', 'banking', 'fitness'];
 const WIDTHS = [390, 768, 1440, 1920];
 const FILM = 'obenan-concept-film-720p.mp4';
+const FILM_URL = `https://raw.githubusercontent.com/obenan-dashboard/obenan-sales-workspace/main/assets/product-film/${FILM}`;
 
 function need(name) {
   const paths = [process.env.PLAYWRIGHT_CORE ? path.dirname(process.env.PLAYWRIGHT_CORE) : null, TOOLS, ROOT]
@@ -46,8 +46,7 @@ function chromePath() {
 
 const outArg = process.argv.indexOf('--out');
 const OUT = path.resolve(outArg > 0 ? process.argv[outArg + 1] : path.join(ROOT, 'out/toolkit'));
-const filmDir = process.env.TOOLKIT_FILM_DIR || path.join(ROOT, 'out/private-film');
-const haveFilm = fs.existsSync(path.join(filmDir, FILM));
+const filmDir = path.join(ROOT, 'assets/product-film');
 
 const results = [];
 function record(name, ok, detail) {
@@ -305,8 +304,7 @@ async function businessCase(page, label) {
   for (let i = 0; i < rates; i++) await form.locator('[data-role="rate"]').nth(i).fill('');
 }
 
-async function video(page, label, filmPresent) {
-  if (!filmPresent) { record(`${label} video currentTime advances`, null, 'held film not supplied'); return; }
+async function video(page, label) {
   const before = await page.evaluate(() => performance.getEntriesByType('resource').filter((r) => r.name.endsWith('.mp4')).length);
   const attrs = await page.$eval('video', (v) => ({ preload: v.getAttribute('preload'), controls: v.controls, autoplay: v.autoplay, poster: !!v.poster }));
   await page.locator('video').scrollIntoViewIfNeeded();
@@ -407,7 +405,7 @@ async function caseTogether(page, pdfFile, label) {
     `${pages.length} pages; ${parts.map((t, i) => `"${t}" p${holding[i].join('/') || 'none'}`).join('; ')}`);
 }
 
-async function qr(page, url, pdfFile, label) {
+async function qr(page, url, pdfFile, label, fetchAddress = true) {
   const jsQR = need('jsqr');
   const { PNG } = need('pngjs');
   await page.emulateMedia({ media: 'print' });
@@ -417,7 +415,6 @@ async function qr(page, url, pdfFile, label) {
   const link = await page.getAttribute('.tk-film-link', 'href');
   const posterLink = await page.$eval('.tk-print-only a img.tk-poster', (img) => img.parentNode.getAttribute('href'));
   await page.emulateMedia({ media: null });
-  const res = await page.request.get(url);
   let annots = null;
   try {
     annots = cp.execFileSync('pdfinfo', ['-url', pdfFile], { encoding: 'utf8' }).split('\n').filter((l) => l.trim().endsWith(url)).length;
@@ -426,7 +423,10 @@ async function qr(page, url, pdfFile, label) {
   }
   check(`${label} QR decodes to the link`, code && code.data === url && link === url && posterLink === url,
     `decoded ${code ? code.data : 'nothing'}`);
-  check(`${label} film address serves video`, res.status() === 200 && /video\/mp4/.test(res.headers()['content-type']), `${res.status()} ${res.headers()['content-type']}`);
+  if (fetchAddress) {
+    const res = await page.request.get(url);
+    check(`${label} film address serves video`, res.status() === 200 && /video\/mp4/.test(res.headers()['content-type']), `${res.status()} ${res.headers()['content-type']}`);
+  }
   if (annots !== null) check(`${label} PDF poster and link are clickable`, annots >= 2, `${annots} link annotations to the address`);
 }
 
@@ -435,13 +435,11 @@ async function qr(page, url, pdfFile, label) {
   fs.mkdirSync(OUT, { recursive: true });
   const site = fs.mkdtempSync(path.join(os.tmpdir(), 'obenan-toolkit-'));
   for (const ex of EXAMPLES) build(ex, path.join(site, ex));
-  if (haveFilm) build('coffee', path.join(site, 'coffee-film'), ['--film-dir', filmDir]);
+  build('coffee', path.join(site, 'coffee-film'), ['--film-dir', filmDir]);
   const server = await serve(site);
   const base = `http://127.0.0.1:${server.address().port}`;
-  if (haveFilm) {
-    // Mechanism check only: a loopback address stands in for an approved public one.
-    build('coffee', path.join(site, 'coffee-film-url'), ['--film-dir', filmDir, '--film-url', `${base}/coffee-film/film/${FILM}`]);
-  }
+  // Custom-address mechanism check only. Default public QR is independently decoded below.
+  build('coffee', path.join(site, 'coffee-film-url'), ['--film-dir', filmDir, '--film-url', `${base}/coffee-film/film/${FILM}`]);
   console.log(`Serving ${site} at ${base}`);
   const browser = await chromium.launch({ executablePath: chromePath(), args: ['--autoplay-policy=no-user-gesture-required'] });
 
@@ -460,6 +458,7 @@ async function qr(page, url, pdfFile, label) {
         await stream(page, label);
         await chat(page, label);
         await businessCase(page, label);
+        if (ex !== 'banking') await video(page, label);
       }
       await page.evaluate(() => window.scrollTo(0, 0));
       await sleep(300);
@@ -503,11 +502,11 @@ async function qr(page, url, pdfFile, label) {
     await nojs.close();
   }
 
-  // PDFs: every public example build, and when the film is held here, a private build with its poster.
+  // PDFs: every default build and explicit film-dir/custom-address compatibility builds.
   const pdfCtx = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
   const pdfPage = await pdfCtx.newPage();
   const pdfs = [['coffee', 'coffee.pdf'], ['banking', 'banking.pdf'], ['fitness', 'fitness.pdf']];
-  if (haveFilm) pdfs.push(['coffee-film', 'coffee-with-film-poster.pdf'], ['coffee-film-url', 'coffee-film-url-loopback.pdf']);
+  pdfs.push(['coffee-film', 'coffee-with-film-poster.pdf'], ['coffee-film-url', 'coffee-film-url-loopback.pdf']);
   for (const [dir, name] of pdfs) {
     await pdfPage.goto(`${base}/${dir}/index.html`, { waitUntil: 'load' });
     await printChecks(pdfPage, `${dir} pdf`);
@@ -515,6 +514,11 @@ async function qr(page, url, pdfFile, label) {
     record(`${dir} pdf written`, true, path.join(OUT, name));
     pageFill(path.join(OUT, name), `${dir} pdf`);
     if (!name.includes('loopback')) publicLinks(path.join(OUT, name), `${dir} pdf`);
+    if (dir === 'coffee' || dir === 'fitness') {
+      // Offline CI checks the public target, QR and PDF annotations. Anonymous fetching and
+      // playback of that exact URL are a post-publication release check, not claimed here.
+      await qr(pdfPage, FILM_URL, path.join(OUT, name), `${dir} public film`, false);
+    }
   }
   // Business case cohesion, blank and filled, for every example that has a calculator.
   for (const ex of EXAMPLES) {
@@ -535,17 +539,14 @@ async function qr(page, url, pdfFile, label) {
       publicLinks(file, `${ex} ${state} pdf`);
     }
   }
-  if (haveFilm) {
+  {
     const vp = await pdfCtx.newPage();
     const done = watch(vp, 'coffee-film 1440px');
     await vp.goto(`${base}/coffee-film/index.html`, { waitUntil: 'load' });
-    await video(vp, 'coffee-film 1440px', true);
+    await video(vp, 'coffee-film 1440px');
     done();
     await pdfPage.goto(`${base}/coffee-film-url/index.html`, { waitUntil: 'load' });
     await qr(pdfPage, `${base}/coffee-film/film/${FILM}`, path.join(OUT, 'coffee-film-url-loopback.pdf'), 'coffee-film-url');
-  } else {
-    record('video currentTime advances', null, 'held film not supplied; set TOOLKIT_FILM_DIR');
-    record('QR decodes to the link (jsQR)', null, 'held film not supplied');
   }
   await pdfCtx.close();
   await browser.close();

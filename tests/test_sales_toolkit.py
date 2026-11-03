@@ -17,8 +17,8 @@ SECTIONS = ROOT / "templates/sections"
 EXAMPLES = ("coffee", "banking", "fitness")
 FILM = ROOT / "assets/product-film"
 BUILD = ROOT / "scripts/build_toolkit_example.cjs"
-HELD_RENDITION = "1d1dc9d8120d892aedefb1418b6cf7596cf14c03513c5db7d8f9c7fcb4f1dee0"
-HELD_FILM = Path(os.environ.get("TOOLKIT_FILM_DIR", ROOT / "out/private-film"))
+APPROVED_RENDITION = "1d1dc9d8120d892aedefb1418b6cf7596cf14c03513c5db7d8f9c7fcb4f1dee0"
+FILM_URL = "https://raw.githubusercontent.com/obenan-dashboard/obenan-sales-workspace/main/assets/product-film/obenan-concept-film-720p.mp4"
 PINNED = re.compile(r"^https://github\.com/obenan-dashboard/obenan-sales-workspace/blob/([0-9a-f]{40})/([^#]+)(#.*)?$")
 
 
@@ -152,7 +152,7 @@ class SalesToolkitTests(unittest.TestCase):
         coffee = page("coffee").labels
         self.assertIn("Scripted demonstration", coffee["assistant"])
         self.assertIn("not a live", coffee["assistant"])
-        self.assertIn("Concept product film", coffee["teaser"])
+        self.assertIn("Obenan dashboard preview", coffee["teaser"])
         self.assertIn("Proposed", coffee["compare"])
         css = (SECTIONS / "toolkit.css").read_text()
         self.assertNotRegex(css, r"\.tk-label[^{]*\{[^}]*display:\s*none")
@@ -192,18 +192,24 @@ class SalesToolkitTests(unittest.TestCase):
                 self.assertEqual(int(stated.group(1)), len(p.cards))
                 self.assertEqual(len(set(p.cards)), len(p.cards))
 
-    def test_AC_TOOLKIT_6_film_stays_private_and_traced(self):
+    def test_AC_TOOLKIT_6_approved_film_is_public_and_traced(self):
         public = [p for p in ROOT.rglob("*") if p.is_file()
                   and not {".git", "out", "node_modules"} & set(p.relative_to(ROOT).parts)
                   and p.suffix.lower() in {".mp4", ".mov", ".webm"}]
-        self.assertEqual(public, [])
-        self.assertEqual(sorted(f.name for f in FILM.iterdir()), ["DESCRIPTION.md", "README.md"])
+        self.assertEqual(public, [FILM / "obenan-concept-film-720p.mp4"])
+        self.assertEqual({p.name for p in FILM.iterdir()}, {
+            "README.md", "DESCRIPTION.md", "obenan-concept-film-720p.mp4",
+            "obenan-concept-film-poster.jpg", "obenan-concept-film-qr.svg"})
+        self.assertEqual(sha256(public[0].read_bytes()).hexdigest(), APPROVED_RENDITION)
+        self.assertEqual(sha256((FILM / "obenan-concept-film-poster.jpg").read_bytes()).hexdigest(),
+                         "52550d4b36da8a7f87efcce20089f52df582795677271ca035e446d0c2dd6cbe")
+        self.assertTrue((FILM / "obenan-concept-film-qr.svg").is_file())
         readme = (FILM / "README.md").read_text()
-        for digest in (HELD_RENDITION,
+        for digest in (APPROVED_RENDITION,
                        "99d690e2953e0f7ddb2b960e999f9a9e86975635fa728b99a8ee5ec6bcd4e16a",
                        "d56eaf5ecccdf210f69130667f8236f285b2e65257e1f5bcdc99c8598ae595c1"):
             self.assertIn(digest, readme)
-        for phrase in ("Approval needed", "restaurant", "hotel", "photo", "audio"):
+        for phrase in ("APPROVED", "2026-11-03", "Seven", FILM_URL, "no audio"):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, readme)
         self.assertNotRegex(readme, r"/Users/|[\u2013\u2014]")
@@ -213,6 +219,11 @@ class SalesToolkitTests(unittest.TestCase):
                 self.assertNotIn("<video", body)
                 self.assertNotIn("obenan-concept-film-qr", body)
         self.assertIn("data-film", (SECTIONS / "coffee.html").read_text())
+        register = read("knowledge/proof/PUBLIC_PROOF_REGISTER.md")
+        self.assertIn("Obenan dashboard preview", register)
+        self.assertIn(APPROVED_RENDITION, register)
+        for path in ("README.md", "STATUS.md", DOC, "assets/product-film/README.md", "assets/product-film/DESCRIPTION.md"):
+            self.assertNotRegex(read(path), r"(?i)film.{0,70}(held privately|approval needed|not a deliverable)", path)
 
     def test_AC_TOOLKIT_6_build_refuses_an_unrecorded_film(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -225,28 +236,101 @@ class SalesToolkitTests(unittest.TestCase):
             self.assertIn("checksum", result.stderr)
             self.assertFalse((Path(tmp) / "site" / "index.html").exists())
 
-    def test_AC_TOOLKIT_6_build_without_film_leaves_the_teaser_out(self):
+    def test_AC_TOOLKIT_6_missing_or_corrupt_each_asset_writes_nothing(self):
+        for asset in ("obenan-concept-film-720p.mp4", "obenan-concept-film-poster.jpg"):
+            for action in ("missing", "corrupt"):
+                with self.subTest(asset=asset, action=action), tempfile.TemporaryDirectory() as tmp:
+                    source = Path(tmp) / "film"
+                    shutil.copytree(FILM, source)
+                    if action == "missing":
+                        (source / asset).unlink()
+                    else:
+                        (source / asset).write_bytes(b"unapproved asset")
+                    result = build("coffee", Path(tmp) / "site", "--film-dir", str(source))
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertRegex(result.stderr, "missing|checksum")
+                    self.assertFalse((Path(tmp) / "site").exists())
+
+    def test_AC_TOOLKIT_6_explicit_no_film_leaves_the_teaser_out(self):
         with tempfile.TemporaryDirectory() as tmp:
-            result = build("coffee", Path(tmp) / "site")
+            result = build("coffee", Path(tmp) / "site", "--no-film")
             self.assertEqual(result.returncode, 0, result.stderr)
             html = (Path(tmp) / "site/index.html").read_text()
             self.assertNotIn('data-section="teaser"', html)
             self.assertNotIn("<video", html)
             self.assertIn('data-section="assistant"', html)
+            self.assertFalse((Path(tmp) / "site/film").exists())
 
-    def test_AC_TOOLKIT_6_build_with_the_held_film_loads_it_politely(self):
-        if not (HELD_FILM / "obenan-concept-film-720p.mp4").exists():
-            self.skipTest("held film not supplied on this machine; set TOOLKIT_FILM_DIR")
+    def test_AC_TOOLKIT_6_default_build_loads_public_film_politely(self):
+        for name in ("coffee", "fitness"):
+            with self.subTest(example=name), tempfile.TemporaryDirectory() as tmp:
+                result = build(name, Path(tmp) / "site")
+                self.assertEqual(result.returncode, 0, result.stderr)
+                html = (Path(tmp) / "site/index.html").read_text()
+                video = re.search(r"<video[^>]*>", html).group(0)
+                self.assertIn('preload="none"', video)
+                self.assertIn("controls", video)
+                self.assertIn("poster=", video)
+                self.assertNotIn("autoplay", video)
+                self.assertIn('class="tk-poster"', html)
+                self.assertIn(FILM_URL, html)
+                self.assertIn('src="film/qr.svg"', html)
+                self.assertEqual(sha256((Path(tmp) / "site/film/obenan-concept-film-720p.mp4").read_bytes()).hexdigest(), APPROVED_RENDITION)
+                self.assertEqual((Path(tmp) / "site/film/qr.svg").read_bytes(), (FILM / "obenan-concept-film-qr.svg").read_bytes())
+
+    def test_AC_TOOLKIT_6_banking_remains_film_free(self):
         with tempfile.TemporaryDirectory() as tmp:
-            result = build("coffee", Path(tmp) / "site", "--film-dir", str(HELD_FILM))
+            result = build("banking", Path(tmp) / "site")
             self.assertEqual(result.returncode, 0, result.stderr)
-            html = (Path(tmp) / "site/index.html").read_text()
-            video = re.search(r"<video[^>]*>", html).group(0)
-            self.assertIn('preload="none"', video)
-            self.assertIn("controls", video)
-            self.assertIn("poster=", video)
-            self.assertNotIn("autoplay", video)
-            self.assertIn('class="tk-poster"', html)
+            self.assertNotIn('<video', (Path(tmp) / "site/index.html").read_text())
+            self.assertFalse((Path(tmp) / "site/film").exists())
+
+    def test_AC_TOOLKIT_6_reject_conflicting_film_options(self):
+        for extra in (("--film-dir", str(FILM)), ("--film-url", FILM_URL)):
+            with self.subTest(extra=extra), tempfile.TemporaryDirectory() as tmp:
+                result = build("coffee", Path(tmp) / "site", "--no-film", *extra)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse((Path(tmp) / "site").exists())
+
+    def test_AC_TOOLKIT_6_no_film_flag_order_and_bad_urls(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = subprocess.run(["node", str(BUILD), "--no-film", "--out", tmp,
+                                     "--example", "fitness"], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertNotIn('<video', (Path(tmp) / "index.html").read_text())
+        for url in ("javascript:alert(1)", 'https://example.com/"bad', "https://example.com/ bad"):
+            with self.subTest(url=url), tempfile.TemporaryDirectory() as tmp:
+                result = build("coffee", Path(tmp) / "site", "--film-url", url)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse((Path(tmp) / "site").exists())
+
+    def test_AC_TOOLKIT_6_missing_option_value_never_swallows_no_film(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = subprocess.run(["node", str(BUILD), "--example", "coffee", "--out", "--no-film"],
+                                    cwd=tmp, capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertEqual(list(Path(tmp).iterdir()), [])
+
+    def test_AC_TOOLKIT_6_missing_or_corrupt_default_qr_writes_nothing(self):
+        for action in ("missing", "corrupt"):
+            with self.subTest(action=action), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp) / "source"
+                (root / "scripts").mkdir(parents=True)
+                shutil.copy2(BUILD, root / "scripts/build_toolkit_example.cjs")
+                (root / "templates/sections").mkdir(parents=True)
+                shutil.copy2(SECTIONS / "coffee.html", root / "templates/sections/coffee.html")
+                shutil.copytree(FILM, root / "assets/product-film")
+                qr = root / "assets/product-film/obenan-concept-film-qr.svg"
+                if action == "missing":
+                    qr.unlink()
+                else:
+                    qr.write_text('<svg xmlns="http://www.w3.org/2000/svg"></svg>')
+                result = subprocess.run(["node", str(root / "scripts/build_toolkit_example.cjs"),
+                                         "--example", "coffee", "--out", str(Path(tmp) / "site")],
+                                        capture_output=True, text=True)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("approved film QR", result.stderr)
+                self.assertFalse((Path(tmp) / "site").exists())
 
     def test_AC_TOOLKIT_6_build_refuses_a_nonempty_output_folder(self):
         def snapshot(folder):
@@ -254,20 +338,15 @@ class SalesToolkitTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             reused = Path(tmp) / "reused"
-            if (HELD_FILM / "obenan-concept-film-720p.mp4").exists():
-                first = build("coffee", reused, "--film-dir", str(HELD_FILM))
-                self.assertEqual(first.returncode, 0, first.stderr)
-            else:
-                (reused / "film").mkdir(parents=True)
-                (reused / "film/obenan-concept-film-720p.mp4").write_bytes(b"earlier private film")
-                (reused / "index.html").write_text("<video src=film/obenan-concept-film-720p.mp4>")
+            first = build("coffee", reused)
+            self.assertEqual(first.returncode, 0, first.stderr)
             unrelated = Path(tmp) / "unrelated"
             unrelated.mkdir()
             (unrelated / "notes.txt").write_text("keep me")
             for folder in (reused, unrelated):
                 with self.subTest(folder=folder.name):
                     before = snapshot(folder)
-                    result = build("coffee", folder)
+                    result = build("coffee", folder, "--no-film")
                     self.assertNotEqual(result.returncode, 0)
                     self.assertIn("not empty", result.stderr)
                     self.assertEqual(snapshot(folder), before)
@@ -282,8 +361,7 @@ class SalesToolkitTests(unittest.TestCase):
     def test_AC_TOOLKIT_11_document_links_open_pinned_public_source(self):
         pins, every = set(), set()
         builds = [(name, ()) for name in EXAMPLES]
-        if (HELD_FILM / "obenan-concept-film-720p.mp4").exists():
-            builds.append(("coffee", ("--film-dir", str(HELD_FILM))))
+        builds.append(("coffee", ("--film-dir", str(FILM))))
         for name, extra in builds:
             template = (SECTIONS / f"{name}.html").read_text()
             documents = {r.split("#")[0] for r in local_refs(template) if r.split("#")[0].endswith(".md")}
@@ -299,6 +377,8 @@ class SalesToolkitTests(unittest.TestCase):
                         continue
                     if ref.startswith("https://www.youtube.com/watch?v=vxrYXjTXJp4&amp;t="):
                         continue  # approved LPQ interview, not a repository document
+                    if ref == FILM_URL:
+                        continue  # separately hash-checked approved video, not a document
                     match = PINNED.match(ref)
                     self.assertIsNotNone(match, ref)
                     pins.add(match.group(1))
@@ -476,12 +556,10 @@ class SalesToolkitTests(unittest.TestCase):
                      "node scripts/build_toolkit_example.cjs --example fitness --out"):
             with self.subTest(item=item):
                 self.assertIn(item, guide)
-        media = doc.split("Video: what is usable and what is held", 1)[1].split("\n## ", 1)[0]
+        media = doc.split("Video: approved assets", 1)[1].split("\n## ", 1)[0]
         self.assertIn("usable", media)
-        self.assertIn("held", media)
-        for approval in ("restaurant", "hotel", "pictured person", "food photographs", "soundtrack", "public host"):
-            with self.subTest(approval=approval):
-                self.assertIn(approval, media)
+        for approval in ("Obenan dashboard preview", "2026-11-03", "Seven", "silent", "default"):
+            self.assertIn(approval, media)
         start = read("START_HERE.md")
         self.assertIn("Vertical reference guide", start)
         for name in ("coffee", "banking", "fitness"):
