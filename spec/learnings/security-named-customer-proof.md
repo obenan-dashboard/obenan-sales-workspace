@@ -1,7 +1,7 @@
 ---
 topic: named-customer-proof
 category: security
-last-updated: 2026-10-09
+last-updated: 2026-11-03
 related-files:
   - knowledge/proof/PUBLIC_PROOF_REGISTER.md
   - knowledge/proof/LE_PAIN_QUOTIDIEN.md
@@ -33,8 +33,17 @@ Reconcile totals to every component, including conversations, and use unrounded 
 
 ## Change Log
 
+**Discovered: 2026-11-03.** An agent-created hold kept the supplied dashboard teaser out of
+default exports and public assets even though this was a core sales-workspace deliverable.
+Seven explicitly approved public distribution. Record the exact asset and approval, remove
+contradictory hold instructions, and make a clean-clone build prove access and playback.
+Do not repeatedly ask for superseded approvals or mistake unavailable local media for a
+passed test. The approval covers this demonstration, not unrelated private records, audio
+masters or customer-result claims. Do not claim independently verified third-party licences.
+
 | Date | Change |
 |---|---|
 | 2026-10-09 | Record naming correction and route to canonical approval and transcript cards. |
 | 2026-10-09 | Add explicit public-data and Demo-logo approval; preserve scoped evidence. |
 | 2026-10-09 | Extract LPQ three-year aggregates; preserve cohorts, gaps, declines and estimate boundaries. |
+| 2026-11-03 | Respect explicit dashboard-teaser publication approval and test default public reuse. |

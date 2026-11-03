@@ -1,9 +1,10 @@
-# Concept product film: scene description
+# Obenan dashboard preview: scene description
 
-Text alternative for the held rendition `obenan-concept-film-720p.mp4` (67.6 seconds, no
-sound). The film is held privately and is not stored here. Some screens show real third party
-names, a person's photograph and food photographs; [README.md](README.md) lists them and the
-approvals the film needs. The scores and numbers are concept artwork, not customer data, not a
+Text alternative for the public rendition `obenan-concept-film-720p.mp4` (67.6 seconds, no
+sound). Seven approved public sales reuse on 2026-11-03. [Watch the preview](obenan-concept-film-720p.mp4).
+Some screens show third-party names and photographs within the supplied demonstration;
+[README.md](README.md) records the asset approval and its scope. Scores and numbers are
+illustrative artwork, not this prospect's customer data, not a
 deployment and not evidence. Never quote a number from the film. Times are approximate, from a
 frame review every 2 seconds on 1 November 2026.
 

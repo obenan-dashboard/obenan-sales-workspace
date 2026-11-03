@@ -314,3 +314,17 @@ Spec: `spec/features/sales-toolkit-sections/sales-toolkit-sections.md`.
 This release publishes the reusable Sales Workspace, not a customer site or the held film.
 The publication checkbox is a pre-merge checkpoint; GitHub PR 12 is the authority for its
 subsequent merge and exact-head CI state.
+
+# Public dashboard teaser, 3 November 2026
+
+Seven explicitly confirms that the supplied dashboard teaser is not confidential and must
+be publicly accessible in the repo. This supersedes the previous asset hold, not other proof limits.
+
+- [x] Verify the exact existing silent rendition and poster; retain the source-derived designs.
+- [x] Record failing publication/default-build tests before changing assets or implementation:
+  initial toolkit run had six failures and three errors. Reviewer-found missing-value parsing
+  had a separate failing regression before repair.
+- [x] Add the approved rendition, poster and public QR; ordinary coffee/fitness builds include them.
+- [x] Update one proof register, existing documentation and the learning from this correction.
+- [ ] Verify playback, PDF links/QR, omission, compatibility and public-safety checks.
+- [ ] Independent review, exact-head CI, normal PR merge, then anonymous public verification.

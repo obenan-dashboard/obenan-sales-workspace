@@ -54,13 +54,16 @@ Scenario: Content stays inside the evidence and claim boundaries
   And the stated unique review count equals the unique cards, excluding the repeated motion copies
 
 @AC-TOOLKIT-6
-Scenario: The concept film stays private until its release is approved
-  Given the concept film shows a real restaurant name, a real hotel and a person's photo
-  Then no film rendition, poster or QR is stored in the public repository
-  And assets/product-film records the scene description, the approvals still needed and the checksums of the held rendition and both masters, without absolute paths
+Scenario: The founder-approved dashboard teaser is publicly reusable
+  Given Seven explicitly approves public distribution of the supplied dashboard preview on 3 November 2026
+  Then assets/product-film contains the reviewed silent 720p rendition, poster and a QR for its public repository URL
+  And the existing proof register records the exact asset scope and approval, without treating its illustrative screens as customer results
+  And assets/product-film records the scene description and checksums of the public rendition and both source masters, without absolute paths
   And the build refuses a supplied film whose checksum differs from the recorded rendition
-  And a built page loads a supplied film with preload="none", visible controls, a poster and no autoplay
-  And a build without a supplied film leaves the teaser section out instead of showing an empty slot
+  And ordinary coffee and fitness builds include the film with preload="none", visible controls, a poster and no autoplay, without an extra installation or private file
+  And their PDFs include a clickable poster, public link and matching QR by default
+  And --no-film explicitly omits the section and all film assets, without changing the assistant
+  And banking remains unchanged and contains no film
   And the build refuses an output folder that is not empty before writing anything, so earlier film files never survive a film-free build
 
 @AC-TOOLKIT-7
@@ -72,14 +75,15 @@ Scenario: The business case uses only buyer inputs
 @AC-TOOLKIT-8
 Scenario: Motion really runs and never blanks content
   When the examples run in a browser at 390, 768, 1440 and 1920 px
-  Then a supplied film plays and its time advances, the chat and review stream transition, and there is no horizontal overflow
+  Then the default coffee and fitness films play and their time advances without skipped film checks, the chat and review stream transition, and there is no horizontal overflow
   And fast scrolling, re-entry, reduced motion and no JavaScript leave every section readable
 
 @AC-TOOLKIT-9
 Scenario: The coffee example renders as a static PDF
   When coffee.html is printed to A4 by Chrome
   Then both observed and proposed states, the static review cards, the full conversation and the blank business case appear
-  And a supplied film prints as its poster, and a supplied film address prints as a clickable poster, a clickable link and a QR that decodes to that address
+  And default coffee and fitness films print as a clickable poster, public link and a QR that decodes to that address
+  And an explicit alternate film address retains the same poster, link and QR behavior
   And no motion control or duplicated review card is printed
   And the business case label, every input and the result print on one page, both blank and filled
   And every link in the PDF opens outside the machine that printed it, never a local server address
@@ -130,7 +134,7 @@ Scenario: The fitness example is a port of the TrainMore pitch site, not a new d
 Scenario: An agency agent finds what each vertical may reuse, and the claims stay within the proof
   Given a zero-context agent reading START_HERE.md and the toolkit document
   Then for each vertical it finds the source reference and commit, the reusable sections, the logo files, the media it may use, the usage restrictions and the exact build command
-  And the LPQ interview is described as usable and the concept film as held, with each approval the film still needs
+  And the LPQ interview and the approved dashboard preview are described as usable, with direct asset links and their respective limits
   And the coffee example promises no delivery to every directory and no closed door that the proof does not show
   And the agency instruction preserves the selected vertical's layout, stylesheet, fonts and motion
   And logo instructions reuse the existing approval register instead of banning approved assets

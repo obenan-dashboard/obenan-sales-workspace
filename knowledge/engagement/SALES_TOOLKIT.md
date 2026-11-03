@@ -37,7 +37,7 @@ customer names, figures, photographs and logos are never copied.
 | Typography | Nunito Sans, vendored | Inter, vendored | Inter, vendored |
 | Reusable sections | proof, compare, portfolio, reviews, network, teaser, assistant, business case | portfolio, compare (evidence cases), assistant, network (governance cards), business case (owners and weeks, no calculator) | compare (with the headquarters strip), teaser, assistant, portfolio, business case (calculator, decision steps, measurement) |
 | Logos | `assets/logos/Logo.svg` on light, `assets/logos/Logo_Light.svg` on dark; directory tiles from `assets/directory-logos/` | `assets/logos/Logo.svg` | `assets/logos/Logo_Light.svg` on the black hero and footer |
-| Media | LPQ interview still `assets/video-previews/lpq-joost-interview.jpg` and its QR, linked at 2:24; concept film only if supplied, see below | None. No bank photographs | Concept film only if supplied, see below. No club photographs |
+| Media | LPQ interview still `assets/video-previews/lpq-joost-interview.jpg` and its QR, linked at 2:24; approved dashboard preview included by default | None. No bank photographs | Approved dashboard preview included by default. No club photographs |
 | Restrictions | Quote the LPQ and Campos cards verbatim from the proof register. Roster counts from `directories.json`. No delivery promise beyond the destinations that apply to an account | No bank name, logo, photo or figure. Branches and ATMs counted apart. No calculator, no cost or outcome | No club name, logo, photo or figure. Inputs start empty; the result is a threshold, not a forecast |
 
 `assets/logos/Logo_Dark.svg` is the third approved logo file; use only these three Obenan logo
@@ -53,24 +53,19 @@ node scripts/build_toolkit_example.cjs --example banking --out DIR
 node scripts/build_toolkit_example.cjs --example fitness --out DIR
 ```
 
-## Video: what is usable and what is held
+## Video: approved assets
 
 - **Usable:** the Le Pain Quotidien interview with Joost is usable in decks and pages today. Use the approved still
   `assets/video-previews/lpq-joost-interview.jpg` with its play icon, the QR
   `assets/video-previews/lpq-joost-interview-qr.svg` labelled "Scan to watch" and the caption with
   its printed address, beside his verbatim quote from
   [the LPQ card](../proof/LE_PAIN_QUOTIDIEN.md). Never a text-only panel.
-- **Held:** the concept product film is held privately. It is not in this repository, has no public address and
-  is shown only in a meeting from a privately supplied, checksum-matched copy. Before it is
-  published or sent, Obenan needs in writing, per [its README](../../assets/product-film/README.md):
-  1. the restaurant's consent to its name and address, or a cut that removes it;
-  2. the hotel's consent to its name, address and photograph, or a cut that removes it;
-  3. the pictured person's consent to their photograph, or a cut that replaces it;
-  4. the origin and licence of the food photographs;
-  5. a soundtrack licence, or keep the film silent;
-  6. an approved public host and address.
-
-  None of the six is recorded yet. Until all are, the film is not a deliverable.
+- **Usable:** the [Obenan dashboard preview](../../assets/product-film/README.md) is approved
+  by Seven for public sales reuse on 2026-11-03. The silent video, poster and public QR are
+  included in this repository and in coffee and fitness builds by default. They are a
+  product demonstration, not the prospect's account or customer-results proof. Do not ask
+  for the superseded approval checklist again. Keep the teaser separate from the scripted
+  assistant section, and keep its short disclosure on screen and in print.
 
 ## Copy-paste instruction for an agency agent
 
@@ -104,7 +99,7 @@ the script only adds motion and controls. Print shows the static form.
 
 | Section | `data-section` | Use it when | Print form | Adapt |
 | --- | --- | --- | --- | --- |
-| Product teaser | `teaser` | The buyer has not seen the product. One headline, one film. | Poster, plus link and QR only for an approved public address | Keep the label "Concept product film". Never quote a number from the film. |
+| Product teaser | `teaser` | The buyer has not seen the product. One headline, one film. | Poster, public link and QR | Keep the label "Obenan dashboard preview". Never quote a number from the film. |
 | Observed and proposed | `compare` | One location shows a concrete gap. | Both states side by side | Observed comes from a dated check. Proposed is a proposal, never shown as achieved. |
 | Review stream | `reviews` | Guest experience is part of the question. | Static grid of cards | Themes, not reviewer names. State "N unique"; the motion copies never count. |
 | Portfolio explorer | `portfolio` | Many locations and the buyer asks where. | Full table | One row per location. Separate types (cafés and kiosks, branches and ATMs, clubs and studios). Unknown is not zero. |
@@ -148,18 +143,19 @@ The calculator chains contribution per membership, trial conversion and booking 
 
 ## Film
 
-[The concept film](../../assets/product-film/README.md) is **held privately** until the
-approvals listed there are recorded. It is not in this repository and has no public address.
-The build leaves the teaser section out unless a person supplies the reviewed rendition:
+[The dashboard preview](../../assets/product-film/README.md) is bundled and publicly usable.
+The usual build commands include its video, poster, public link and QR automatically.
+No private copy or extra installation is required. To intentionally omit the teaser:
 
 ```bash
-node scripts/build_toolkit_example.cjs --example coffee --out DIR --film-dir PRIVATE_FILM_DIR
+node scripts/build_toolkit_example.cjs --example coffee --out DIR --no-film
 ```
 
-The build refuses a rendition or poster whose checksum differs from the README. The film page
-then plays it with `preload="none"`, controls and no autoplay, and the PDF shows the poster with
-"No public address is approved for this film yet." Add `--film-url URL` only once an approved,
-working public address exists; the PDF then carries a clickable poster, link and QR.
+The build verifies the rendition, poster and default QR against the README checksums. The
+film uses `preload="none"`, visible controls and no autoplay. PDFs show the poster with a
+clickable public link and QR. Optional `--film-dir DIR` still accepts a checksum-matched copy;
+`--film-url URL` uses an approved alternate address and generates its QR with the pinned
+`qrcode` tool below. Neither option may be combined with `--no-film`.
 [DESCRIPTION.md](../../assets/product-film/DESCRIPTION.md) is the scene by scene text.
 
 ## Build and check
@@ -183,8 +179,9 @@ case arithmetic, the chat replay, the review stream pause, reduced motion, no Ja
 scrolling and the A4 PDF. It writes captures, PDFs and `receipt.json` to `out/toolkit/` and
 exits 1 on any failure. It fails a PDF with a local link or a business case split across
 pages. Only `coffee-film-url-loopback.pdf` may carry a loopback address: it is a diagnostic of
-the film link mechanism, never a handover file. Set `CHROME=/path/to/chrome` if Chrome is not found. Film checks are
-reported as skipped unless `TOOLKIT_FILM_DIR` points at the held rendition.
+the film link mechanism, never a handover file. Set `CHROME=/path/to/chrome` if Chrome is not found.
+Default coffee and fitness playback, public QR destinations and PDF links are mandatory
+checks, including in CI. Missing approved media fails the check; it is never silently skipped.
 
 To preview one build, serve the build folder on loopback and open it:
 
@@ -281,7 +278,7 @@ The fitness example is a port of the `trainmore` pitch site at `3b9f41443d16`.
 - The source's "Book a trial" button is not reproduced as a control; the proposed state describes the booking link instead.
 - The calculator keeps the toolkit's four empty inputs and threshold wording instead of the source's prefilled figures.
 - The source timeline's schedule and the club story numbers are dropped; only their visual language is reused.
-- The teaser band appears only when a reviewed film copy is supplied.
+- The teaser band includes the approved dashboard preview by default; `--no-film` omits it.
 
 ## Where the mechanics came from
 
