@@ -3,6 +3,8 @@
 Use this file to answer sales questions without exposing private implementation, customer
 configuration or roadmap detail. Confirm contract-specific scope before making a promise.
 
+For ObiGEO, ObiProxy, ObiAnalytics, Merchant Discovery and the July through November releases, see [current product names, buyer questions and live pages](PUBLIC_PRODUCT_UPDATES.md).
+
 Public sources reviewed 2026-10-06:
 
 - https://www.obenan.ai/

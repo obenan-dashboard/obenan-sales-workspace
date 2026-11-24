@@ -51,6 +51,8 @@ Relevant capabilities:
 Lead with governed access and reliable merchant truth. Do not imply unrestricted self-service,
 general availability of a private pilot, a guaranteed AI recommendation or payment processing.
 
+For a merchant website conversation, start with ObiGEO for publishing, ObiProxy for serving selected pages on the existing domain, or ObiAnalytics for recorded requests. For a platform exploring shopping through AI, start with Merchant Discovery. See the [product guide and public sources](PUBLIC_PRODUCT_UPDATES.md).
+
 ## How the tracks connect
 
 Agentic Location Management improves the public record and recurring location operation. The

@@ -17,6 +17,10 @@ security audit or guarantee that every capability is enabled for every customer.
 | Account administration | Organize permitted users, roles, locations and groups. | Do not disclose another customer's account structure or access model. |
 | AI assistant access | Query permitted portfolio information through compatible governed workflows. | Access depends on authentication, permissions, connected data and approval controls. |
 
+## Recent interface changes
+
+Teams work through reviews in the new Reviews workspace. The reporting route opens the new reports. Participating merchants with connected website logs see recorded page requests under **Agent traffic**. Use the [dated release notes and public pages](../../knowledge/product/PUBLIC_PRODUCT_UPDATES.md) to distinguish the current experience from earlier previews.
+
 ## White-label
 
 Agencies and resellers can run the dashboard under their own brand. Masked screens from a live
