@@ -164,7 +164,7 @@ not change because neither mark is in the supplied Demo set.
 
 Visa named Obenan as a collaborator on AI shopping in Asia Pacific.
 
-On 18 November 2026, its regional newsroom described work with commerce companies on how shopping agents find products, build carts and reach checkout. Obenan reported the pilot result on 21 November. An agent found a merchant, built a cart and reached the handoff to the merchant’s checkout. The merchant and its payment provider handle payment.
+On 18 November 2026, its regional newsroom described work with commerce companies on how shopping agents find products, build carts and reach checkout. On 21 November, Obenan reported that its pilot integration helped a shopping agent find a merchant, build a cart and reach the merchant’s checkout. The merchant and its payment provider handle payment.
 
 **Slide source.** The original announcement names Obenan in the section on commerce enablers.
 
