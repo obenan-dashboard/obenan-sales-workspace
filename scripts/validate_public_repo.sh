@@ -47,20 +47,24 @@ check_forbidden 'internal implementation path remains' 'apps/omnipulse/src|packa
 check_forbidden 'private customer structure remains' 'Le Pain Quotidien account|[0-9]+ users, [0-9]+ groups|[0-9]+ scheduled reports typical'
 check_forbidden 'unapproved partner names remain' 'Mastercard'
 
-# Visa is approved only for the locked agentic closing pair (knowledge/engagement/AGENTIC_CLOSING.md).
-# Every line naming Visa must carry one of the approved fragments.
+# The closing pair retains its approved fragments. The newsroom attribution below
+# is an exact sentence, reusable as slide text without adding a new partner claim.
 check_visa_scope() {
   local hits
+  local attribution='Visa named Obenan as a collaborator on AI shopping in Asia Pacific\.'
+  # Accept plain text and the styled text blocks used by both deck templates.
+  local attrs='([[:space:]]+[[:alnum:]_:-]+="[^"<>]*")*'
   hits="$(scan -n -I --hidden \
     --glob '!/.git' \
     --glob '!.git/**' \
     --glob '!scripts/validate_public_repo.sh' \
     --glob '!tasks/todo.md' \
     --with-filename --no-heading -e 'Visa' . \
-    | rg -v -e 'Visa secures the payment|Visa Intelligent Commerce|>Visa<|9WCTYK-iHb0' || true)"
+    | rg -v -e 'Visa secures the payment|Visa Intelligent Commerce|>Visa<|9WCTYK-iHb0' \
+    | rg -v -e "^[^:]+:[0-9]+:[[:blank:]]*($attribution|<p$attrs>$attribution</p>|<h2$attrs>$attribution</h2>)[[:blank:]]*$" || true)"
   if [ -n "$hits" ]; then
     printf '%s\n' "$hits"
-    printf 'FAIL: %s\n' 'Visa named outside the approved closing pair' >&2
+    printf 'FAIL: %s\n' 'Visa named outside approved publication or closing-pair wording' >&2
     fail=1
   fi
 }

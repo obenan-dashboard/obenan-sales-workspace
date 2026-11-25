@@ -64,7 +64,9 @@ https://www.obenan.ai/product-updates/
 
 https://www.obenan.ai/briefings/obigeo-obiproxy-obianalytics-launch/
 
-**Asia Pacific pilot.** Share the published account for the discovery, cart and checkout handoff. The Featured directory lets readers filter the original coverage by country. For decks, the existing partner-proof rules still apply.
+**Asia Pacific pilot.** For a sales presentation, use the [slide wording and sources](../proof/PUBLIC_PROOF_REGISTER.md#asia-pacific-commerce-publication). Cite the original newsroom release on the slide and use our briefing to walk through the checkout handoff.
+
+https://www.visa.com.sg/about-visa/newsroom/press-releases/visa-expands-agentic-ready-to-help-scale-trusted-ai-commerce-in-asia-pacific.html
 
 https://www.obenan.ai/briefings/visa-obenan-agentic-commerce/
 
