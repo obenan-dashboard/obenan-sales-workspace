@@ -8,6 +8,8 @@ The separate [Decision Pack profile](DECISION_PACK.md) is meeting-led and intake
 It may omit the pair when irrelevant or outside naming authority; inclusion uses the approved
 locked copy, not a rewritten partner claim. This does not change either existing template.
 
+For a buyer asking what has been demonstrated, use the [Asia Pacific pilot slide wording and source links](../proof/PUBLIC_PROOF_REGISTER.md#asia-pacific-commerce-publication) on a separate evidence slide or in speaker notes.
+
 ## Placement
 
 - Results review: pages 10 and 11, the last two pages.

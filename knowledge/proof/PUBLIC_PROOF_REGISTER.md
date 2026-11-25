@@ -158,12 +158,33 @@ not change because neither mark is in the supplied Demo set.
 
 ## Partner proof
 
-One partner reference is approved for reusable material: the locked agentic closing pair
-built on the public Visa Intelligent Commerce film (youtube.com/watch?v=9WCTYK-iHb0).
-Approved by Seven on 9 October 2026. Its copy is fixed in both deck templates; see
-[the closing-pair note](../engagement/AGENTIC_CLOSING.md). Pilot status, timelines, named pilot
-merchants and every other partner claim remain unapproved. Otherwise, describe the capability
-and its pilot stage without naming a partner.
+### Asia Pacific commerce publication
+
+**APPROVED for sales presentations, 25 November 2026.** Seven requested that sales be able to cite the collaboration. Use this text with a link to the publication in the slide footer.
+
+Visa named Obenan as a collaborator on AI shopping in Asia Pacific.
+
+On 18 November 2026, its regional newsroom described work with commerce companies on how shopping agents find products, build carts and reach checkout. On 21 November, Obenan reported that its pilot integration helped a shopping agent find a merchant, build a cart and reach the merchant’s checkout. The merchant and its payment provider handle payment.
+
+**Slide source.** The original announcement names Obenan in the section on commerce enablers.
+
+https://www.visa.com.sg/about-visa/newsroom/press-releases/visa-expands-agentic-ready-to-help-scale-trusted-ai-commerce-in-asia-pacific.html
+
+**Speaker notes.** Use Obenan’s briefing for the pilot sequence, the coverage directory for the four newsroom editions and 47 media articles and press releases, and the November release notes for product availability.
+
+https://www.obenan.ai/briefings/visa-obenan-agentic-commerce/
+
+https://www.obenan.ai/featured/
+
+https://www.obenan.ai/product-updates/2026-11/
+
+**Scope.** This entry covers text attribution and source links. The publications establish a collaboration and a checkout handoff. A general payments integration, completed purchase, endorsement, certification or licence to reuse the partner logo would require separate evidence.
+
+### Existing film and closing slides
+
+The locked agentic closing pair uses the public Visa Intelligent Commerce film (youtube.com/watch?v=9WCTYK-iHb0).
+Seven approved its fixed copy on 9 October 2026. See [the closing-pair note](../engagement/AGENTIC_CLOSING.md).
+For other partner claims, named pilot merchants and timelines, obtain separate approval.
 
 ## Adding a customer success story
 
